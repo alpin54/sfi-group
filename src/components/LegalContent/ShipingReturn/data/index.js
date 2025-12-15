@@ -1,9 +1,8 @@
 const shippingReturnData = {
   title: 'Shipping & Return',
-  date: 'Last updated on 17 August 2024',
-  excerpt:
-    'Welcome to Fashion! We are committed to providing the best service, including smooth and secure shipping and return processes. Please read our policy carefully before making a purchase.',
-  content: `
+  created_at: '2024-07-01T08:00:00Z',
+  updated_at: '2024-08-17T00:00:00Z',
+  description: `<p>Welcome to Fashion! We are committed to providing the best service, including smooth and secure shipping and return processes. Please read our policy carefully before making a purchase.</p>
     <h4>Shipping Policy</h4>
     <ol>
       <li>
