@@ -1,0 +1,112 @@
+@import '_cores/styles/_assets.scss';
+
+.rewardAndBenefit {
+  padding-top: 80px;
+  padding-bottom: 104px;
+  @include large {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+  @include medium {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+  @include small {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+}
+.head {
+  text-align: center;
+  margin-bottom: 64px;
+  @include medium {
+    margin-bottom: 56px;
+  }
+  @include small {
+    margin-bottom: 48px;
+  }
+}
+.title {
+  background: linear-gradient(96.02deg, #dc8622 3.02%, #d9d14b 50.83%, #0991c7 98.64%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: fw(medium);
+  margin-bottom: 24px;
+  @include medium {
+    margin-bottom: 20px;
+    @include font-size(h3);
+  }
+  @include small {
+    margin-bottom: 16px;
+    @include font-size(h4);
+  }
+}
+.description {
+  margin-bottom: 0;
+  @include font-size(h5);
+  @include medium {
+    @include font-size(h6);
+  }
+  @include small {
+    @include font-size(body);
+  }
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  @include small {
+    margin: 0;
+  }
+}
+.item {
+  padding: 10px;
+  flex: 0 0 25%;
+  @include medium {
+    flex: 0 0 50%;
+  }
+  @include small {
+    flex: 0 0 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.box {
+  height: 100%;
+  padding: 24px;
+  @include radius(12);
+  overflow: hidden;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#f9f9f9, #f9f9f9) padding-box,
+    linear-gradient(90deg, #dc8622, #d9d14b, #0991c7) border-box;
+  min-height: 210px;
+  background-color: color(neutral, 10);
+  @include small {
+    height: initial;
+    min-height: initial;
+  }
+}
+.icon {
+  height: 40px;
+  margin-bottom: 32px;
+  i {
+    color: color(primary, 10);
+    font-size: 4rem;
+  }
+}
+.label {
+  font-weight: fw(medium);
+  margin-bottom: 8px;
+  color: color(neutral, 8);
+}
+.text {
+  margin-bottom: 0;
+  color: color(neutral, 12);
+  @include multiline-ellipsis(3);
+}

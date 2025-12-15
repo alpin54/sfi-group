@@ -1,0 +1,118 @@
+@import '_cores/styles/_assets.scss';
+
+.legalcontent {
+  padding: 96px 0 104px;
+  @include medium {
+    padding: 64px 0 72px;
+  }
+  @include x-small {
+    padding: 48px 0 56px;
+  }
+  &__inner {
+    max-width: 640px;
+    margin: 0 auto;
+    @include medium {
+      max-width: 100%;
+    }
+  }
+  &__header {
+    margin-bottom: 32px;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    @include medium {
+      flex-direction: column-reverse;
+    }
+    &El {
+      font-family: ff(title);
+      @include font-size(h2);
+      font-weight: fw(regular);
+      color: color(primary, 9);
+      max-width: 240px;
+      margin: 0;
+      @include x-small {
+        @include font-size(h3);
+        max-width: 94px;
+      }
+    }
+  }
+  &__date {
+    padding-top: 4px;
+    @include font-size(caption);
+    color: color(neutral, 6);
+    margin: 0;
+    @include medium {
+      margin-bottom: 8px;
+      padding-top: 0;
+    }
+  }
+  &__excerpt {
+    @include font-size(h6);
+    font-weight: fw(regular);
+    color: color(neutral, 6);
+    margin: 0;
+    @include x-small {
+      @include font-size(body);
+    }
+  }
+  &__body {
+    & :global(h4) {
+      @include font-size(h4);
+      font-weight: fw(medium);
+      color: color(primary, 9);
+      margin-bottom: 24px;
+      @include x-small {
+        @include font-size(h5);
+        margin-bottom: 16px;
+      }
+    }
+    & :global(h5) {
+      @include font-size(h5);
+      font-weight: fw(medium);
+      color: color(primary, 9);
+      margin-bottom: 8px;
+      @include x-small {
+        @include font-size(h6);
+      }
+    }
+    & :global(ol) {
+      padding-left: 12px;
+      margin-bottom: 32px;
+      & ul {
+        padding: 0;
+        list-style: disc;
+        margin-bottom: 24px;
+      }
+    }
+    & :global(p) {
+      margin-bottom: 24px;
+      @include font-size(h6);
+      font-weight: fw(regular);
+      color: color(neutral, 6);
+      @include x-small {
+        @include font-size(body);
+        margin-bottom: 16px;
+      }
+    }
+    & :global(strong) {
+      @include font-size(h5);
+      font-weight: fw(regular);
+      color: color(neutral, 6);
+      display: block;
+      margin-bottom: 8px;
+      @include x-small {
+        @include font-size(h6);
+      }
+    }
+    & :global(li) {
+      @include font-size(h6);
+      font-weight: fw(regular);
+      color: color(neutral, 6);
+      @include x-small {
+        @include font-size(body);
+      }
+    }
+  }
+}

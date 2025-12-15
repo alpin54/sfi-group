@@ -1,0 +1,41 @@
+@import '_cores/styles/_assets.scss';
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  max-width: 424px;
+  margin: 0 auto;
+  @include small {
+    max-width: 100%;
+  }
+}
+.title {
+  font-family: ff(title);
+  @include font-size(h2);
+  font-weight: fw(regular);
+  color: color(primary, 9);
+  margin-bottom: 20px;
+  @include small {
+    @include font-size(h3);
+  }
+}
+.description {
+  @include font-size(h6);
+  font-weight: fw(regular);
+  color: color(neutral, 6);
+  margin-bottom: 0;
+  @include small {
+    @include font-size(body);
+  }
+}
+.btn {
+  margin-top: 56px;
+  @include small {
+    margin-top: 40px;
+  }
+}

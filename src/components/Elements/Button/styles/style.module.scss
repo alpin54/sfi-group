@@ -1,0 +1,163 @@
+@import '_cores/styles/_assets.scss';
+
+.btn {
+  $b: &;
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  padding: 14px 24px 12px;
+  min-width: 132px;
+  @include font-size(button-medium);
+  // text-transform: uppercase;
+  border: solid 1px transparent;
+  @include radius(32);
+  color: color(neutral, 1);
+  overflow: hidden;
+  background-color: color(primary, 6);
+  transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  @include small {
+    padding: 12px 16px 10px;
+  }
+  @include x-small {
+    @include font-size(button-small);
+    padding: 10px 12px 8px;
+  }
+  &:hover {
+    color: color(primary, 6);
+    border-color: color(primary, 6);
+    &::before {
+      transform: none;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: color(neutral, 1);
+    transform: scaleY(0);
+    transform-origin: center bottom;
+    transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &Text {
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Outlined {
+    background-color: transparent;
+    border-color: color(primary, 6);
+    color: color(primary, 6);
+    &::before {
+      background-color: color(primary, 6);
+    }
+    #{$b} {
+      &Text {
+        &::before {
+          color: color(neutral, 1);
+        }
+        &::after {
+          color: color(neutral, 1);
+        }
+      }
+    }
+    &:hover {
+      color: color(neutral, 1);
+    }
+  }
+  &Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    &::before {
+      width: 48px;
+      height: 48px;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &Block {
+    width: 100%;
+  }
+
+  // --- VARIANT WHITE
+  &White {
+    background-color: color(neutral, 1);
+    color: color(primary, 6);
+    border-color: color(primary, 6);
+
+    &::before {
+      background-color: color(primary, 6);
+    }
+
+    #{$b}Text {
+      &::before,
+      &::after {
+        color: color(primary, 6);
+      }
+    }
+
+    &:hover {
+      color: color(neutral, 1);
+      border-color: color(primary, 6);
+
+      #{$b}Text {
+        &::before,
+        &::after {
+          color: color(neutral, 1);
+        }
+      }
+    }
+  }
+
+  &Underline {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    min-width: initial;
+    height: auto;
+    &::before {
+      display: none;
+    }
+  }
+  &Small {
+    @include font-size(button-small);
+  }
+  &Transparent {
+    backdrop-filter: blur(24px);
+    background-color: transparent;
+    border-color: transparent;
+    color: color(neutral, 1);
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: color(neutral, 1);
+
+    }
+  }
+}

@@ -1,0 +1,239 @@
+@import '_cores/styles/_assets.scss';
+
+.contactUs {
+  padding: 64px 0 104px;
+  @include medium {
+    padding: 56px 0 80px;
+  }
+  @include x-small {
+    padding: 40px 0 56px;
+  }
+  &__title {
+    max-width: 358px;
+    font-family: ff(title);
+    @include font-size(h2);
+    font-weight: fw(medium);
+     @include text-gradient(color(gradient, 1), color(primary, 9));
+    margin-bottom: 56px;
+    @include medium {
+      @include font-size(h3);
+      margin-bottom: 48px;
+    }
+    @include x-small {
+      @include font-size(h4);
+      max-width: 220px;
+      margin-bottom: 32px;
+    }
+  }
+  &__wrapp {
+    display: flex;
+    align-items: center;
+    @include medium {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+  &__left {
+    flex: 1;
+    padding-right: 80px;
+    @include medium {
+      padding-right: 0;
+      width: 100%;
+    }
+
+  }
+  &__formGroup {
+    margin-bottom: 24px;
+    width: 100%;
+    &:last-child {
+      padding-top: 12px;
+    }
+    & Button {
+      width: 100%;
+    }
+  }
+  &__formField {
+    margin-bottom: 24px;
+    position: relative;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__label {
+    @include font-size(button-small);
+    font-weight: fw(regular);
+    color: color(neutral, 12);
+    margin-bottom: 8px;
+
+  }
+
+  &__agreement{
+    margin-bottom: 16px;
+    &Wrapp {
+      display: flex;
+      align-items: center;
+      @include font-size(body);
+    }
+    & input {
+      cursor: pointer;
+    }
+    &Text {
+      color: color(neutral, 12);
+      margin-left: 8px;
+      padding-top: 2px;
+    }
+    &Link {
+      color: color(primary, 6);
+      text-decoration: none;
+      font-weight: fw(medium);
+      transition: all 0.3s ease;
+      &:hover {
+        color: color(primary, 4);
+      }
+    }
+  }
+
+  .contactUs__error {
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: color(danger, 6);
+    @include font-size(caption);
+  }
+
+
+  &__right {
+    flex: 1;
+    @include medium {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    &Block {
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      @include x-small {
+        margin-bottom: 32px;
+      }
+    }
+    &Title {
+      @include font-size(h6);
+      font-weight: fw(medium);
+      color: color(neutral, 8);
+      margin-bottom: 16px;
+    }
+    &Map {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      &:hover {
+        .contactUs__rightText {
+          color: color(neutral, 8);
+        }
+      }
+    }
+    & i {
+      color: color(primary, 6);
+    }
+    &Text {
+      @include font-size(body);
+      color: color(neutral, 6);
+      margin-left: 10px;
+      line-height: 1;
+      margin-bottom: 0;
+      transition: all 0.3s ease;
+      max-width: 400px;
+    }
+    .contactUs__visitLink {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: zi(1);
+    }
+    &List {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    &Item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      & i {
+        margin-right: 10px;
+        @include font-size(caption);
+      }
+      &Link {
+        @include font-size(body);
+        color: color(neutral, 6);
+        line-height: 1;
+        margin-bottom: 0;
+        text-decoration: none;
+        @include hover-underline;
+        position: relative;
+        &:hover {
+          color: color(primary, 9);
+          @include hover-underline(active);
+        }
+      }
+    }
+  }
+  &__socialIcons {
+    display: flex;
+    align-items: center;
+    &Link {
+      display: inline-block;
+      margin-right: 16px;
+      padding: 6px;
+      border-radius: 6px;
+      background-color: color(neutral, 3);
+      transition: all .3s ease;
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+    &Image {
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__marketIcons {
+    display: flex;
+    align-items: center;
+    &Link {
+      display: inline-block;
+      margin-right: 16px;
+      padding: 8px;
+      border-radius: 6px;
+      background-color: color(neutral, 3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &Image {
+      display: block;
+      width: 100%;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+
+}

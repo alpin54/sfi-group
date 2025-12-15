@@ -1,0 +1,61 @@
+@import '_cores/styles/_assets.scss';
+
+/* ==========================================================================
+   Login
+   ========================================================================== */
+
+.row {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:nth-child(2) {
+    margin-top: 0;
+  }
+  @include large {
+    margin-top: 24px;
+  }
+  @include medium {
+    margin-top: 16px;
+  }
+  @include small {
+    margin-top: 8px;
+  }
+  &Link {
+    text-decoration: none;
+    @include font-size(small);
+    color: color(primary, 9);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    @include hover-underline;
+    &:hover {
+      @include hover-underline(active);
+    }
+  }
+  &Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(small);
+    color: color(neutral, 6);
+    margin-bottom: 0;
+    a,
+    button {
+      margin-left: 8px;
+      font-weight: fw(medium);
+    }
+  }
+}
+
+.form {
+  &Row {
+    position: relative;
+    margin-bottom: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

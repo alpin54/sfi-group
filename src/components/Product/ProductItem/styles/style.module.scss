@@ -1,0 +1,130 @@
+@import '_cores/styles/_assets.scss';
+
+.card {
+  border-radius: 8px;
+  box-shadow:  0 1px 3px 1px #0000000F;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    .cardImageEl {
+      transform: scale(1.05);
+    }
+  }
+  &Image {
+    position: relative;
+    overflow: hidden;
+    background-color: color(neutral, 2);
+    height: 0;
+    padding-bottom: 100%;
+    &El {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .badge {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background-color: color(danger, 7);
+    padding: 4px 8px;
+    color: color(neutral, 1);
+    @include font-size(small);
+    border-radius: 4px;
+    @include x-small {
+      left: 8px;
+      top: 8px;
+      padding: 2px 6px;
+      @include font-size(x-small);
+    }
+  }
+  .details {
+    padding: 20px 16px;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    &Left {
+      display: flex;
+      align-items: center;
+      & i {
+         color: color(primary, 6);
+         margin-right: 4px;
+         @include font-size(small);
+      }
+      .rating {
+        @include font-size(small);
+        color: color(neutral, 7);
+      }
+    }
+    .button {
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      border: none;
+      z-index: 3;
+      & i {
+        color: color(neutral, 7);
+        @include font-size(small);
+      }
+    }
+  }
+  .name {
+    @include font-size(body);
+    font-weight: fw(medium);
+    color: color(neutral, 9);
+    margin-bottom: 8px;
+    @include multiline-ellipsis(2);
+    @include x-small {
+      @include font-size(caption);
+    }
+  }
+
+  .priceWrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .price {
+    @include font-size(body);
+    font-weight: fw(bold);
+    color: color(primary, 6);
+    margin-right: 8px;
+    margin-bottom: 0;
+    @include x-small {
+      @include font-size(caption);
+    }
+  }
+
+  .priceOld {
+    @include font-size(small);
+    color: color(neutral, 6);
+    text-decoration: line-through;
+    margin-bottom: 0;
+    @include x-small {
+      @include font-size(x-small);
+    }
+  }
+
+  .link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+}

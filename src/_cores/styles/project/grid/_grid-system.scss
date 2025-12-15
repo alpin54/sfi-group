@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Grid System
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: $mw-container;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq(1214px) {
+    max-width: initial;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include small {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include retina {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.container-md {
+  width: 100%;
+  max-width: $md-container;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq(1264px) {
+    max-width: initial;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include small {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include retina {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.container-sm {
+  width: 100%;
+  max-width: $sm-container;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq(1104px) {
+    max-width: initial;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include small {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include retina {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  @include large {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include small {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include retina {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.main-site {
+  padding-top: 72px;
+  transition: all 0.3s ease;
+  @include small {
+    padding-top: 64px;
+  }
+  &--auth {
+    padding: 40px 0;
+    @include medium {
+      padding: 32px 0;
+    }
+    @include small {
+      padding: 24px 0;
+    }
+    @include retina {
+      padding: 16px 0;
+    }
+  }
+  &--no-padding {
+    padding: 0;
+  }
+}

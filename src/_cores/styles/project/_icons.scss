@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Init Icons
+   ========================================================================== */
+
+.fi {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'SFI-Group-Icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icons: (
+  house: unquote('"\\e900"'),
+  money-wavy-fill: unquote('"\\e903"'),
+  calendar-dots-fill: unquote('"\\e909"'),
+  headset: unquote('"\\e90a"'),
+  buildin-fill: unquote('"\\e90f"'),
+  link-simple: unquote('"\\e913"'),
+  timer: unquote('"\\e914"'),
+  scales: unquote('"\\e915"'),
+  buildings: unquote('"\\e916"'),
+  chart-line-up: unquote('"\\e917"'),
+  sticker: unquote('"\\e918"'),
+  voucher: unquote('"\\e919"'),
+  e-voucher: unquote('"\\e95a"'),
+  e-voucher-circle: unquote('"\\e95b"'),
+  caret-circle-right: unquote('"\\e91b"'),
+  sketch: unquote('"\\e91e"'),
+  chats-circle: unquote('"\\e91f"'),
+  funnel: unquote('"\\e922"'),
+  medal: unquote('"\\e923"'),
+  money-wavy: unquote('"\\e926"'),
+  package: unquote('"\\e927"'),
+  palette: unquote('"\\e928"'),
+  seal-percent-fill: unquote('"\\e929"'),
+  seal-percent: unquote('"\\e92d"'),
+  sort-descending: unquote('"\\e930"'),
+  play: unquote('"\\e931"'),
+  play-fill: unquote('"\\e932"'),
+  video-camera: unquote('"\\e933"'),
+  image: unquote('"\\e934"'),
+  tag: unquote('"\\e935"'),
+  copy: unquote('"\\e936"'),
+  question: unquote('"\\e937"'),
+  map-pin-fill: unquote('"\\e938"'),
+  warning: unquote('"\\e939"'),
+  hourglass-high: unquote('"\\e93a"'),
+  identification-badge: unquote('"\\e93b"'),
+  phone-fill: unquote('"\\e93c"'),
+  storefront: unquote('"\\e93d"'),
+  identification-card: unquote('"\\e93e"'),
+  m-sign-out: unquote('"\\e93f"'),
+  email-fill: unquote('"\\e940"'),
+  password: unquote('"\\e941"'),
+  cake: unquote('"\\e942"'),
+  user-circle-dashed: unquote('"\\e943"'),
+  cloud-arrow-up: unquote('"\\e944"'),
+  gender-intersex: unquote('"\\e945"'),
+  eye-slash: unquote('"\\e946"'),
+  eye: unquote('"\\e947"'),
+  instagram: unquote('"\\e948"'),
+  whatsapp-fill: unquote('"\\e949"'),
+  m-address-book-off: unquote('"\\e94a"'),
+  m-address-book-on: unquote('"\\e94b"'),
+  star-on: unquote('"\\e94c"'),
+  start-off: unquote('"\\e94d"'),
+  m-shopping-bag-off: unquote('"\\e94e"'),
+  m-shopping-bag-on: unquote('"\\e94f"'),
+  m-user-off: unquote('"\\e950"'),
+  m-user-on: unquote('"\\e951"'),
+  m-squares-off: unquote('"\\e952"'),
+  m-squares-on: unquote('"\\e953"'),
+  handbag-off: unquote('"\\e954"'),
+  handbag-on: unquote('"\\e955"'),
+  heart-off: unquote('"\\e956"'),
+  heart-on: unquote('"\\e957"'),
+  user-circle-off: unquote('"\\e958"'),
+  user-circle-on: unquote('"\\e959"'),
+  add: unquote('"\\e901"'),
+  arrow-up-right: unquote('"\\e902"'),
+  caret-down: unquote('"\\e904"'),
+  caret-left: unquote('"\\e905"'),
+  caret-right: unquote('"\\e906"'),
+  caret-up: unquote('"\\e907"'),
+  chart-bar: unquote('"\\e908"'),
+  check-circle: unquote('"\\e90b"'),
+  check-empty: unquote('"\\e90c"'),
+  check: unquote('"\\e90d"'),
+  close: unquote('"\\e90e"'),
+  edit: unquote('"\\e910"'),
+  email: unquote('"\\e911"'),
+  facebook1: unquote('"\\e912"'),
+  location: unquote('"\\e91a"'),
+  mines: unquote('"\\e91c"'),
+  phone: unquote('"\\e91d"'),
+  radio-btn-fill: unquote('"\\e920"'),
+  radio-btn: unquote('"\\e921"'),
+  seal-check: unquote('"\\e924"'),
+  search: unquote('"\\e925"'),
+  trash: unquote('"\\e92a"'),
+  warning-octagon: unquote('"\\e92b"'),
+  Whatsapp: unquote('"\\e92c"'),
+  x-logo: unquote('"\\e92e"'),
+  youtube1: unquote('"\\e92f"'),
+  facebook: unquote('"\\ea90"'),
+  youtube: unquote('"\\ea9d"')
+);
+
+@each $name, $code in $icons {
+  .fi-#{$name}::before {
+    content: $code;
+  }
+}

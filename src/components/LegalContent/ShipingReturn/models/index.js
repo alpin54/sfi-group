@@ -1,0 +1,16 @@
+// -- api
+import httpRequest from '@api/httpRequest';
+import ENDPOINT from '@api/endPoint';
+
+const handleList = async () => {
+  return await httpRequest({
+    method: 'get',
+    url: ENDPOINT.SHIPPING_RETURN
+  });
+};
+
+const shippingReturnModel = {
+  list: handleList
+};
+
+export default shippingReturnModel;

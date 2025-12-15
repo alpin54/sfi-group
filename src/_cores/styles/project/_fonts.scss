@@ -1,0 +1,73 @@
+/* ==========================================================================
+ Init: Fonts
+ ========================================================================== */
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-Bold.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-LightItalic.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-Medium.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-Light.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-BoldItalic.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src:
+    url('../../assets/fonts/HelveticaNeue-MediumItalic.woff') format('woff'),
+    url('../../assets/fonts/HelveticaNeue-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFI-Group-Icon';
+  src:
+    url('../../assets/fonts/icon/SFI-Group-Icon.ttf?6752wl') format('truetype'),
+    url('../../assets/fonts/icon/SFI-Group-Icon.woff?6752wl') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

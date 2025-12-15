@@ -1,0 +1,41 @@
+@import '_cores/styles/_assets.scss';
+
+.overview {
+  text-align: center;
+  padding-top: 136px;
+  padding-bottom: 40px;
+  @include medium {
+    padding-top: 128px;
+    padding-bottom: 32px;
+  }
+  @include small {
+    padding-top: 104px;
+    padding-bottom: 20px;
+  }
+}
+.title {
+  background: linear-gradient(96.02deg, #dc8622 3.02%, #d9d14b 50.83%, #0991c7 98.64%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: fw(medium);
+  margin-bottom: 56px;
+  @include medium {
+    margin-bottom: 40px;
+    @include font-size(h3);
+  }
+  @include small {
+    margin-bottom: 24px;
+    @include font-size(h4);
+  }
+}
+.img {
+  @include radius(8);
+  overflow: hidden;
+  &El {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}

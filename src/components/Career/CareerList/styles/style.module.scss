@@ -1,0 +1,258 @@
+@import '_cores/styles/_assets.scss';
+
+.career {
+  padding: 104px 0 96px;
+  background-color: color(neutral, 10);
+  @include medium {
+    padding: 80px 0 64px;
+  }
+  @include x-small {
+    padding: 40px 0 56px;
+  }
+  &Empty {
+    padding: 48px 0;
+    max-width: 312px;
+    margin: 0 auto;
+    text-align: center;
+    @include x-small {
+      max-width: 254px;
+      padding: 86px 0;
+    }
+    .emptyImage {
+      margin-bottom: 32px;
+      & img {
+        width: 240px;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        margin: 0 auto;
+        @include x-small {
+          width: 128px;
+        }
+      }
+    }
+    .emptyTitle {
+      @include font-size(h5);
+      color: color(neutral, 13);
+      font-weight: fw(medium);
+      margin-bottom: 12px;
+      @include x-small {
+        @include font-size(h6);
+      }
+    }
+    .emptyDesc {
+      @include font-size(body);
+      color: color(neutral, 12);
+      margin: 0;
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+  }
+  &Tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    @include medium {
+      margin-bottom: 32px;
+    }
+    @include x-small {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-bottom: 28px;
+      white-space: nowrap;
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 0 24px;
+    }
+    .tabButton {
+      background-color: transparent;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid color(neutral, 15);
+      margin-right: 12px;
+      @include font-size(button-medium);
+      color: color(neutral, 12);
+      transition: all 0.35s ease;
+      @include x-small {
+        padding: 10px 20px;
+        @include font-size(button-small);
+      }
+      &:hover {
+        border-color: color(primary, 10);
+        color: color(primary, 10);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active{
+        border-color: color(primary, 10);
+        background-color: color(primary, 2);
+        color: color(primary, 10);
+
+      }
+    }
+  }
+  &List {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    @include small {
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  &Item {
+    width: 50%;
+    padding: 10px;
+    @include small {
+      width: 100%;
+      padding: 10px 0;
+    }
+    &Box {
+      display: flex;
+      flex-direction: column;
+      background-color: color(neutral, 1);
+      border: 1px solid color(neutral, 14);
+      border-radius: 12px ;
+      padding: 24px;
+      position: relative;
+      transition: all 0.3s ease;
+      @include medium {
+        padding: 20px;
+      }
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .detailLink i {
+          transform: translateX(4px);
+        }
+      }
+    }
+    &Header {
+      margin-bottom: 32px;
+    }
+    &Title {
+      @include font-size(h5);
+      font-weight: fw(medium);
+      color: color(neutral, 13);
+      margin-bottom: 8px;
+      @include x-small {
+        @include font-size(h6);
+      }
+
+    }
+    &Desc {
+      @include font-size(body);
+      color: color(neutral, 12);
+      margin: 0;
+      @include multiline-ellipsis(2);
+      @include retina {
+        @include font-size(caption);
+      }
+    }
+    &ApplyLink {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      @include remove-tap-highlight;
+    }
+    &Footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &Meta {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    &JobType {
+      display: flex;
+      align-items: center;
+      margin-right: 40px;
+      @include x-small {
+        margin-right: 20px;
+      }
+      i {
+        @include font-size(body);
+        color: color(primary, 12);
+        margin-right: 8px;
+        @include retina {
+            @include font-size(small);
+           }
+      }
+      & span {
+        @include font-size(body);
+        color: color(neutral, 12);
+        padding-top: 2px;
+        @include retina {
+            @include font-size(small);
+           }
+      }
+    }
+    &Workplace {
+      display: flex;
+      align-items: center;
+      i {
+        @include font-size(body);
+        color: color(primary, 12);
+        margin-right: 8px;
+        @include retina {
+            @include font-size(small);
+           }
+      }
+      & span {
+        @include font-size(body);
+        color: color(neutral, 12);
+        padding-top: 2px;
+        @include retina {
+            @include font-size(small);
+           }
+      }
+    }
+    &Action {
+      transition: all 0.3s ease;
+      z-index: 3;
+      &:hover {
+        color: color(primary, 10);
+        .detailLink i {
+          transform: translateX(4px);
+        }
+      }
+      .detailLink {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        & span {
+          @include font-size(button-small);
+          color: color(primary, 10);
+          margin-right: 4px;
+           @include retina {
+            @include font-size(small);
+           }
+        }
+        & i {
+          @include font-size(button-small);
+          color: color(primary, 10);
+          padding-bottom: 2px;
+          transition: all 0.3s ease;
+          @include retina {
+            @include font-size(small);
+           }
+        }
+      }
+    }
+  }
+
+}
+

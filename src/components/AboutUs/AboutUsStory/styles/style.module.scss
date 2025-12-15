@@ -1,0 +1,118 @@
+@import '_cores/styles/_assets.scss';
+
+.story {
+  padding-top: 280px;
+  padding-bottom: 280px;
+  overflow: hidden;
+  @include large {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  @include medium {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  @include small {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+.inner {
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    border: 1px solid color(neutral, 14);
+  }
+}
+.list {
+  :global(.slick-list) {
+    overflow: visible;
+  }
+  :global(.slick-active ~ .slick-slide) {
+    max-width: 240px;
+  }
+  :global(.slick-slide) {
+    max-width: 640px;
+    transition: max-width 0.4s ease;
+  }
+  :global(.slick-active) {
+    max-width: 640px;
+  }
+  :global(.slick-active),
+  &.listSingle {
+    .item {
+      max-width: 640px;
+    }
+    .year {
+      color: color(primary, 10);
+    }
+    .name {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.1s;
+    }
+    .description {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.3s;
+    }
+  }
+}
+.item {
+  padding-right: 32px;
+}
+.year {
+  color: color(neutral, 15);
+  font-weight: fw(regular);
+  margin-bottom: 52px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    color: color(primary, 10);
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 0;
+    top: 75px;
+    border-radius: 50%;
+    background-color: color(primary, 10);
+  }
+}
+.name {
+  background: linear-gradient(96.02deg, #dc8622 3.02%, #d9d14b 50.83%, #0991c7 98.64%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: fw(medium);
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease 0s;
+}
+.description {
+  @include radius(12);
+  padding: 20px;
+  background-color: color(neutral, 11);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease 0s;
+  overflow: hidden;
+  width: 608px;
+  p {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

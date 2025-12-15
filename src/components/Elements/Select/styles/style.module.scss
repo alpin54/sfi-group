@@ -1,0 +1,188 @@
+@import '_cores/styles/_assets.scss';
+
+.select {
+  position: relative;
+  :global(#blog) & {
+    width: 100%;
+  }
+
+  &Icon {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    @include font-size(h5);
+    line-height: 1;
+    color: color(neutral, 8);
+    transition: all 0.3s ease;
+    @include medium {
+      top: 0;
+    }
+    .open & {
+      transform: rotateX(180deg);
+    }
+    &Faders {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      z-index: 1;
+      @include font-size(h5);
+      line-height: 1;
+      @include medium {
+        top: 0;
+      }
+    }
+  }
+  &Input {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 14px 32px 14px 0;
+    @include placeholder-color(color(neutral, 6));
+    @include font-size(button-medium);
+    color: color(neutral, 6);
+    border-bottom: 1px solid color(neutral, 5);
+    position: relative;
+
+    @include medium {
+      padding-top: 0;
+      border-bottom: 0;
+      @include font-size(body);
+      padding-bottom: 16px;
+    }
+    .icon & {
+      padding-left: 32px;
+    }
+  }
+  &Box {
+    position: absolute;
+    left: 0;
+    z-index: zi(select-box);
+    width: 100%;
+    max-height: 240px;
+    padding: 16px;
+    margin-top: 8px;
+    background-color: color(neutral, 1);
+    border: 1px solid color(neutral, 3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-16px);
+    transition: all 0.3s ease;
+    @include scroll(y);
+    @include medium {
+      position: relative;
+      max-height: 0;
+      margin-top: 0;
+      padding: 0;
+      border: 0;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      :global(#blog) & {
+        margin-top: 24px;
+      }
+    }
+    .open & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  &List {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include medium {
+      padding-bottom: 16px;
+    }
+  }
+  &Item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover,
+    &Active {
+      .checkboxLabel {
+        color: color(primary, 9);
+      }
+    }
+  }
+}
+.checkbox {
+  $c: &;
+  position: relative;
+  line-height: 1;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  &Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+  }
+  &Total {
+    @include font-size(caption);
+    color: color(neutral, 5);
+    margin-right: 10px;
+  }
+  &Input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    &:checked + #{$c} {
+      &Inner {
+        border-color: color(primary, 9);
+        background-color: color(primary, 9);
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &Inner {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    background-color: color(neutral, 1);
+    border: 1px solid color(neutral, 5);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    @include font-icon(after);
+    @include font-icon-set(check-bold, after, 1rem);
+    &::after {
+      color: color(neutral, 1);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+  }
+  &Label {
+    display: flex;
+    align-items: center;
+    @include font-size(caption);
+    font-weight: fw(regular);
+    color: color(neutral, 6);
+    transition: all 0.3s ease;
+    &Color {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      border: 1px solid color(neutral, 3);
+    }
+  }
+}

@@ -1,0 +1,134 @@
+@import '_cores/styles/_assets.scss';
+
+.sectionBrand {
+  padding: 88px 0;
+  background-color: color(neutral, 1);
+  @include medium {
+    padding: 64px 0;
+  }
+  @include x-small {
+    padding: 48px 0;
+  }
+
+  .title {
+    @include font-size(h3);
+    font-weight: fw(regular);
+    color: color(primary, 9);
+    text-align: center;
+    margin-bottom: 72px;
+    @include medium {
+      margin-bottom: 64px;
+    }
+    @include x-small {
+      @include font-size(h4);
+      margin-bottom: 56px;
+    }
+  }
+
+  .trackWrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    --fade-width: 140px;
+  }
+  .trackWrap::before,
+  .trackWrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--fade-width);
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .trackWrap::before {
+    left: -1px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 80%, #FFFFFF 100%);
+
+  }
+  .trackWrap::after {
+    right: -1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 80%, #FFFFFF 100%);
+  }
+
+  .track {
+    margin-bottom: 72px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    overflow: hidden;
+    height: 40px;
+    position: relative;
+    z-index: 1;
+    @include medium {
+      margin-bottom: 64px;
+    }
+    @include x-small {
+      margin-bottom: 56px;
+    }
+  }
+
+  .trackInner {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: max-content;
+    white-space: nowrap;
+    animation: marquee var(--speed, 50s) linear infinite;
+    will-change: transform;
+    z-index: 2;
+  }
+
+
+
+  .trackBottom .trackInner {
+    animation-direction: reverse;
+  }
+
+  .track:hover .trackInner {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trackInner {
+      animation: none;
+    }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .brandItem {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    height: 40px;
+    margin-right: 56px;
+    position: relative;
+    overflow: hidden;
+    @include medium {
+      margin-right: 40px;
+    }
+    @include x-small {
+      margin-right: 32px;
+    }
+  }
+
+  .brandWrap {
+    position: static;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .brandImage {
+    display: block;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+}

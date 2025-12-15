@@ -1,0 +1,270 @@
+@import '_cores/styles/_assets.scss';
+
+.higlightProductCategory {
+  padding: 12px ;
+  background-color: color(neutral, 2);
+
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  @include medium {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.leftCard {
+  border-radius: 12px;
+  width: 720px;
+  @include mq(1440px) {
+    width: 648px;
+
+  }
+  @include large {
+    width: 460px;
+  }
+  @include medium {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  @include x-small {
+    margin-bottom: 12px;
+  }
+  &:hover {
+    .mainImage {
+      transform: scale(1.05);
+    }
+  }
+
+  .mainInner {
+    width: 100%;
+    height: 100%;
+    padding: 56px 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    background-color: color(neutral, 1);
+    position: relative;
+    overflow: hidden;
+    @include medium {
+      padding: 40px 32px 0;
+    }
+    .link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      @include remove-tap-highlight
+    }
+  }
+  .mainText {
+    flex: 1;
+    max-width: 520px;
+    margin-bottom: 56px;
+    @include medium {
+      width: 100%;
+      margin-bottom: 32px;
+    }
+    @include x-small {
+      margin-bottom: 28px;
+    }
+    .title {
+      @include font-size(h3);
+      margin-bottom: 16px;
+      @include text-gradient(color(gradient, 1), color(primary, 9));
+      @include x-small {
+        @include font-size(h4);
+        margin-bottom: 8px;
+      }
+    }
+    .desc {
+      @include font-size(h6);
+      margin-bottom: 40px;
+      color: color(neutral, 8);
+      @include medium {
+        margin-bottom: 32px;
+      }
+      @include x-small {
+        margin-bottom: 26px;
+        @include font-size(body);
+      }
+    }
+    .actionGroup {
+      justify-content: center;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+  }
+
+  .mainMedia {
+    width: 400px;
+    height: 448px;
+    @include x-small {
+      width: 218px;
+      height: 248px;
+    }
+  }
+
+  .mainImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    will-change: transform;
+
+  }
+}
+.rightCard {
+  padding-left: 6px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -6px;
+  margin-right: -6px;
+  margin-bottom: -6px;
+  @include medium {
+    margin-left: -6px;
+    padding-left: 0;
+  }
+  @include x-small {
+    flex-direction: column;
+  }
+}
+.card {
+  width: 45%;
+  padding: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+  @include medium {
+    height: 420px;
+  }
+  @include x-small {
+    width: 100%;
+  }
+  &:hover {
+    .cardImage {
+      transform: scale(1.05);
+      @include retina {
+        transform: scale(1.03);
+      }
+    }
+  }
+  &Box {
+    background-color: color(neutral, 1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 28px 32px;
+    position: relative;
+    height: 100%;
+    border-radius: 8px;
+    @include large {
+      padding: 20px 16px;
+    }
+    @include medium {
+      padding: 28px 24px;
+    }
+  }
+
+  .cardMedia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .cardTitle {
+    @include font-size(h5);
+    font-weight: fw(regular);
+    color: color(primary, 9);
+    z-index: 1;
+    margin: 0;
+    @include retina {
+      @include font-size(h6);
+    }
+  }
+
+  .cardBtn {
+    z-index: 3;
+  }
+  &:nth-child(1) {
+    .cardTitle {
+      color: color(neutral, 1);
+      z-index: 1;
+    }
+  }
+  &:nth-child(1),
+  &:nth-child(4) {
+    width: 55%;
+    @include x-small {
+      width: 100%;
+      .cardBox {
+        height: 352px;
+      }
+    }
+  }
+
+  &:nth-child(2),
+  &:nth-child(3) {
+    @include x-small {
+      .cardBody {
+        height: 352px;
+      }
+    }
+  }
+
+  &:nth-child(1),
+  &:nth-child(3),
+  &:nth-child(4) {
+    .cardBody {
+      justify-content: space-between;
+    }
+
+  }
+  &:nth-child(2){
+    .cardBody {
+      justify-content: flex-end;
+    }
+    .cardTitle {
+      margin-bottom: 20px;
+    }
+
+  }
+  .link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    @include remove-tap-highlight;
+  }
+
+}
+
+

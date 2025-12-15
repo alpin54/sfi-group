@@ -1,0 +1,255 @@
+@import '_cores/styles/_assets.scss';
+
+.modalRoot {
+  position: fixed;
+  inset: 0;
+  z-index: zi(modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+
+}
+
+.modal {
+  pointer-events: auto;
+  position: relative;
+  background: color(neutral, 1);
+  width: 100%;
+  max-width: 688px;
+  border-radius: 12px;
+  @include medium {
+    max-width: 480px;
+  }
+  @include x-small {
+    max-width: 360px;
+  }
+  @include retina {
+    max-width: 260px;
+  }
+}
+
+.content {
+  background: color(neutral, 1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 20;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: color(neutral, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+    transform-origin: center center;
+    will-change: transform;
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
+
+.slider  {
+  :global(.slick-dots) {
+    left: 55%;
+    bottom: 24px;
+    text-align: center;
+    z-index: zi(hero-banner-dots);
+    font-size: 0;
+    line-height: 1;
+    transform: translateX(-50%);
+    @include medium {
+      bottom: 16px;
+      left: 50%;
+    }
+    li {
+      width: 12px;
+      height: 4px;
+      margin: 0 4px 0 0;
+      border-radius: 4px;
+      background: color(neutral, 4);
+      transition: all 0.3s ease;
+      &:last-child {
+        margin-right: 0;
+      }
+      button {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        &:before {
+          display: none;
+        }
+      }
+    }
+    :global(li.slick-active) {
+      width: 24px;
+      background: color(primary, 6);
+    }
+
+  }
+  :global(.slick-active) {
+    .slide {
+      opacity: 1;
+      transform: none;
+    }
+    .title,
+    .subtitle,
+    .desc,
+    .actionBtn,
+    .imageWrap {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  @include medium {
+    flex-direction: column;
+  }
+}
+
+.left {
+  width: 316px;
+  @include medium {
+    width: 100%;
+    height: 320px;
+    text-align: center;
+  }
+  @include x-small {
+    height: 264px;
+  }
+  @include retina {
+    height: 200px;
+  }
+}
+
+.title {
+  @include font-size(h4);
+  font-weight: fw(medium);
+  @include text-gradient(color(gradient, 1), color(primary, 9));
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: all 0.7s ease 120ms;
+  @include medium {
+    transform: translateY(8px);
+  }
+  @include x-small {
+    @include font-size(h5);
+    margin-bottom: 10px;
+  }
+}
+
+.subtitle {
+  @include font-size(h6);
+  font-weight: fw(medium);
+  color: color(neutral, 8);
+  margin-bottom: 6px;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: all 0.7s ease 180ms;
+   @include medium {
+    transform: translateY(8px);
+  }
+  @include x-small {
+    @include font-size(body);
+    margin-bottom: 4px;
+  }
+}
+
+.desc {
+  @include font-size(body);
+  font-weight: fw(regular);
+  color: color(neutral, 7);
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: all 0.7s ease 240ms;
+   @include medium {
+    transform: translateY(8px);
+  }
+  @include x-small {
+    @include font-size(caption);
+    margin-bottom: 20px;
+  }
+}
+
+.actionBtn {
+  opacity: 0;
+  transform: translateX(12px);
+  transition: all 0.7s ease 300ms;
+  z-index: 4;
+   @include medium {
+    transform: translateY(4px);
+  }
+}
+
+.right {
+  flex: 1;
+  padding: 0 24px 0 32px;
+  @include medium {
+    text-align: center;
+    padding: 24px 24px 40px;
+  }
+}
+
+.imageWrap {
+  width: 100%;
+  height: 100%;
+  max-height: 384px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.8s ease 400ms;
+  transform: translateX(-12px);
+    @include medium {
+    transform: translateY(-8px);
+    }
+  .image {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.coverLink {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,131 @@
+@import '_cores/styles/_assets.scss';
+
+.newProduct {
+  padding: 0 12px 12px;
+  background-color: color(neutral, 2);
+  .wrapper {
+    display: flex;
+    align-items: stretch;
+    margin-left: -6px;
+    margin-right: -6px;
+    @include medium {
+      flex-direction: column;
+    }
+  }
+  .newProductItem {
+    flex: 0 0 50%;
+    padding: 0 6px;
+    @include medium {
+      margin-bottom: 12px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .newProductBox {
+    position: relative;
+    height: 702px;
+    overflow: hidden;
+    border-radius: 8px;
+    @include medium {
+      height: 480px;
+    }
+    @include x-small {
+      height: 390px;
+    }
+    &:hover {
+      .newImage {
+        transform: scale(1.05);
+      }
+      .newBtn {
+        transform: translateY(-8px);
+      }
+    }
+    &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: color(gradient, 2);
+    pointer-events: none;
+  }
+  }
+  .newImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .newImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .newBody {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 40px 32px ;
+    @include medium {
+      padding: 32px;
+    }
+    @include x-small {
+      padding: 24px 32px;
+    }
+    @include retina {
+      padding: 24px 16px;
+    }
+  }
+  .newHead {
+    max-width: 484px;
+    margin: 0 auto;
+    z-index: 2;
+    @include x-small {
+      width: 100%;
+    }
+  }
+  .newTitle {
+    @include font-size(h3);
+    font-weight: fw(bold);
+    color: color(neutral, 1);
+    margin-bottom: 4px;
+    @include x-small {
+      @include font-size(h4);
+    }
+  }
+  .newDesc {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(neutral, 1);
+    margin: 0;
+    @include x-small {
+      @include font-size(body);
+      font-weight: fw(regular);
+    }
+  }
+  .newBtn {
+    z-index: 3;
+    transition: transform 0.3s ease;
+  }
+  .link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: zi(new-product-link);
+    @include remove-tap-highlight;
+  }
+}
+
+

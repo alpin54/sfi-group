@@ -1,0 +1,79 @@
+@import '_cores/styles/_assets.scss';
+
+.ourPartnerNetwork {
+  padding-top: 88px;
+  padding-bottom: 104px;
+  overflow: hidden;
+  @include large {
+    padding-top: 72px;
+    padding-bottom: 80px;
+  }
+  @include medium {
+    padding-top: 56px;
+    padding-bottom: 64px;
+  }
+  @include small {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+}
+.head {
+  text-align: center;
+  margin-bottom: 64px;
+  @include large {
+    margin-bottom: 56px;
+  }
+  @include medium {
+    margin-bottom: 48px;
+  }
+  @include small {
+    margin-bottom: 40px;
+  }
+}
+.title {
+  background: linear-gradient(96.02deg, #dc8622 3.02%, #d9d14b 50.83%, #0991c7 98.64%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: fw(medium);
+  margin-bottom: 0;
+  @include medium {
+    @include font-size(h3);
+  }
+  @include small {
+    @include font-size(h4);
+  }
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -8px;
+  @include medium {
+    margin: 0;
+  }
+}
+.item {
+  flex: 0 0 25%;
+  padding: 8px;
+  @include medium {
+    flex: 0 0 33.3333333%;
+  }
+  @include small {
+    flex: 0 0 50%;
+  }
+}
+.img {
+  height: 88px;
+  @include medium {
+    height: 72px;
+  }
+  @include small {
+    height: 56px;
+  }
+  &El {
+    object-fit: contain;
+    height: 100%;
+  }
+}

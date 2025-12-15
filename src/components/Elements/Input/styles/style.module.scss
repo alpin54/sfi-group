@@ -1,0 +1,75 @@
+@import '_cores/styles/_assets.scss';
+
+.input,
+.select,
+.textarea {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid color(neutral, 4);
+  @include placeholder-color(color(neutral, 6));
+  color: color(neutral, 7);
+  @include font-size(button-medium);
+  font-weight: fw(regular);
+  transition: all 0.3s ease;
+  &:hover,
+  &:focus {
+    border-color: color(primary, 3);
+  }
+  @include small {
+    padding: 11px;
+  }
+  &Icon {
+    padding-left: 48px;
+  }
+  &Password {
+    padding-right: 48px;
+  }
+  &Underline {
+    border: none;
+    border-bottom: 1px solid color(neutral, 4);
+    border-radius: 0;
+    padding-left: 32px;
+    &:hover,
+    &:focus {
+      border-color: color(primary, 9);
+    }
+  }
+}
+.textarea {
+  height: 112px;
+  resize: none;
+}
+
+.icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  @include font-size(h5);
+  color: color(neutral, 6);
+  line-height: 1;
+  &Password {
+    left: auto;
+    right: 16px;
+    cursor: pointer;
+  }
+  &Underline {
+    left: 0;
+  }
+}
+
+.error {
+  border-color: color(danger, 6);
+}
+
+.errorMsg {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: color(danger, 6);
+  @include font-size(small);
+  font-weight: fw(regular);
+  margin-bottom: 0;
+}

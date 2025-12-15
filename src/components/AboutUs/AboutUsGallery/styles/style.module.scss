@@ -1,0 +1,74 @@
+@import '_cores/styles/_assets.scss';
+
+.gallery {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: color(neutral, 1);
+}
+.track {
+  overflow: hidden;
+  height: 496px;
+  @include large {
+    height: 400px;
+  }
+  @include medium {
+    height: 320px;
+  }
+  @include small {
+    height: 278px;
+  }
+  &:hover {
+    .trackInner {
+      animation-play-state: paused;
+      @include medium {
+        animation-play-state: running;
+      }
+    }
+  }
+}
+.trackInner {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: max-content;
+  white-space: nowrap;
+  animation: marquee var(--speed, 80s) linear infinite;
+  will-change: transform;
+  z-index: 2;
+}
+.trackRight .trackInner {
+  animation-direction: reverse;
+}
+.img {
+  padding: 8px;
+  height: 496px;
+  @include large {
+    height: 400px;
+  }
+  @include medium {
+    height: 320px;
+  }
+  @include small {
+    height: 278px;
+    padding: 6px;
+  }
+  &El {
+    @include radius(8);
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trackInner {
+    animation: none;
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

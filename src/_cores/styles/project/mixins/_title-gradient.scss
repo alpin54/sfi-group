@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Mixin: Text Gradient
+   ========================================================================== */
+
+@mixin text-gradient($bg, $fallback: currentColor) {
+  @if $bg == null {
+    color: $fallback;
+  } @else {
+    background: $bg;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}

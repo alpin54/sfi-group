@@ -1,0 +1,859 @@
+@import '_cores/styles/_assets.scss';
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.header {
+  $h: &;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: zi(header);
+  width: 100%;
+  color: color(neutral, 8);
+  transition: all 0.35s ease;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transform: scaleX(0);
+    background-color: color(neutral, 1);
+    transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    transform: scaleX(0);
+    border-bottom: solid 1px rgba(color(primary, 2), 1);
+    transition: all 0.35s ease 0s;
+  }
+  &Wrapper {
+    position: relative;
+    z-index: 2;
+  }
+  &Inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include medium {
+      justify-content: flex-start;
+    }
+  }
+}
+
+:global(.window--scrolled) .header {
+  &::before {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &::after {
+    transform: none;
+    transition-delay: 0.15s;
+  }
+  .logoLink {
+    height: 32px;
+    @include small {
+      height: 24px;
+    }
+  }
+}
+
+.logo {
+  @include medium {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-right: auto;
+  }
+  &Link {
+    height: 32px;
+    text-indent: -9999999px;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  &Img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.nav,
+.feature {
+  &List {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  &Item {
+    margin-right: 24px;
+    @include x-small {
+      margin-right: 16px;
+    }
+    @include retina {
+      margin-right: 12px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &Link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    outline: 0;
+    padding: 26px 0;
+    border: 0;
+    color: inherit;
+    background-color: transparent;
+    transition: all 0.35s ease;
+    font-weight: fw(regular);
+    @include font-size(button-medium);
+    @include remove-tap-highlight;
+    @include medium {
+      padding: 8px 0;
+      @include font-size(button-large);
+    }
+    // @include hover-underline;
+    // &::after {
+    //   bottom: 24px;
+    // }
+    &Active,
+    &:hover {
+      // @include hover-underline(active);
+      color: color(primary, 6);
+    }
+    i {
+      font-size: 20px;
+      line-height: 1;
+    }
+    &Count {
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      transform: translateY(-20px);
+      width: 18px;
+      height: 18px;
+      background-color: color(primary, 9);
+      color: color(neutral, 1);
+      font-size: 8px;
+      line-height: 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    &Promo {
+      color: color(danger, 7);
+    }
+  }
+}
+.feature {
+  &List {
+    @include medium {
+      padding: 26px 0;
+    }
+    @include small {
+      padding: 22px 0;
+    }
+  }
+  &Item {
+    &:nth-last-child(2) {
+      margin-right: 0;
+      @include medium {
+        margin-right: 24px;
+      }
+      @include small {
+        margin-right: 16px;
+      }
+      @include retina {
+        margin-right: 12px;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+      display: none;
+      @include medium {
+        display: block;
+      }
+    }
+  }
+  &Link {
+    @include medium {
+      padding: 0;
+    }
+  }
+}
+.nav {
+  @include medium {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 72px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease 400ms;
+    .showMenu & {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0ms;
+    }
+  }
+  @include x-small {
+    top: 64px;
+    height: calc(100% - 64px);
+  }
+  &List {
+    @include medium {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      padding: 32px;
+      background-color: color(neutral, 1);
+      transform: scaleY(0);
+      transform-origin: center top;
+      transition: transform 0.35s ease 200ms;
+      .showMenu & {
+        transform: none;
+        transition-delay: 100ms;
+      }
+    }
+    @include small {
+      padding: 24px;
+    }
+  }
+  &Item {
+    @include medium {
+      display: flex;
+      width: 100%;
+      margin: 0 0 16px 0;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.35s ease 0ms;
+      .showMenu & {
+        opacity: 1;
+        transform: none;
+        transition-delay: 350ms;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &Link {
+    @include medium {
+      width: 100%;
+      justify-content: flex-start;
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+.burgerMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  @include remove-tap-highlight;
+  cursor: pointer;
+  background-color: transparent;
+  &Bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: color(neutral, 8);
+    margin-bottom: 8px;
+    transform-origin: center center;
+    transition: transform 0.35s ease;
+    transition-delay: 0s;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .showMenu & {
+      transform: rotate(40deg) translate(15%, 180%);
+      transition-delay: 0.1s;
+      &:last-child {
+        transform: rotate(-40deg) translate(15%, -180%);
+      }
+    }
+  }
+}
+.menu {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  bottom: 0;
+  width: 100%;
+  background-color: color(opacity, 2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease 400ms;
+  @include medium {
+    background-color: color(neutral, 1);
+    backdrop-filter: blur(8px);
+  }
+  @include x-small {
+    top: 64px;
+  }
+  .showSubMenu & {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0ms;
+  }
+  &Close {
+    display: none;
+    @include medium {
+      display: block;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      padding: 0;
+      text-align: left;
+      @include font-size(h5);
+      background: transparent;
+      margin-bottom: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(8px);
+      transition: all 0.35s ease 0s;
+      .showContent & {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition-delay: 0.3s;
+      }
+    }
+  }
+  &Wrapper {
+    padding-top: 36px;
+    padding-bottom: 52px;
+    background-color: color(neutral, 1);
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: transform 0.35s ease 200ms;
+    @include medium {
+      height: 100%;
+      padding-top: 32px;
+      transform: scaleX(0);
+      transform-origin: center right;
+      @include scroll(y);
+    }
+    .showSubMenu & {
+      transform: none;
+      transition-delay: 100ms;
+    }
+    :global(.container-fluid) {
+      @include medium {
+        height: 100%;
+      }
+    }
+  }
+  &Inner {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.35s ease 0ms;
+    @include medium {
+      position: relative;
+      flex-direction: column;
+      height: 100%;
+      transform: translateX(8px);
+      @include scroll('y');
+    }
+    .showSubMenu & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 350ms;
+    }
+  }
+  &Content {
+    flex: 1;
+    @include medium {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      width: 100%;
+      height: 100%;
+      background-color: color(neutral, 1);
+      @include scroll('y');
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: transform 0.35s ease 0.2s;
+      .showContent & {
+        opacity: 1;
+        visibility: visible;
+        transform: scaleX(1);
+        transition-delay: 0s;
+      }
+    }
+  }
+  &Sub {
+    $ms: &;
+    display: none;
+    &Active {
+      display: block;
+      width: 100%;
+      animation: show-pane 0.35s ease-in-out 0s both;
+    }
+    @keyframes show-pane {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    &List {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -16px;
+      margin-right: -16px;
+      @include medium {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      @include small {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        margin: 0;
+      }
+    }
+    &Item {
+      width: 25%;
+      box-sizing: border-box;
+      padding: 8px;
+      @include medium {
+        width: 50%;
+      }
+      @include small {
+        width: 100%;
+        padding: 0 0 0 32px;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &Close {
+        display: none;
+        padding-left: 0;
+        margin-bottom: 20px;
+        @include medium {
+          width: 100%;
+          display: block;
+        }
+        #{$ms} {
+          &Link {
+            display: flex;
+            align-items: center;
+            color: color(primary, 6);
+            font-weight: fw(medium);
+            i {
+              display: block;
+              font-size: 18px;
+              margin-right: 14px;
+            }
+          }
+        }
+      }
+      &Head {
+        display: none;
+        @include medium {
+          display: block;
+          width: 100%;
+        }
+        #{$ms} {
+          &Link {
+            font-weight: fw(medium);
+          }
+        }
+      }
+    }
+    &Link {
+      padding: 8px;
+      margin: 0;
+      outline: 0;
+      border: 0;
+      text-decoration: none;
+      @include font-size(button-large);
+      transition: all 0.35s ease;
+      background-color: transparent;
+      @include remove-tap-highlight;
+      // @include hover-underline;
+      @include medium {
+        display: block;
+        padding: 0;
+        &::after {
+          content: none;
+        }
+      }
+      &Active,
+      &:hover {
+        // @include hover-underline(active);
+        color: color(primary, 6);
+      }
+    }
+  }
+}
+.search {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  bottom: 0;
+  width: 100%;
+  background-color: color(opacity, 2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease 400ms;
+  @include x-small {
+    top: 64px;
+  }
+  .showSearch & {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0ms;
+  }
+  &Wrapper {
+    padding-top: 24px;
+    padding-bottom: 40px;
+    background-color: color(neutral, 1);
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: transform 0.35s ease 250ms;
+    @include medium {
+      height: 100%;
+      padding: 24px 0 32px;
+    }
+    @include small {
+      padding: 16px 0 32px;
+    }
+    .showSearch & {
+      transform: none;
+      transition-delay: 100ms;
+    }
+  }
+  &Inner {
+    max-width: 960px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.35s ease 0ms;
+    @include medium {
+      padding: 0 32px;
+      position: relative;
+      flex-direction: column;
+      height: 100%;
+      @include scroll('y');
+    }
+    @include small {
+      padding: 0 24px;
+    }
+    .showSearch & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 450ms;
+    }
+  }
+  &Bar {
+    position: relative;
+    margin-bottom: 48px;
+  }
+  &Recent {
+    position: relative;
+    display: flex;
+    margin-bottom: 24px;
+    @include medium {
+      flex-direction: column;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &Label {
+      @include font-size(caption);
+      margin: 4px 12px 0 0;
+      @include medium {
+        margin: 0 0 16px;
+      }
+      @include small {
+        @include font-size(small);
+        margin-bottom: 12px;
+      }
+    }
+    &List {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: -4px -4px 0;
+      padding: 0 64px 0 0;
+    }
+    &Item {
+      padding: 4px;
+    }
+    &Btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      @include font-size(button-small);
+      font-weight: fw(regular);
+      color: color(neutral, 9);
+      min-width: 64px;
+      border: solid 1px color(neutral, 5);
+      @include radius(16);
+      padding: 8px 12px 6px;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      @include remove-tap-highlight;
+      @include small {
+        @include font-size(small);
+        padding: 4px 8px 3px;
+      }
+      &:hover {
+        border-color: color(primary, 6);
+        color: color(primary, 6);
+        button {
+          color: color(primary, 6);
+        }
+      }
+      span {
+        margin-right: 8px;
+      }
+    }
+    &Remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: fw(regular);
+      cursor: pointer;
+      @include remove-tap-highlight;
+      transition: all 0.3s ease;
+      @include small {
+        font-size: 10px;
+      }
+      &:hover {
+        color: color(danger, 6);
+      }
+    }
+    &Clear {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1;
+      color: color(primary, 6);
+      font-weight: fw(regular);
+      cursor: pointer;
+      @include remove-tap-highlight;
+      transition: all 0.3s ease;
+      @include medium {
+        top: 6px;
+        transform: none;
+      }
+      @include small {
+        top: 0;
+        @include font-size(small);
+      }
+      &:hover {
+        color: color(primary, 6);
+      }
+    }
+  }
+  &Result {
+    $sp: &;
+    width: 100%;
+    margin-bottom: 48px;
+    @include medium {
+      margin-bottom: 40px;
+    }
+    @include small {
+      margin-bottom: 32px;
+    }
+    &Label {
+      @include font-size(body);
+    }
+    &List {
+      display: flex;
+      margin-left: -8px;
+      margin-right: -8px;
+      @include medium {
+        flex-direction: column;
+        margin: 0;
+      }
+    }
+    &Item {
+      position: relative;
+      width: 25%;
+      padding: 0 8px;
+      @include medium {
+        width: 33.333333%;
+        padding: 6px;
+      }
+    }
+    &Box {
+      position: relative;
+      @include shadow(1);
+      @include radius(6);
+      &:hover {
+        #{$sp} {
+          &ImgEl {
+            transform: scale(1.05);
+          }
+          // &Title {
+          //   @include hover-underline(active);
+          // }
+        }
+      }
+    }
+    &Link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      opacity: 0;
+    }
+    &Img {
+      position: relative;
+      padding-bottom: 105%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 12px;
+      @include medium {
+        display: none;
+      }
+      &El {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        transition: all 0.35s ease;
+      }
+    }
+    &Text {
+      padding: 16px;
+      @include small {
+        padding: 12px;
+      }
+    }
+    &Title {
+      display: inline-block;
+      @include font-size(caption);
+      color: color(neutral, 9);
+      margin-bottom: 0;
+      @include multiline-ellipsis(2);
+      // @include hover-underline;
+      @include medium {
+        @include font-size(small);
+      }
+    }
+  }
+  &Tag {
+    display: flex;
+    margin-bottom: 24px;
+    @include medium {
+      flex-direction: column;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &Label {
+      @include font-size(caption);
+      margin: 4px 12px 0 0;
+      @include medium {
+        margin: 0 0 16px;
+      }
+      @include small {
+        @include font-size(small);
+        margin-bottom: 12px;
+      }
+    }
+    &List {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: -4px -4px 0;
+      padding: 0;
+    }
+    &Item {
+      padding: 4px;
+    }
+    &Link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      @include font-size(button-small);
+      color: color(neutral, 9);
+      min-width: 64px;
+      border: solid 1px color(neutral, 5);
+      @include radius(16);
+      padding: 8px 12px 6px;
+      transition: all 0.3s ease;
+      @include remove-tap-highlight;
+      @include small {
+        @include font-size(small);
+        padding: 4px 12px 3px;
+      }
+      &:hover {
+        border-color: color(primary, 6);
+        color: color(primary, 6);
+      }
+      span {
+        margin-right: 8px;
+      }
+      i {
+        font-size: 14px;
+        line-height: 1;
+        @include small {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

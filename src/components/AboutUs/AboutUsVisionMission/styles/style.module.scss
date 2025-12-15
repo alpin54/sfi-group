@@ -1,0 +1,85 @@
+@import '_cores/styles/_assets.scss';
+
+.visionMission {
+  padding-top: 40px;
+  padding-bottom: 56px;
+  @include medium {
+    padding-top: 32px;
+  }
+  @include small {
+    padding-top: 20px;
+  }
+}
+.list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.item {
+  display: flex;
+  margin-bottom: 40px;
+  @include medium {
+    display: block;
+    margin-bottom: 32px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &Title {
+    flex: 0 0 184px;
+    font-weight: fw(regular);
+    padding-right: 24px;
+    margin-bottom: 0;
+    @include medium {
+      padding-right: 0;
+      margin-bottom: 12px;
+    }
+    @include small {
+      @include font-size(body);
+    }
+  }
+}
+.description {
+  p,
+  li,
+  a {
+    @include font-size(h5);
+    @include medium {
+      @include font-size(h6);
+    }
+    @include small {
+      @include font-size(body);
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  li {
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 12px;
+    @include font-icon(before);
+    @include font-icon-set(caret-right, before, 1.2rem);
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &::before {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: fw(bold);
+      background-color: color(primary, 10);
+      border-radius: 50%;
+      color: color(neutral, 1);
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+  }
+}

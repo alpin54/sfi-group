@@ -1,0 +1,353 @@
+@import '_cores/styles/_assets.scss';
+
+.footerSection {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: zi(footer);
+  background-color: color(neutral, 10);
+  padding: 56px 0 40px;
+  @include medium {
+    position: relative;
+  }
+  @include small {
+    padding: 40px 0 32px;
+  }
+}
+
+.footerGrid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 32px;
+  border-bottom: 1px solid color(neutral, 4);
+  @include medium {
+    flex-direction: column;
+  }
+  @include x-small {
+    padding-bottom: 24px;
+  }
+}
+
+/* ===============================
+   Common Menu Block
+=============================== */
+.menuTitle, .menuTitleContact, .menuTitleSocial, .menuTitleMarket {
+  @include font-size(caption);
+  font-weight: fw(medium);
+  color: color(neutral, 8);
+  margin-bottom: 14px;
+}
+
+.menuTitle {
+  @include medium {
+    margin-bottom: 0;
+    padding-bottom: 12px;
+    position: relative;
+    @include remove-tap-highlight;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 18px;
+      width: 12px;
+      height: 2px;
+      z-index: 3;
+      background-color: color(neutral, 6);
+      transition: all 0.35s ease;
+      .open & {
+        top: 10px;
+      }
+    }
+    &::before {
+      right: 12px;
+      transform-origin: 100% 100%;
+      transform: rotate(40deg) scaleY(1.1);
+      .open & {
+        transform-origin: 100% 0%;
+        transform: rotate(-40deg) scaleY(1.1);
+      }
+    }
+    &::after {
+      right: 0;
+      transform-origin: 0% 100%;
+      transform: rotate(-40deg) scaleY(1.1);
+      .open & {
+        transform-origin: 0% 0%;
+        transform: rotate(40deg) scaleY(1.1);
+      }
+    }
+  }
+}
+
+.menuList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: all 0.35s ease 0.35s;
+  overflow: hidden;
+  .open & {
+    transition-delay: 0s;
+  }
+}
+
+.menuItem {
+  margin-bottom: 12px;
+  @include medium {
+    margin: 0 0 12px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.35s ease 0s;
+    .open & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.25s;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.menuLink {
+  position: relative;
+  text-decoration: none;
+  @include font-size(button-small);
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+  @include hover-underline;
+  color: color(neutral, 6);
+  &:hover {
+    color: color(primary, 9);
+    @include hover-underline(active);
+  }
+}
+
+.menuGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menuGroup, .rowTwo, .rowThree, .footerExtra {
+  @include medium {
+    width: 100%;
+  }
+}
+
+.menuBlock {
+  @include medium {
+    margin-bottom: 16px !important;
+  }
+}
+
+/* ===============================
+   Row 2 — Get to Know + Legal
+=============================== */
+.rowTwo {
+  display: flex;
+  flex-direction: column;
+  & .menuBlock {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ===============================
+   Row 3 — Partner + Need Help
+=============================== */
+.rowThree {
+  display: flex;
+  flex-direction: column;
+  & .menuBlock {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ===============================
+   Row 4 — Contact + Social + Marketplace
+=============================== */
+.footerExtra {
+  display: flex;
+  flex-direction: column;
+  & .menuBlock {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ========== Contact ========== */
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  @include x-small {
+    margin-bottom: 32px;
+  }
+}
+
+.contactItem {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  & i {
+    margin-right: 8px;
+    @include font-size(button-small);
+  }
+  .contactLink {
+    @include font-size(button-small);
+    color: color(neutral, 12);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    @include hover-underline;
+    position: relative;
+    &:hover {
+      color: color(primary, 9);
+      @include hover-underline(active);
+    }
+  }
+}
+
+/* ========== Social ========== */
+.socialBlock {
+  margin-bottom: 40px;
+  @include x-small {
+    margin-bottom: 32px;
+  }
+  .socialIcons {
+    display: flex;
+    align-items: center;
+  }
+  .socialLink {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 6px;
+    border-radius: 6px;
+    background-color: color(neutral, 3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+    .socialImage {
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// ========== Marketplace ========== */
+.marketplaceBlock {
+  .marketplaceIcons {
+    display: flex;
+    align-items: center;
+  }
+  .marketplaceLink {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background-color: color(neutral, 3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+    .marketplaceImage {
+      display: block;
+      width: 100%;
+      height: 20px;
+    }
+  }
+}
+
+/* ===============================
+   Bottom Footer
+=============================== */
+.bottomFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+
+  @include x-small {
+    padding-top: 24px;
+  }
+
+  .copyright {
+    margin: 0;
+    @include font-size(button-small);
+    color: color(neutral, 8);
+    @include retina {
+        @include font-size(small);
+      }
+  }
+
+  .language {
+    display: flex;
+    align-items: center;
+
+    .languageBtn {
+      padding: 0;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      @include font-size(button-small);
+      color: color(neutral, 6);
+      transition: all 0.3s ease;
+
+      &:hover {
+        & span {
+          color: color(warning, 6);}
+      }
+    }
+    .languageIcon {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      & :last-child {
+        margin-right: 0;
+      }
+      @include x-small {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    & span {
+      @include font-size(button-small);
+      color: color(neutral, 6);
+      padding-top: 2px;
+      @include retina {
+        @include font-size(small);
+      }
+    }
+  }
+}
+

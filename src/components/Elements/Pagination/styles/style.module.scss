@@ -1,0 +1,123 @@
+@import '_cores/styles/_assets.scss';
+
+.pagination {
+  $pg: &;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  width: 100%;
+
+  &List {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &Item {
+    margin-right: 16px;
+    @include small {
+      margin-right: 12px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &Link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    color: color(primary, 9);
+    @include font-size(button-small);
+    text-decoration: none;
+    border: 1px solid color(primary, 10);
+    background-color: color(neutral, 1);
+    transition: all 0.3s ease;
+    @include small {
+      width: 32px;
+      height: 32px;
+    }
+    &:hover {
+      border-color: color(primary, 10);
+      background-color: color(primary, 2);
+      color: color(primary, 10);
+    }
+    &.active {
+      background-color: color(primary, 2);
+      color: color(primary, 10);
+      border-color: color(primary, 10);
+    }
+    &.disabled {
+      cursor: not-allowed;
+      background-color: color(neutral, 3);
+      border-color: color(neutral, 14);
+    }
+    &.dots {
+      pointer-events: none;
+      background: transparent;
+      border: none;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+  &Text {
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      content: attr(data-text);
+      color: color(neutral, 1);
+      @include font-size(button-small);
+      font-weight: fw(light);
+      transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition-delay: 50ms;
+    }
+    &::after {
+      top: 20px;
+    }
+  }
+  &Counter {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    @include retina {
+      display: none;
+    }
+    &Item {
+      position: relative;
+      @include font-size(h6);
+      &::after {
+        content: '/';
+        margin: 0 16px;
+        @include small {
+          margin: 0 8px;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

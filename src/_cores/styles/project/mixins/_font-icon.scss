@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Mixin Font Icon
+   ========================================================================== */
+
+@mixin font-icon($pseudo: before) {
+  @if $pseudo == before or $pseudo == after {
+    &:#{$pseudo} {
+      font-family: ff(icon);
+      line-height: 1;
+      speak: never;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      color: inherit;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  } @else {
+    font-family: ff(icon);
+    line-height: 1;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: inherit;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@mixin font-icon-set($name: barn, $pseudo: before, $size: 1.6rem) {
+  &:#{$pseudo} {
+    content: map-get($icons, $name);
+    font-size: $size;
+    line-height: 1;
+  }
+}
