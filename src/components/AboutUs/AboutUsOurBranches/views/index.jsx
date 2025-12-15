@@ -1,7 +1,7 @@
 'use client';
 
 // -- components
-import IndonesiaMap from '@components/AboutUs/AboutUsOurBranches/views/indonesiaMap';
+import IndonesiaMap from '@components/AboutUs/AboutUsOurBranches/views/indonesiaMap.jsx';
 
 // -- styles
 import style from '@components/AboutUs/AboutUsOurBranches/styles/style.module.scss';
