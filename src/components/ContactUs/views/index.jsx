@@ -241,7 +241,7 @@ const ContactUs = ({ data }) => {
             {/* CONTACTS */}
             {contacts.length > 0 && (
               <div className={style.contactUs__rightBlock}>
-                <h3 className={style.contactUs__rightTitle}>Let's Talk</h3>
+                <h3 className={style.contactUs__rightTitle}>Let&apos;s Talk</h3>
                 <ul className={style.contactUs__rightList}>
                   {contacts.map((item, i) => {
                     const lbl = (item.label || '').toLowerCase();

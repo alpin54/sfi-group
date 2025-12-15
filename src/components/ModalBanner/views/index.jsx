@@ -37,6 +37,7 @@ const ModalBanner = (props) => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKey);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   const closeModal = () => {

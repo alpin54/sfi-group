@@ -20,8 +20,8 @@ const FILTERS = [
 ];
 
 const CareerList = ({ data }) => {
-  const list = data?.list ?? [];
-  const empty = data?.empty ?? {};
+  const list = data.list;
+  const empty = data.empty;
 
   const [filter, setFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -107,7 +107,6 @@ const CareerList = ({ data }) => {
                     key={f.key}
                     type='button'
                     role='tab'
-                    aria-pressed={isActive}
                     className={`${style.tabButton} ${isActive ? style.active : ''}`}
                     onClick={() => handleFilterChange(f.key)}>
                     {f.label}
