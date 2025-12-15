@@ -8,8 +8,8 @@ import ShipingReturnView from '@components/LegalContent/ShipingReturn/views';
 import ShipingReturnData from '@components/LegalContent/ShipingReturn/data';
 
 const ShipingReturnWidget = async () => {
-  const { data } = await ShipingReturnModel.list();
-  return <ShipingReturnView data={data?.data} />;
+  // const { data } = await ShipingReturnModel.list();
+  return <ShipingReturnView data={ShipingReturnData} />;
 };
 
 export default ShipingReturnWidget;

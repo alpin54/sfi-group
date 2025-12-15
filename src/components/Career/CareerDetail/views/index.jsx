@@ -1,7 +1,7 @@
 'use client';
 
-// -- libraries
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 // -- styles
 import style from '@components/Career/CareerDetail/styles/style.module.scss';
@@ -10,34 +10,36 @@ import style from '@components/Career/CareerDetail/styles/style.module.scss';
 import Button from '@elements/Button/views';
 import Modal from '@elements/Modal/views';
 import Input from '@elements/Input/views';
+import SystemIcon from '@elements/SystemIcon/views';
+// assets
+import SuccesImage from '@assets/image/dummy/success.svg';
 
-// Jika ingin model default, tetap import bisa, tapi di-handle di logic nanti
+// -- model (dipakai jika ada, kalau tidak ada akan di-mock)
 import careerDetailModel from '@components/Career/CareerDetail/models';
 
 const CareerDetail = (props) => {
   const { data } = props;
-  const [openModal, setOpenModal] = useState(false);
+  const successTimeout = useRef();
+
   const [showSuccess, setShowSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const USE_API = false;
+
+  // Form state (sesuai design: Full Name single field)
   const [form, setForm] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
+    full_name: '',
     phone: '',
+    email: '',
     resume: null
   });
   const [resumeName, setResumeName] = useState('');
   const [errors, setErrors] = useState({});
-  const successTimeout = useRef();
+
   const rules = {
-    first_name: {
+    full_name: {
       required: true,
-      requiredMessage: 'First name is required'
-    },
-    last_name: {
-      required: true,
-      requiredMessage: 'Last name is required'
+      requiredMessage: 'Full name is required'
     },
     email: {
       required: true,
@@ -59,7 +61,7 @@ const CareerDetail = (props) => {
     }
   };
 
-  // Helper: validate single field
+  // Validate single field
   const validateField = (name, value, file) => {
     if (name === 'resume') {
       if (!file) return rules.resume.requiredMessage;
@@ -67,7 +69,8 @@ const CareerDetail = (props) => {
       if (file.size > 3 * 1024 * 1024) return 'File size must be max 3 MB';
       return '';
     }
-    if (rules[name].required && !value.trim()) {
+
+    if (rules[name].required && (!value || !String(value).trim())) {
       return rules[name].requiredMessage;
     }
     if (rules[name].pattern && value && !rules[name].pattern.test(value)) {
@@ -76,226 +79,245 @@ const CareerDetail = (props) => {
     return '';
   };
 
-  // Helper: validate form for submit
+  // Validate whole form
   const validate = () => {
     const newErrors = {};
-    newErrors.first_name = validateField('first_name', form.first_name, null);
-    newErrors.last_name = validateField('last_name', form.last_name, null);
+    newErrors.full_name = validateField('full_name', form.full_name, null);
     newErrors.email = validateField('email', form.email, null);
     newErrors.phone = validateField('phone', form.phone, null);
     newErrors.resume = validateField('resume', '', form.resume);
+
     Object.keys(newErrors).forEach((k) => {
       if (!newErrors[k]) delete newErrors[k];
     });
+
     return newErrors;
   };
 
-  // Handle input changes with real-time validation
+  // Handle input changes (works for Input component and file input)
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'resume') {
-      const file = files[0];
+      const file = files && files[0] ? files[0] : null;
       setForm((prev) => ({ ...prev, resume: file }));
       setResumeName(file ? file.name : '');
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validateField(name, '', file)
-      }));
+      setErrors((prev) => ({ ...prev, resume: validateField('resume', '', file) }));
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validateField(name, value, null)
-      }));
+      setErrors((prev) => ({ ...prev, [name]: validateField(name, value, null) }));
     }
   };
 
-  // INTEGRASI handleSubmit ke onSubmit external
+  // Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage('');
+
+    // 🔹 VALIDASI TETAP JALAN
     const foundErrors = validate();
     if (Object.keys(foundErrors).length > 0) {
       setErrors(foundErrors);
       return;
     }
+
     setErrors({});
     setLoading(true);
 
     try {
-      // Persiapkan form data untuk dikirim
-      const formData = new FormData();
-      formData.append('first_name', form.first_name);
-      formData.append('last_name', form.last_name);
-      formData.append('email', form.email);
-      formData.append('phone', form.phone);
-      formData.append('resume', form.resume);
-      formData.append('career_id', form.career_id);
-      formData.append('status', 1);
+      let submitResult;
 
-      const { data } = await careerDetailModel.submit(formData);
+      if (USE_API) {
+        // 🔹 REAL API (nanti)
+        const formData = new FormData();
+        formData.append('full_name', form.full_name);
+        formData.append('email', form.email);
+        formData.append('phone', form.phone);
+        if (form.resume) formData.append('resume', form.resume);
+        formData.append('career_id', data.id || '');
+        formData.append('status', 1);
 
-      // Gunakan response sukses/failure dari handler submit
-      if (data?.data) {
-        setOpenModal(false);
+        submitResult = await careerDetailModel.submit(formData);
+      } else {
+        // 🔹 MOCK SUCCESS (sekarang)
+        await new Promise((res) => setTimeout(res, 800));
+        submitResult = {
+          data: {
+            data: true
+          }
+        };
+      }
+
+      if (submitResult?.data?.data) {
         setShowSuccess(true);
+
+        // reset form
         setForm({
-          first_name: '',
-          last_name: '',
+          full_name: '',
           email: '',
           phone: '',
           resume: null
         });
         setResumeName('');
 
-        // Set timeout to close success modal after 2 seconds
         if (successTimeout.current) clearTimeout(successTimeout.current);
-        successTimeout.current = setTimeout(() => {
-          setShowSuccess(false);
-        }, 2000);
+        successTimeout.current = setTimeout(() => setShowSuccess(false), 2000);
       } else {
-        // Handle jika response error
-        const errorMsg =
-          submitResult?.error || submitResult?.message || 'Failed to submit application. Please try again.';
-        setMessage(errorMsg);
+        setMessage(submitResult?.error || submitResult?.message || 'Failed to submit application. Please try again.');
       }
     } catch (err) {
-      // Handle jika terjadi error pas submit
+      console.error('Submit error:', err);
       setMessage('Failed to submit application. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  // Clean up timeout if component unmount
   useEffect(() => {
     return () => {
       if (successTimeout.current) clearTimeout(successTimeout.current);
     };
   }, []);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
-    setShowSuccess(false);
-    setErrors({});
-    if (successTimeout.current) clearTimeout(successTimeout.current);
-  };
-
   return (
     <section className={style.section}>
       <div className='container'>
         <div className={style.wrapp}>
-          <h2 className={style.title}>{data.title}</h2>
+          <div className={style.backTo}>
+            <button type='button' onClick={() => window.history.back()} className={style.btnBack}>
+              <SystemIcon name='caret-left' size={14} />
+              <span>Back</span>
+            </button>
+          </div>
+
           <div className={style.content}>
-            <div className={style.detailGrid}>
-              {data.responsibilities && (
-                <div className={style.detailColumn}>
-                  <h5 className={style.subtitle}>Responsibilities</h5>
-                  <div
-                    className={style.detailContent}
-                    dangerouslySetInnerHTML={{ __html: data.responsibilities }}></div>
+            {/* LEFT: Job detail */}
+            <div className={style.left}>
+              <h3 className={style.title}>{data.title}</h3>
+
+              <div className={style.meta}>
+                <div className={style.metaItem}>
+                  <h6 className={style.metaLabel}>Work Type</h6>
+                  <div className={style.metaValue}>
+                    <SystemIcon name='timer' size={16} />
+                    <span>{data.work_type || 'Full-Time'}</span>
+                  </div>
                 </div>
-              )}
-              {data.qualifications && (
-                <div className={style.detailColumn}>
-                  <h5 className={style.subtitle}>Qualifications</h5>
-                  <div className={style.detailContent} dangerouslySetInnerHTML={{ __html: data.qualifications }}></div>
+
+                <div className={style.metaItem}>
+                  <h6 className={style.metaLabel}>Location</h6>
+                  <div className={style.metaValue}>
+                    <SystemIcon name='buildin-fill' size={16} />
+                    <span>{data.location || 'On Site'}</span>
+                  </div>
                 </div>
+              </div>
+
+              {data.description && (
+                <>
+                  <h5 className={style.subtitle}>Description</h5>
+                  <div className={style.body} dangerouslySetInnerHTML={{ __html: data.description }}></div>
+                </>
               )}
-              {/* {data.benefit && (
-                <div className={style.detailColumn}>
+
+              {data.requirements && (
+                <>
+                  <h5 className={style.subtitle}>Requirements</h5>
+                  <div className={style.body} dangerouslySetInnerHTML={{ __html: data.requirements }} />
+                </>
+              )}
+
+              {data.benefits && (
+                <>
                   <h5 className={style.subtitle}>Benefits</h5>
-                  <div className={style.detailContent} dangerouslySetInnerHTML={{ __html: data.benefit }}></div>
-                </div>
-              )} */}
+                  <div className={style.body} dangerouslySetInnerHTML={{ __html: data.benefits }} />
+                </>
+              )}
             </div>
-            <div className={style.btnWrapper}>
-              <Button type='button' onClick={handleOpenModal}>
-                APPLY
-              </Button>
+
+            {/* RIGHT: Inline Apply Form */}
+            <div className={style.right}>
+              <form className={style.applyForm} onSubmit={handleSubmit} noValidate>
+                <div className={style.formGroup}>
+                  <label className={style.formLabel}>Full Name</label>
+                  <Input
+                    type='text'
+                    name='full_name'
+                    value={form.full_name}
+                    onChange={handleChange}
+                    error={errors.full_name}
+                    autoComplete='name'
+                  />
+                </div>
+
+                <div className={style.formGroup}>
+                  <label className={style.formLabel}>Phone Number</label>
+                  <Input
+                    type='text'
+                    name='phone'
+                    value={form.phone}
+                    onChange={handleChange}
+                    error={errors.phone}
+                    autoComplete='tel'
+                  />
+                </div>
+
+                <div className={style.formGroup}>
+                  <label className={style.formLabel}>Email</label>
+                  <Input
+                    type='email'
+                    name='email'
+                    value={form.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                    autoComplete='email'
+                  />
+                </div>
+
+                <div className={`${style.formGroup} ${style.formFile}`}>
+                  <label className={style.formLabel}>Resume / CV</label>
+                  <label className={style.fileInputLabel}>
+                    <input
+                      type='file'
+                      name='resume'
+                      accept='application/pdf'
+                      className={style.fileInputNative}
+                      onChange={handleChange}
+                    />
+                    <div className={`${style.fileInputCustom} ${errors.resume ? style.error : ''}`}>
+                      <span className={style.fileIcon}>
+                        <SystemIcon name='link-simple' size={16} />
+                      </span>
+                      <span className={style.fileText}>{resumeName}</span>
+                    </div>
+                  </label>
+                  <div className={style.fileDesc}>PDF only, max 3 MB.</div>
+                  {errors.resume && <div className={style.errorMsg}>{errors.resume}</div>}
+                </div>
+
+                <div className={style.formGroup}>
+                  <Button type='submit' disabled={loading} className={style.applyBtn}>
+                    {loading ? 'Mengirim...' : 'Apply Now'}
+                  </Button>
+                  {message && <div className={style.errorMsg}>{message}</div>}
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      {/* Modal Job Application */}
-      <Modal open={openModal} onClose={() => setOpenModal(false)} title='Submit Job Application' size='small'>
-        <form className={style.applyForm} onSubmit={handleSubmit}>
-          <input type='hidden' name='career_id' value={data.id} />
-          <div className={style.formRow}>
-            <Input
-              type='text'
-              name='first_name'
-              placeholder='First Name'
-              value={form.first_name}
-              onChange={handleChange}
-              error={errors.first_name}
-              autoComplete='off'
-            />
-          </div>
-          <div className={style.formRow}>
-            <Input
-              type='text'
-              name='last_name'
-              placeholder='Last Name'
-              value={form.last_name}
-              onChange={handleChange}
-              error={errors.last_name}
-              autoComplete='off'
-            />
-          </div>
-          <div className={style.formRow}>
-            <Input
-              type='email'
-              name='email'
-              placeholder='Email'
-              value={form.email}
-              onChange={handleChange}
-              error={errors.email}
-              autoComplete='off'
-            />
-          </div>
-          <div className={style.formRow}>
-            <Input
-              type='text'
-              name='phone'
-              placeholder='Phone Number'
-              value={form.phone}
-              onChange={handleChange}
-              error={errors.phone}
-              autoComplete='off'
-            />
-          </div>
-          <div className={`${style.formRow} ${style.formFile}`}>
-            <label className={style.fileInputLabel}>
-              <input
-                type='file'
-                name='resume'
-                accept='application/pdf'
-                className={style.fileInputNative}
-                onChange={handleChange}
-              />
-              <div className={`${style.fileInputCustom} ${errors.resume ? style.error : ''}`}>
-                {resumeName || 'Resume / CV'}
-              </div>
-            </label>
-            <div className={style.fileDesc}>PDF only, max 3 MB.</div>
-            {errors.resume && <div className={style.errorMsg}>{errors.resume}</div>}
-          </div>
-          <div className={style.formRow}>
-            <Button type='submit' disabled={loading}>
-              {loading ? 'Mengirim...' : 'SUBMIT'}
-            </Button>
-            {message && <div className={style.errorMsg}>{message}</div>}
-          </div>
-        </form>
-      </Modal>
-      {/* Modal for Success */}
-      <Modal
-        open={showSuccess}
-        onClose={() => setShowSuccess(false)}
-        variant='success'
-        title='Application Submitted Successfully'
-        closeIcon='hide'>
-        <div>Thank you for applying. Our team will review your application and contact you if you are shortlisted.</div>
+      {/* Success Modal */}
+      <Modal open={showSuccess} onClose={() => setShowSuccess(false)} variant='success' closeIcon='hide'>
+        <div>
+          <Image
+            src={SuccesImage}
+            alt='Success'
+            width={160}
+            height={80}
+            style={{ display: 'block', margin: '0 auto 16px' }}
+          />
+          <h5>Application Submitted 🎉</h5>
+          <p>Thanks for applying! We’ve received your application and will review it shortly.</p>
+        </div>
       </Modal>
     </section>
   );

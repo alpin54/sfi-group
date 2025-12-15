@@ -1,7 +1,7 @@
 'use client';
 
-// -- library
-import Image from 'next/image';
+// -- components
+import IndonesiaMap from '@components/AboutUs/AboutUsOurBranches/views/indonesiaMap';
 
 // -- styles
 import style from '@components/AboutUs/AboutUsOurBranches/styles/style.module.scss';
@@ -13,9 +13,7 @@ const AboutUsOurBranches = (props) => {
     <section className={style.ourBranches}>
       <div className='container'>
         <h2 className={style.title}>{data.title}</h2>
-        <div className={style.img}>
-          <Image className={style.imgEl} src={data.image} alt={data.title} />
-        </div>
+        <IndonesiaMap geoUrl={data?.geoUrl} markers={data?.branches} />
       </div>
     </section>
   );

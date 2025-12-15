@@ -33,7 +33,7 @@ const data = {
           { name: 'About Us', url: '/about-us' },
           { name: 'Contact Us', url: '/contact-us' },
           { name: 'Careers', url: '/career' },
-          { name: 'FAQ', url: '/faq' }
+          { name: 'FAQ', url: '/faqs' }
         ]
       },
 
@@ -41,8 +41,8 @@ const data = {
         title: 'Legal & Policy',
         type: 'menu',
         links: [
-          { name: 'Terms & Conditions', url: '/terms' },
-          { name: 'Privacy Policy', url: '/privacy' }
+          { name: 'Terms & Conditions', url: '/terms-conditions' },
+          { name: 'Privacy Policy', url: '/privacy-policy' }
         ]
       },
 
@@ -60,7 +60,7 @@ const data = {
         title: 'Need Help?',
         type: 'menu',
         links: [
-          { name: 'Shipping Information', url: '/help/shipping' },
+          { name: 'Shipping Information', url: '/help/shipping-return' },
           { name: 'Return & Refund Policy', url: '/help/returns' }
         ]
       },

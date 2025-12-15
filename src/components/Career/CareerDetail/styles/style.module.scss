@@ -1,113 +1,164 @@
 @import '_cores/styles/_assets.scss';
 
 .section {
-  padding: 96px 0 276px;
+  padding: 80px 0 104px;
   @include large {
-    padding: 80px 0 200px;
+    padding: 64px 0 80px;
+  }
+
+  @include medium {
+    padding: 56px 0 72px;
   }
   @include x-small {
-    padding: 48px 0 56px;
+    padding: 40px 0 56px;
   }
   :global(.container) {
     max-width: 1200px;
   }
-  .title {
-    font-family: ff(title);
-    @include font-size(h2);
-    font-weight: fw(regular);
-    color: color(primary, 9);
-    max-width: 240px;
-    margin-bottom: 64px;
+  .backTo {
+    display: inline-block;
+    margin-bottom: 48px;
     @include medium {
-      max-width: 100%;
-      margin-bottom: 48px;
-    }
-    @include x-small {
-      @include font-size(h3);
       margin-bottom: 32px;
+    }
+    .btnBack {
+      background-color: transparent;
+      border: 1px solid color(neutral, 15);
+      color: color(neutral, 12);
+      border-radius: 8px;
+      padding: 10px 20px 10px 12px;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      @include font-size(button-medium);
+      &:hover {
+        color: color(primary, 9);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        & i {
+          transform: translateX(-4px);
+        }
+      }
+      & i {
+        margin-right: 8px;
+        transition: all 0.3s ease;
+      }
+      & span {
+        padding-top: 2px;
+      }
+
     }
   }
   .content {
     display: flex;
-    flex-direction: column;
-  }
-  .detailGrid {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 64px;
+    align-items: flex-start;
     @include medium {
       flex-direction: column;
-      margin-bottom: 48px;
-    }
-    @include x-small {
-      margin-bottom: 32px;
     }
   }
-  .detailColumn {
+  .left {
     flex: 1;
-    max-width: 50%;
-    margin-right: 64px;
-    &:last-child {
+    margin-right: 80px;
+    @include medium {
       margin-right: 0;
+      margin-bottom: 8px;
+    }
+  }
+  .right {
+    width: 480px;
+    @include large {
+      width: 400px;
     }
     @include medium {
-      max-width: 100%;
-      margin-right: 0;
-      margin-bottom: 32px;
+      width: 100%;
     }
+
+  }
+  .title {
+    @include font-size(h3);
+    font-weight: fw(medium);
+    color: color(neutral, 13);
+    margin-bottom: 32px;
+    @include medium {
+      max-width: 100%;
+      margin-bottom: 24px;
+    }
+    @include x-small {
+      @include font-size(h3);
+    }
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    @include medium {
+      margin-bottom: 24px;
+    }
+    &Item {
+      margin-right: 40px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &Label {
+      @include font-size(caption);
+      font-weight: normal;
+      color: color(neutral, 12);
+      margin-bottom: 8px;
+    }
+    &Value {
+      display: flex;
+      align-items: center;
+      color: color(neutral, 13);
+      & i {
+        margin-right: 12px;
+        @include font-size(body);
+        color: color(neutral, 13);
+      }
+      & span {
+        @include font-size(h6);
+        color: color(neutral, 13);
+      }
+    }
+
+  }
+  .subtitle {
+    @include font-size(body);
+    font-weight: fw(medium);
+    color: color(neutral, 13);
+    margin-bottom: 8px;
+  }
+  .body {
+    margin-bottom: 32px;
     @include x-small {
       margin-bottom: 24px;
     }
-  }
-  .detailContent {
-    p {
-      @include font-size(h6);
-      font-weight: fw(regular);
-      color: color(neutral, 6);
-      margin-bottom: 8px;
+    & p, & ul {
+      @include font-size(body);
+      color: color(neutral, 12);
+      margin-bottom: 16px;
       @include x-small {
-        @include font-size(body);
+        margin-bottom: 12px;
       }
       &:last-child {
         margin-bottom: 0;
       }
     }
-    ul {
-      li {
-        @include font-size(h6);
-        font-weight: fw(regular);
-        color: color(neutral, 6);
-        margin-bottom: 8px;
-        @include x-small {
-          @include font-size(body);
-        }
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
   }
-  .subtitle {
-    @include font-size(h5);
-    font-weight: fw(regular);
-    color: color(primary, 9);
-    margin-bottom: 16px;
-    @include x-small {
-      @include font-size(h6);
-      margin-bottom: 12px;
-      font-weight: fw(medium);
-    }
-  }
-  .formRow {
+  .formGroup {
     position: relative;
     margin-bottom: 24px;
+    width: 100%;
     &:last-child {
       margin-bottom: 0;
+    }
+    & button {
+      width: 100%;
+      border-radius: 8px;
     }
   }
   .formFile {
     position: relative;
-
     .fileInputLabel {
       display: block;
       width: 100%;
@@ -129,21 +180,22 @@
       width: 100%;
       box-sizing: border-box;
       padding: 15px;
-      border: 1px solid color(neutral, 4);
-      border-radius: 0;
+      border: 1px solid color(neutral, 15);
+      border-radius: 8px;
       background: #fff;
       color: color(neutral, 6);
       font-size: 16px;
-      font-family: inherit;
       cursor: pointer;
       transition: border-color 0.2s;
-
       &:hover,
       &:focus {
-        border-color: color(primary, 9);
+        border-color: color(primary, 3);
       }
       &.error {
         border-color: color(danger, 6);
+      }
+      .fileText {
+        margin-left: 8px;
       }
     }
     .fileDesc {
@@ -160,4 +212,5 @@
       margin-bottom: 0;
     }
   }
+
 }

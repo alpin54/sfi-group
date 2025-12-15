@@ -20,8 +20,8 @@ const FILTERS = [
 ];
 
 const CareerList = ({ data }) => {
-  const list = data.list;
-  const empty = data.empty;
+  const list = data?.list;
+  const empty = data?.empty ?? {};
 
   const [filter, setFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);

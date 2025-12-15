@@ -339,20 +339,16 @@ const ContactUs = ({ data }) => {
       </div>
 
       {/* MODAL SUCCESS */}
-      <Modal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        variant='success'
-        title='Your message has been sent 🎉'
-        closeIcon='hide'>
+      <Modal open={openModal} onClose={() => setOpenModal(false)} variant='success' closeIcon='hide'>
         <div>
           <Image
             src={SuccesImage}
             alt='Success'
-            width={64}
-            height={64}
+            width={160}
+            height={80}
             style={{ display: 'block', margin: '0 auto 16px' }}
           />
+          <h5>Your message has been sent 🎉</h5>
           <p>Our team will follow up shortly.</p>
         </div>
       </Modal>
