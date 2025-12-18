@@ -7,8 +7,7 @@ import { useEffect } from 'react';
 import useStateHeader from '@components/Header/states';
 
 // -- components
-// import AuthSuccessWidget from '@components/Auth/AuthSuccess/widgets/SuccessVerifyEmail';
-import FallbackPages from '@components/FallbackSection/widgets/UnderConstruction';
+import AuthSuccessWidget from '@components/Auth/AuthSuccess/widgets/SuccessVerifyEmail';
 
 const VerifyEmail = () => {
   // set menu
@@ -20,8 +19,7 @@ const VerifyEmail = () => {
 
   return (
     <>
-      {/* <AuthSuccessWidget /> */}
-      <FallbackPages />
+      <AuthSuccessWidget />
     </>
   );
 };

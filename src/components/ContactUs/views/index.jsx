@@ -170,7 +170,6 @@ const ContactUs = ({ data }) => {
                     <label htmlFor={field.id} className={style.contactUs__label}>
                       {field.label}
                     </label>
-
                     <Input
                       id={field.id}
                       name={field.name}
@@ -196,13 +195,12 @@ const ContactUs = ({ data }) => {
                   <span className={style.contactUs__agreementText}>
                     I agree to the{' '}
                     <Link href={content?.agreement?.terms_url} className={style.contactUs__agreementLink}>
-                      Terms
+                      Terms & Conditions
                     </Link>{' '}
                     and{' '}
                     <Link href={content?.agreement?.privacy_url} className={style.contactUs__agreementLink}>
-                      Privacy
+                      Privacy Policy
                     </Link>{' '}
-                    policies.
                   </span>
                 </div>
 
@@ -212,7 +210,7 @@ const ContactUs = ({ data }) => {
               {/* BUTTON */}
               <div className={style.contactUs__formGroup}>
                 <Button type='submit' disabled={loading}>
-                  {loading ? 'Sending...' : 'Send Message'}
+                  {loading ? 'Submitting...' : 'Submit'}
                 </Button>
               </div>
 

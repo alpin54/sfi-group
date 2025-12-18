@@ -3,11 +3,10 @@ const termsConditionsData = {
   // created_at sebagai fallback jika updated_at tidak tersedia
   created_at: '2024-07-01T08:00:00Z',
   updated_at: '2024-08-17T00:00:00Z',
-  // description berisi HTML (WYSIWYG) — komponen Anda akan merender ini langsung
-  description: `
-    <p>Please read our Terms &amp; Conditions carefully before using our services. By accessing or making a purchase on our website, you agree to the terms outlined here. These terms ensure a safe, transparent, and fair experience for all users.</p>
-
-    <h3>General</h3>
+  description:
+    'Please read our Terms & Conditions carefully before using our services. By accessing or making a purchase on our website, you agree to the terms outlined here.',
+  body: `
+    <h6>General</h6>
     <ol>
       <li>
         <strong>Acceptance of Terms</strong>
@@ -55,7 +54,7 @@ const termsConditionsData = {
       </li>
     </ol>
 
-    <h3>E-Commerce</h3>
+    <h6>E-Commerce</h6>
     <ol>
       <li>
         <strong>Acceptance of Terms</strong>

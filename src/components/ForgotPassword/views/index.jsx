@@ -53,10 +53,12 @@ const ForgotPassword = (props) => {
     <AuthSectionWidget images={data.images} title={data.title} description={data.description}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.row}>
+          <label htmlFor='email' className={style.label}>
+            Email
+          </label>
           <Input
             type='email'
             name='email'
-            placeholder='Email'
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -66,7 +68,7 @@ const ForgotPassword = (props) => {
 
         <div className={style.row}>
           <Button type='submit' level='block'>
-            Send Instructions
+            Send Email
           </Button>
         </div>
       </form>

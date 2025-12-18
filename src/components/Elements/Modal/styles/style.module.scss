@@ -78,6 +78,7 @@
   transition-delay: 0s;
   margin: 32px;
   border-radius: 16px;
+  z-index: 1;
   @include small {
     margin: 24px;
   }

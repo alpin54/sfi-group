@@ -87,16 +87,8 @@
     padding-top: 64px;
   }
   &--auth {
-    padding: 40px 0;
-    @include medium {
-      padding: 32px 0;
-    }
-    @include small {
-      padding: 24px 0;
-    }
-    @include retina {
-      padding: 16px 0;
-    }
+    padding: 0;
+
   }
   &--no-padding {
     padding: 0;

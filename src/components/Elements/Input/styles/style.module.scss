@@ -15,7 +15,9 @@
   transition: all 0.3s ease;
   &:hover,
   &:focus {
-    border-color: color(primary, 3);
+    border-color: color(primary, 10);
+    @include shadow(5);
+    outline: none;
   }
   @include small {
     padding: 11px;

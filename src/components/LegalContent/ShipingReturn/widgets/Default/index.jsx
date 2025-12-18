@@ -7,8 +7,8 @@ import ShipingReturnView from '@components/LegalContent/ShipingReturn/views';
 // -- data
 import ShipingReturnData from '@components/LegalContent/ShipingReturn/data';
 
-const ShipingReturnWidget = async () => {
-  // const { data } = await ShipingReturnModel.list();
+const ShipingReturnWidget = () => {
+  // const data = ShipingReturnModel(ShipingReturnData);
   return <ShipingReturnView data={ShipingReturnData} />;
 };
 

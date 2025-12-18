@@ -1,8 +1,12 @@
 // -- assets
+import maintenanceImage from '@assets/image/illustration/maintenance.png';
+
+// -- assets
 const data = {
   class: 'internal-server-error',
-  title: 'Server Error',
-  description: 'Oops! Something went wrong on our server. Please try again later.'
+  image: maintenanceImage,
+  title: 'Oops, Our server ran into a problem.',
+  description: 'We’re working hard to fix it and get things back to normal.'
 };
 
 export default data;

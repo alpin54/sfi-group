@@ -1,69 +1,56 @@
 const shippingReturnData = {
-  title: 'Shipping & Return',
+  title: 'Shipping Information',
+  // fallback fields used by the component's formatDate util
   created_at: '2024-07-01T08:00:00Z',
   updated_at: '2024-08-17T00:00:00Z',
-  description: `<p>Welcome to Fashion! We are committed to providing the best service, including smooth and secure shipping and return processes. Please read our policy carefully before making a purchase.</p>
-    <h4>Shipping Policy</h4>
+  description:
+    'We strive to ensure that your order reaches you safely and on time. Below is all the information you need about our shipping process.',
+  body: `
     <ol>
       <li>
-        <strong>Order Processing Time</strong>
+        <h4>Shipping Methods</h4>
+        <p>We offer multiple shipping options to meet your needs:</p>
+          <ul>
+          <li>Standard Shipping: 3–7 business days. Cost calculated at checkout.</li>
+          <li>Express Shipping: 1–3 business days. Cost calculated at checkout.</li>
+          <li>Same-Day Delivery: Orders placed before 12:00 PM may be delivered the same day. Availability is limited to selected cities and subject to courier coverage.</li>
+        </ul>
+
+        <p class="note"><em>* Same-day delivery and express options depend on courier availability and your delivery address.</em></p>
+      </li>
+
+      <li>
+        <h4>Shipping Rates</h4>
+        <p>Shipping costs are calculated based on several factors:</p>
         <ul>
-          <li>All orders are processed within 1-2 business days after payment is confirmed.</li>
-          <li>Orders placed outside working hours or on holidays will be processed on the next business day.</li>
+          <li>Destination — domestic or international.</li>
+          <li>Package weight &amp; dimensions — oversized or heavy items may incur additional fees.</li>
+          <li>Chosen delivery method — service level (standard/express/same-day).</li>
+        </ul>
+        <p>You can view the exact shipping cost at checkout before completing your order. Promotional free-shipping offers (if any) will be applied automatically when eligible.</p>
+      </li>
+
+      <li>
+        <h4>Order Processing Time</h4>
+        <ul>
+          <li>Orders are typically processed within 1–2 business days after payment confirmation.</li>
+          <li>Orders placed on weekends, public holidays, or outside working hours will be processed on the next business day.</li>
+          <li>If an item is out of stock or delayed, we will notify you and provide options to wait, replace, or cancel.</li>
         </ul>
       </li>
+
       <li>
-        <strong>Estimated Delivery Time</strong>
+        <h4>Tracking Your Order</h4>
         <ul>
-          <li>Orders are shipped using trusted courier partners.</li>
-          <li>Delivery times may vary depending on your location, usually within 2-7 business days.</li>
-          <li>A tracking number will be sent via email or WhatsApp once your order has been shipped.</li>
+          <li>Once your order ships, a tracking number will be provided via email or WhatsApp (if you opted in).</li>
+          <li>Use the tracking number to monitor your shipment in real time on our website or the courier’s tracking page.</li>
+          <li>If you do not receive a tracking number within 48 hours of payment confirmation, contact our support team.</li>
         </ul>
-      </li>
-      <li>
-        <strong>Shipping Fees</strong> </br>
-        <p>
-          Shipping costs are automatically calculated at checkout based on the destination and product weight.
-        </p>
       </li>
     </ol>
-    <h4>Return & Refund Policy</h4>
-    <h5>Terms & Conditions for Returns or Complaints</h5>
-    <p>To ensure a smooth return or complaint process, please follow these guidelines:</p>
-    <ol>
-      <li>
-        <strong>Keep the Box and Product Intact</strong>
-        <p>
-          The product and its original packaging must remain complete and in good condition.
-        </p>
-      </li>
-      <li>
-        <strong>Prepare Your Purchase Invoice</strong>
-        <p>
-          The invoice serves as proof of your transaction and is required for any return or complaint.
-        </p>
-      </li>
-      <li>
-        <strong>Record a Clear Unboxing Video</strong>
-        <p>
-            Before opening your product, you are required to record a video showing:
-        </p>
-        <ul>
-          <li>The condition of the package before opening</li>
-          <li>The process of unboxing</li>
-          <li>The condition of the product after unboxing</li>
-          <li>The exact location and description of the defect</li>
-        </ul>
-        <p>If you have any questions or need further assistance, please contact our customer support team.</p>
-        <p><em>Important: Without a clear unboxing video, your return or complaint request cannot be processed.</em></p>
-      </li>
-      <li>
-        <strong>Not Applicable for Damages Caused by Human Error</strong>
-        <p>
-          Any damages resulting from misuse, mishandling, or improper use are not covered by our warranty.
-        </p>
-      </li>
-    </ol>
+
+
   `
 };
+
 export default shippingReturnData;

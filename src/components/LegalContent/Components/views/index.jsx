@@ -9,15 +9,14 @@ const LegalContentView = ({ data, parentClass = '' }) => (
     <div className='container'>
       <div className={style.legalcontent__inner}>
         <div className={style.legalcontent__header}>
-          <div className={style.legalcontent__title}>
-            <h2 className={style.legalcontent__titleEl}>{data.title}</h2>
-            <p className={style.legalcontent__date}>
-              Last Updated {formatDate(data.updated_at ? data.updated_at : data.created_at)}
-            </p>
-          </div>
+          <p className={style.legalcontent__date}>
+            Last Updated {formatDate(data.updated_at ? data.updated_at : data.created_at)}
+          </p>
+          <h3 className={style.legalcontent__title}>{data.title}</h3>
+          <p className={style.legalcontent__description}>{data.description}</p>
         </div>
 
-        <div className={style.legalcontent__body} dangerouslySetInnerHTML={{ __html: data.description }} />
+        <div className={style.legalcontent__body} dangerouslySetInnerHTML={{ __html: data.body }} />
       </div>
     </div>
   </section>

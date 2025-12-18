@@ -23,7 +23,6 @@ import AuthSectionWidget from '@components/Auth/AuthSection/widgets/Default';
 
 // -- elements
 import Input from '@elements/Input/views';
-
 import Modal from '@elements/Modal/views';
 
 const AuthSuccess = (props) => {
@@ -48,10 +47,14 @@ const AuthSuccess = (props) => {
 
   return (
     <>
-      <AuthSectionWidget images={data.images} title={data.title} description={data.description}>
+      <AuthSectionWidget
+        images={data.images}
+        title={data.title}
+        description={data.description}
+        subDescription={data.subDescription}>
         <div className={style.row}>
-          <Button href='/sign-in' level='block'>
-            BACK TO SIGN IN
+          <Button href='mailto:' level='block'>
+            Open Email
           </Button>
         </div>
         {menu === 'success-verify-email' && (

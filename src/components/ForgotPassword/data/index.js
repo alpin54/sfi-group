@@ -1,30 +1,36 @@
 // -- assets
-import AuthImage1 from '@assets/image/dummy/auth-1.jpg';
-import AuthImage2 from '@assets/image/dummy/auth-2.jpg';
-import AuthImage3 from '@assets/image/dummy/auth-3.jpg';
-import AuthImage4 from '@assets/image/dummy/auth-4.jpg';
+import AuthImage1 from '@assets/image/dummy/auth-1.png';
 
 const data = {
   images: [
     {
       alt: 'auth-1',
-      image: AuthImage1
+      image: AuthImage1,
+      title: 'snap+ multi-device travel charger',
+      description: 'For iPhone, Apple Watch, AirPods & Qi-enabled devices'
     },
     {
       alt: 'auth-2',
-      image: AuthImage2
+      image: AuthImage1,
+      title: 'compact travel friendly design',
+      description: 'Foldable and lightweight so you can take it anywhere'
     },
     {
       alt: 'auth-3',
-      image: AuthImage3
+      image: AuthImage1,
+      title: 'fast charging & safe',
+      description: 'Built-in protection for temperature and short circuit'
     },
     {
       alt: 'auth-4',
-      image: AuthImage4
+      image: AuthImage1,
+      title: 'universal compatibility',
+      description: 'Works with MagSafe and Qi-enabled devices'
     }
   ],
-  title: 'Oops, Forgot Your Password?',
-  description: 'Enter your email below, and in just a few minutes a reset link will be sent to the email provided.'
+
+  title: 'Forgot Your Password?',
+  description: 'No worries we’ll help you reset it.'
 };
 
 export default data;

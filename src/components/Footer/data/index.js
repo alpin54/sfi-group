@@ -50,8 +50,8 @@ const data = {
         title: 'Partner With Us',
         type: 'menu',
         links: [
-          { name: 'Join Member', url: '/partner/member' },
-          { name: 'Join Dealer', url: '/partner/dealer' },
+          { name: 'Join Member', url: '/sign-in' },
+          { name: 'Join Dealer', url: '/sign-in' },
           { name: 'Reward & Benefit', url: '/reward-benefit' }
         ]
       },
@@ -60,8 +60,8 @@ const data = {
         title: 'Need Help?',
         type: 'menu',
         links: [
-          { name: 'Shipping Information', url: '/help/shipping-return' },
-          { name: 'Return & Refund Policy', url: '/help/returns' }
+          { name: 'Shipping Information', url: '/shipping-information' },
+          { name: 'Return & Refund Policy', url: '/return-refund' }
         ]
       },
 

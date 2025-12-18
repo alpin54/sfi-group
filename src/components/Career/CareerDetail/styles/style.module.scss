@@ -189,7 +189,9 @@
       transition: border-color 0.2s;
       &:hover,
       &:focus {
-        border-color: color(primary, 3);
+        border-color: color(primary, 10);
+        @include shadow(5);
+        outline: none;
       }
       &.error {
         border-color: color(danger, 6);

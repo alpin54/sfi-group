@@ -1,31 +1,38 @@
 // -- assets
-import AuthImage1 from '@assets/image/dummy/auth-1.jpg';
-import AuthImage2 from '@assets/image/dummy/auth-2.jpg';
-import AuthImage3 from '@assets/image/dummy/auth-3.jpg';
-import AuthImage4 from '@assets/image/dummy/auth-4.jpg';
+import AuthImage1 from '@assets/image/dummy/auth-1.png';
 
 const data = {
   images: [
     {
       alt: 'auth-1',
-      image: AuthImage1
+      image: AuthImage1,
+      title: 'snap+ multi-device travel charger',
+      description: 'For iPhone, Apple Watch, AirPods & Qi-enabled devices'
     },
     {
       alt: 'auth-2',
-      image: AuthImage2
+      image: AuthImage1,
+      title: 'compact travel friendly design',
+      description: 'Foldable and lightweight so you can take it anywhere'
     },
     {
       alt: 'auth-3',
-      image: AuthImage3
+      image: AuthImage1,
+      title: 'fast charging & safe',
+      description: 'Built-in protection for temperature and short circuit'
     },
     {
       alt: 'auth-4',
-      image: AuthImage4
+      image: AuthImage1,
+      title: 'universal compatibility',
+      description: 'Works with MagSafe and Qi-enabled devices'
     }
   ],
-  title: 'Instructions Sent Successfully!',
-  description:
-    'Check your inbox if you don’t see it right away, please also look in your Spam, Recent, or Promotions folders.'
+
+  title: 'Check Your Email',
+  description: 'Reset link is on its way!',
+  subDescription:
+    'We have sent a password reset link to your email address. Be sure to check your Spam, Promotions, or Recent folders too.'
 };
 
 export default data;

@@ -24,8 +24,9 @@
   }
   &Link {
     text-decoration: none;
-    @include font-size(small);
-    color: color(primary, 9);
+    @include font-size(button-small);
+    font-weight: fw(medium);
+    color: color(primary, 10);
     background-color: transparent;
     outline: none;
     border: none;
@@ -39,14 +40,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include font-size(small);
-    color: color(neutral, 6);
+    @include font-size(button-small);
+    color: color(neutral, 12);
     margin-bottom: 0;
     a,
     button {
       margin-left: 8px;
       font-weight: fw(medium);
     }
+  }
+  & Button, a {
+    border-radius: 8px;
   }
 }
 

@@ -119,6 +119,7 @@
   transition: color 0.3s ease;
   @include hover-underline;
   color: color(neutral, 6);
+  @include remove-tap-highlight;
   &:hover {
     color: color(primary, 9);
     @include hover-underline(active);
