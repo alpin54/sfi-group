@@ -26,10 +26,10 @@ const data = {
   },
   data: [
     {
-      id: 'p-001',
+      id: 1,
       images: Product1,
       name: 'Zagg Case for iPhone 16 - Snap - Crystal Palace',
-      url: '/product/p-001',
+      slug: 'zagg-case-iphone-16-snap-crystal-palace',
       price: 'Rp549.000',
       rating: '5.0',
       reviewCount: 1289,
@@ -40,10 +40,10 @@ const data = {
       ]
     },
     {
-      id: 'p-002',
+      id: 2,
       images: Product2,
       name: "iPad 11'' Keyboard - Adam Elements - Matrix 11",
-      url: '/product/p-002',
+      slug: 'ipad-11-keyboard-adam-elements-matrix-11',
       price: 'Rp3.599.100',
       rating: '5.0',
       reviewCount: 800,
@@ -53,10 +53,10 @@ const data = {
       ]
     },
     {
-      id: 'p-003',
+      id: 3,
       images: Product3,
       name: 'Data Converter Expand 6 USB-C 6 in 1 - Micropack - Grey',
-      url: '/product/p-003',
+      slug: 'data-converter-expand-6-usb-c-6-in-1-micropack-grey',
       price: 'Rp799.000',
       oldPrice: 'Rp999.000',
       rating: '5.0',
@@ -64,10 +64,10 @@ const data = {
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-004',
+      id: 4,
       images: Product4,
       name: 'Power Bank Wireless Magnetic 10.000 mAh - Basic',
-      url: '/product/p-004',
+      slug: 'power-bank-wireless-magnetic-10000mah-basic',
       price: 'Rp759.000',
       oldPrice: 'Rp899.000',
       rating: '5.0',
@@ -75,40 +75,40 @@ const data = {
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-005',
+      id: 5,
       images: Product1,
       name: 'Wireless Earbuds - Soundcore Liberty Air 2',
-      url: '/product/p-005',
+      slug: 'wireless-earbuds-soundcore-liberty-air-2',
       price: 'Rp1.299.000',
       rating: '4.8',
       reviewCount: 950,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-006',
+      id: 6,
       images: Product2,
       name: 'Bluetooth Speaker - JBL Go 3',
-      url: '/product/p-006',
+      slug: 'bluetooth-speaker-jbl-go-3',
       price: 'Rp499.000',
       rating: '4.9',
       reviewCount: 1200,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-007',
+      id: 7,
       images: Product3,
       name: 'Smart Watch - Xiaomi Mi Band 7',
-      url: '/product/p-007',
+      slug: 'smart-watch-xiaomi-mi-band-7',
       price: 'Rp699.000',
       rating: '4.7',
       reviewCount: 850,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-008',
+      id: 8,
       images: Product4,
       name: 'Portable SSD 1TB - Samsung T7',
-      url: '/product/p-008',
+      slug: 'portable-ssd-1tb-samsung-t7',
       price: 'Rp1.899.000',
       oldPrice: 'Rp2.199.000',
       rating: '4.9',
@@ -116,20 +116,20 @@ const data = {
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-009',
+      id: 9,
       images: Product1,
       name: 'Gaming Mouse - Logitech G102',
-      url: '/product/p-009',
+      slug: 'gaming-mouse-g102',
       price: 'Rp299.000',
       rating: '4.8',
       reviewCount: 1100,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
-      id: 'p-010',
+      id: 10,
       images: Product2,
       name: 'Mechanical Keyboard - Keychron K2',
-      url: '/product/p-010',
+      slug: 'mechanical-keyboard-k2',
       price: 'Rp1.099.000',
       rating: '4.9',
       reviewCount: 980,

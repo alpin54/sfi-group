@@ -16,32 +16,32 @@ const data = {
   button_secondary_text: 'Learn More',
   list: [
     {
-      url: '#',
+      url: '/shop/gadgets',
       title: 'Complete Gadget Accessories for All Your Devices',
       image: BgCard,
-      button_url: '#explore-gadgets',
+      button_url: '/shop/gadgets',
       button_text: 'Explore Gadgets'
     },
     {
-      url: '#',
+      url: '/shop/audio',
       title: 'Clear Sound, Maximum Quality Performance',
       image: Headset,
-      button_url: '#explore-audio',
+      button_url: '/shop/audio',
       button_text: 'Explore Audio'
     },
     {
-      url: '#',
+      url: '/shop/it',
       title: 'Maximum Performance, Unlimited Productivity',
       image: BgCard3,
-      button_url: '#explore-it',
+      button_url: '/shop/it',
       button_text: 'Explore IT'
     },
     {
-      url: '#',
+      url: '/shop/chargers',
       title: 'Quality Chargers for Every Device',
       image: BgCard2,
-      button_url: '#explore-bags',
-      button_text: 'Explore Bags'
+      button_url: '/shop/chargers',
+      button_text: 'Explore Chargers'
     }
   ]
 };

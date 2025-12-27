@@ -307,7 +307,7 @@ const Header = (props) => {
                   {data.map((item, idx) => (
                     <li className={style.navItem} key={`menu-${idx}`}>
                       <Link
-                        href={`/shop/${item.slug}`}
+                        href={item.slug === 'promo' ? `/promo` : `/shop/${item.slug}`}
                         className={`${style.navLink} ${menu === item.slug ? style.navLinkActive : isMobile && activeTabMenu === idx ? style.navLinkActive : ''} ${item.slug === 'promo' && style.navLinkPromo}`}
                         onMouseEnter={() => {
                           if (item.subcategories.length > 0) {
@@ -368,9 +368,9 @@ const Header = (props) => {
                   <li className={style.featureItem}>
                     <Link
                       className={
-                        menu === 'wishlist' ? `${style.featureLink} ${style.featureLinkActive}` : style.featureLink
+                        menu === 'favorite' ? `${style.featureLink} ${style.featureLinkActive}` : style.featureLink
                       }
-                      href='/wishlist'
+                      href='/favorite'
                       onClick={() => {
                         setOpenSearch(false);
                         setOpenMenu(false);

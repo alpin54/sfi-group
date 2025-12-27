@@ -8,7 +8,7 @@ import Promo from './modules';
 // -- metadata
 const metadata = metaTag.dynamic({
   page: 'Promo',
-  link: 'shop/promo'
+  link: 'promo'
 });
 
 // -- schemadata

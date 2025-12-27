@@ -69,22 +69,38 @@
   }
 
   &__desc {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
     @include font-size(button-small);
     color: color(primary, 6);
-    margin: 0;
+    margin-bottom: 0;
+    @include remove-tap-highlight;
+    &[href] {
+      transition: all 0.3s ease;
+      @include hover-underline;
+      &:hover {
+        @include hover-underline(active);
+      }
+    }
     @include retina {
       @include font-size(small);
+    }
+    span {
+      margin: 4px 8px 0;
+    }
+    i {
+      font-size: 16px;
     }
   }
 
   &__stats {
     flex: 1;
-   display: grid;
+    display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 12px 24px;
     @include medium {
       width: 100%;
-
     }
   }
 

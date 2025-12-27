@@ -668,7 +668,7 @@ const ProductDetail = (props) => {
                 image={data.store.image}
                 color={data.store.color}
                 name={data.store.name}
-                description={data.store.description}
+                slug={data.store.slug}
                 totalProduct={data.store.totalProduct}
                 sold={data.store.sold}
                 rating={data.store.rating}

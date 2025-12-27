@@ -75,7 +75,7 @@ const MemberProfile = (props) => {
       </div>
       <div className={style.offer}>
         <h3 className={style.offerTitle}>Grow with Us Join as an Official Dealer</h3>
-        <Button color='white' href='/sign-in?role=partner'>
+        <Button color='white' href='/sign-in?role=dealer'>
           Become a Partner
         </Button>
       </div>

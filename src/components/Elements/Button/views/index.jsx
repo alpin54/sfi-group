@@ -43,11 +43,7 @@ const Button = (props) => {
   if (href) {
     return (
       <Link {...props} className={variantStyle}>
-        {variant !== 'underline' && variant !== 'ghost' && variant !== 'icon' ? (
-          <span className={style.btnText}>{children}</span>
-        ) : (
-          children
-        )}
+        {variant !== 'underline' && variant !== 'icon' ? <span className={style.btnText}>{children}</span> : children}
         {iconCont}
       </Link>
     );
@@ -55,11 +51,7 @@ const Button = (props) => {
 
   return (
     <button {...props} className={variantStyle}>
-      {variant !== 'underline' && variant !== 'ghost' && variant !== 'icon' ? (
-        <span className={style.btnText}>{children}</span>
-      ) : (
-        children
-      )}
+      {variant !== 'underline' && variant !== 'icon' ? <span className={style.btnText}>{children}</span> : children}
       {iconCont}
     </button>
   );

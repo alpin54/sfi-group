@@ -6,9 +6,10 @@ import SystemIcon from '@elements/SystemIcon/views';
 
 // -- styles
 import style from '@elements/Brand/styles/style.module.scss';
+import Link from 'next/link';
 
 const Brand = (props) => {
-  const { image, color, name, description, totalProduct, sold, rating, review } = props;
+  const { image, color, name, slug, description, totalProduct, sold, rating, review } = props;
   return (
     <div className={style.brand}>
       <div className={style.brand__info}>
@@ -17,7 +18,15 @@ const Brand = (props) => {
         </div>
         <div className={style.brand__text}>
           <h3 className={style.brand__name}>{name}</h3>
-          <p className={style.brand__desc}>{description}</p>
+          {slug ? (
+            <Link href={`/brand/${slug}`} className={style.brand__desc}>
+              <SystemIcon name='storefront' />
+              <span>View All Products</span>
+              <SystemIcon name='caret-right' />
+            </Link>
+          ) : (
+            <p className={style.brand__desc}>{description}</p>
+          )}
         </div>
       </div>
       <div className={style.brand__stats}>

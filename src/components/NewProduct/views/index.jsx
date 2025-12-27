@@ -40,10 +40,10 @@ const NewProduct = (props) => {
                 </div>
                 {item.button_text && (
                   <div className={style.newBtn}>
-                    <Button href={item.button_link || '#'}>{item.button_text}</Button>
+                    <Button href={item.button_link}>{item.button_text}</Button>
                   </div>
                 )}
-                <Link href={item.url || '/'} className={style.link} aria-label={item.title} tabIndex='-1' />
+                <Link href={item.button_link} className={style.link} aria-label={item.title} tabIndex='-1' />
               </div>
             </div>
           </div>

@@ -6,11 +6,11 @@ const data = {
   name: 'Zagg Case for iPhone 16 - Snap - Crystal Palace',
   button: {
     label: 'Learn More',
-    href: '/category/crystal-palace'
+    href: '/shop/crystal-palace'
   },
   buttonSecondary: {
     label: 'Shop Now',
-    href: '/category/crystal-palace'
+    href: '/shop/crystal-palace'
   }
 };
 

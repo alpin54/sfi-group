@@ -333,13 +333,13 @@ const MyProfileView = (props) => {
                 formatDisplayValue(field, value)
               )}
             </p>
-            <Button
-              variant='icon'
+            <button
+              className={style.cardEdit}
               onClick={() => openEditModal(field)}
               title='Edit'
               aria-label={`Edit ${getFieldLabel(field)}`}>
               <SystemIcon name='edit' />
-            </Button>
+            </button>
           </div>
         </div>
       </div>

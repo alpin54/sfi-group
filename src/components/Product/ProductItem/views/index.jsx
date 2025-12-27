@@ -11,7 +11,7 @@ const ProductItem = (props) => {
     images,
     name,
     description,
-    url,
+    slug,
     price,
     oldPrice,
     rating,
@@ -49,7 +49,7 @@ const ProductItem = (props) => {
 
   return (
     <div className={style.card}>
-      <Link href={url} className={style.link} aria-label={name} />
+      <Link href={`/product/${slug}`} className={style.link} aria-label={name} />
       <div className={style.cardImage}>
         <Image src={images} alt={name} width={200} height={200} className={style.cardImageEl} />
         {promotions.length > 0 && (

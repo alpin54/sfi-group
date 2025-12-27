@@ -8,7 +8,7 @@ const data = [
     description:
       'Roomy compartments, reflective details & a secure key hook style meets functionality wherever you go.',
     image: ProductA,
-    button_link: '#shop-trendy-waist',
+    button_link: '/shop/trendy-waist',
     button_text: 'Shop Now'
   },
   {
@@ -16,7 +16,7 @@ const data = [
     description:
       'Shock-certified up to 2 meters, with ultra-soft, slim design.  Air-cushioned corners for next-level protection.',
     image: ProductB,
-    button_link: '#shop-tough-case',
+    button_link: '/shop/tough-looks',
     button_text: 'Shop Now'
   }
 ];

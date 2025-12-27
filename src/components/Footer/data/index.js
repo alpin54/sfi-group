@@ -15,14 +15,14 @@ const data = {
         title: 'Explore Our Products',
         type: 'menu', // normal menu (akan jadi accordion)
         links: [
-          { name: 'Gadget', url: '/products/gadget' },
-          { name: 'Computer', url: '/products/computer' },
-          { name: 'Charger', url: '/products/charger' },
-          { name: 'Audio', url: '/products/audio' },
-          { name: 'Bags', url: '/products/bags' },
-          { name: 'Lifestyle', url: '/products/lifestyle' },
-          { name: 'Health', url: '/products/health' },
-          { name: 'Others', url: '/products/others' }
+          { name: 'Gadget', url: '/shop/gadget' },
+          { name: 'Computer', url: '/shop/computer' },
+          { name: 'Charger', url: '/shop/charger' },
+          { name: 'Audio', url: '/shop/audio' },
+          { name: 'Bags', url: '/shop/bags' },
+          { name: 'Lifestyle', url: '/shop/lifestyle' },
+          { name: 'Health', url: '/shop/health' },
+          { name: 'Others', url: '/shop/others' }
         ]
       },
 
@@ -50,8 +50,8 @@ const data = {
         title: 'Partner With Us',
         type: 'menu',
         links: [
-          { name: 'Join Member', url: '/sign-in' },
-          { name: 'Join Dealer', url: '#' },
+          { name: 'Join Member', url: '/sign-in?role=member' },
+          { name: 'Join Dealer', url: '/sign-in?role=dealer' },
           { name: 'Reward & Benefit', url: '/reward-benefit' }
         ]
       },

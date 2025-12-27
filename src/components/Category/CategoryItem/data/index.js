@@ -10,34 +10,34 @@ const data = [
     title: 'Premium Cases for Every Phone',
     button: {
       label: 'Explore Phone Case',
-      href: '/category/cases'
+      href: '/shop/cases'
     },
     list: [
       {
-        id: 'p-001',
+        id: 1,
         images: Product1,
         name: 'Zagg Case for iPhone 16 - Snap - Crystal Palace',
-        url: '/product/p-001',
+        slug: 'zagg-case-iphone-16-snap-crystal-palace',
         price: 'Rp549.000',
         rating: '5.0',
         reviewCount: 1289,
         promotions: [{ id: 1, title: 'Sale' }]
       },
       {
-        id: 'p-002',
+        id: 2,
         images: Product2,
         name: "iPad 11'' Keyboard - Adam Elements - Matrix 11",
-        url: '/product/p-002',
+        slug: 'ipad-11-keyboard-adam-elements-matrix-11',
         price: 'Rp3.599.100',
         rating: '5.0',
         reviewCount: 800,
         promotions: [{ id: 1, title: 'Sale' }]
       },
       {
-        id: 'p-003',
+        id: 3,
         images: Product3,
         name: 'Data Converter Expand 6 USB-C 6 in 1 - Micropack - Grey',
-        url: '/product/p-003',
+        slug: 'data-converter-expand-6-usb-c-6-in-1-micropack-grey',
         price: 'Rp799.000',
         oldPrice: 'Rp999.000',
         rating: '5.0',
@@ -48,10 +48,10 @@ const data = [
         ]
       },
       {
-        id: 'p-004',
+        id: 4,
         images: Product4,
         name: 'Power Bank Wireless Magnetic 10.000 mAh - Basic',
-        url: '/product/p-004',
+        slug: 'power-bank-wireless-magnetic-10000mah-basic',
         price: 'Rp759.000',
         oldPrice: 'Rp899.000',
         rating: '5.0',
@@ -59,10 +59,10 @@ const data = [
         promotions: [{ id: 1, title: 'Sale' }]
       },
       {
-        id: 'p-003',
+        id: 3,
         images: Product3,
         name: 'Data Converter Expand 6 USB-C 6 in 1 - Micropack - Grey',
-        url: '/product/p-003',
+        slug: 'data-converter-expand-6-usb-c-6-in-1-micropack-grey',
         price: 'Rp799.000',
         oldPrice: 'Rp999.000',
         rating: '5.0',
@@ -70,20 +70,20 @@ const data = [
         promotions: [{ id: 2, title: 'Buy 1 Get 1' }]
       },
       {
-        id: 'p-002',
+        id: 2,
         images: Product2,
         name: "iPad 11'' Keyboard - Adam Elements - Matrix 11",
-        url: '/product/p-002',
+        slug: 'ipad-11-keyboard-adam-elements-matrix-11',
         price: 'Rp3.599.100',
         rating: '5.0',
         reviewCount: 800,
         promotions: [{ id: 1, title: 'Sale' }]
       },
       {
-        id: 'p-001',
+        id: 1,
         images: Product1,
         name: 'Zagg Case for iPhone 16 - Snap - Crystal Palace',
-        url: '/product/p-001',
+        slug: 'zagg-case-iphone-16-snap-crystal-palace',
         price: 'Rp549.000',
         rating: '5.0',
         reviewCount: 1289,
@@ -96,51 +96,40 @@ const data = [
     title: 'Crystal Clear, Scratch-Free',
     button: {
       label: 'Explore Screen Protector',
-      href: '/category/screen-protectors'
+      href: '/shop/screen-protectors'
     },
     list: [
       {
-        id: 'p-001',
+        id: 1,
         images: Product1,
         name: 'Zagg Case for iPhone 16 - Snap - Crystal Palace',
-        url: '/product/p-001',
+        slug: 'zagg-case-iphone-16-snap-crystal-palace',
         price: 'Rp549.000',
         rating: '5.0',
         reviewCount: 1289,
         promotions: []
       },
       {
-        id: 'p-002',
+        id: 2,
         images: Product2,
         name: "iPad 11'' Keyboard - Adam Elements - Matrix 11",
-        url: '/product/p-002',
+        slug: 'ipad-11-keyboard-adam-elements-matrix-11',
         price: 'Rp3.599.100',
         rating: '5.0',
         reviewCount: 800,
         promotions: [{ id: 1, title: 'Sale' }]
       },
       {
-        id: 'p-003',
+        id: 3,
         images: Product3,
         name: 'Data Converter Expand 6 USB-C 6 in 1 - Micropack - Grey',
-        url: '/product/p-003',
+        slug: 'data-converter-expand-6-usb-c-6-in-1-micropack-grey',
         price: 'Rp799.000',
         oldPrice: 'Rp999.000',
         rating: '5.0',
         reviewCount: 1106,
         promotions: [{ id: 1, title: 'Building' }]
       }
-      // {
-      //   id: 'p-004',
-      //   images: Product4,
-      //   name: 'Power Bank Wireless Magnetic 10.000 mAh - Basic',
-      //   url: '/product/p-004',
-      //   price: 'Rp759.000',
-      //   oldPrice: 'Rp899.000',
-      //   rating: '5.0',
-      //   reviewCount: 745,
-      //   badge: 'Buy 1 Get 1'
-      // }
     ]
   }
 ];

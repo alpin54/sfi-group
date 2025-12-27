@@ -94,12 +94,6 @@ const MemberProfile = (props) => {
         {renderCard('password', data.updated_at)}
         {renderCard('address', data.address)}
       </div>
-      <div className={style.offer}>
-        <h3 className={style.offerTitle}>Grow with Us Join as an Official Dealer</h3>
-        <Button color='white' href='/sign-in?role=partner'>
-          Become a Partner
-        </Button>
-      </div>
       {/* Edit Modal */}
       <Modal open={showModal} onClose={handleCancel} title={false}>
         <div className={style.modal}>
