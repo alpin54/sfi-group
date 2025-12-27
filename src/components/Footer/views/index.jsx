@@ -134,7 +134,7 @@ const Footer = ({ data }) => {
           }}>
           {block.links?.map((item, i) => (
             <li className={style.menuItem} key={item?.url ?? `${i}-${item?.name}`}>
-              <Link href={item?.url ?? '#'} className={style.menuLink}>
+              <Link href={item?.url} className={style.menuLink}>
                 {item?.name}
               </Link>
             </li>

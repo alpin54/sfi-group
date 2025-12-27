@@ -13,7 +13,7 @@ const data = {
       image_mobile: HeroBannerImage,
       button_url: '/product/casa-hub-360',
       button_text: 'Shop Now',
-      button_secondary_url: '#learn',
+      button_secondary_url: '/product/casa-hub-360',
       button_secondary_text: 'Learn More'
     },
     {
@@ -26,7 +26,7 @@ const data = {
       image_mobile: HeroBannerImage2,
       button_url: '/product/callise-set',
       button_text: 'Shop Now',
-      button_secondary_url: '#learn',
+      button_secondary_url: '/product/callise-set',
       button_secondary_text: 'Learn More'
     },
     {
@@ -38,7 +38,7 @@ const data = {
       image_mobile: HeroBannerImage,
       button_url: '/product/fresia-set',
       button_text: 'Shop Now',
-      button_secondary_url: '#learn',
+      button_secondary_url: '/product/fresia-set',
       button_secondary_text: 'Learn More'
     },
     {
@@ -51,7 +51,7 @@ const data = {
       image_mobile: HeroBannerImage2,
       button_url: '/product/velora-case',
       button_text: 'Shop Now',
-      button_secondary_url: '#learn',
+      button_secondary_url: '/product/velora-case',
       button_secondary_text: 'Learn More'
     }
   ]

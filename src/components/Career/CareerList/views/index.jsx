@@ -131,7 +131,7 @@ const CareerList = ({ data }) => {
                         <div className={style.careerItemHeader}>
                           <h5 className={style.careerItemTitle}>{item.title}</h5>
                           <p className={style.careerItemDesc}>{item.description}</p>
-                          <Link href={item.btn?.link || '#'} className={style.careerItemApplyLink} />
+                          <Link href={item.btn?.link} className={style.careerItemApplyLink} />
                         </div>
 
                         <div className={style.careerItemFooter}>
@@ -148,7 +148,7 @@ const CareerList = ({ data }) => {
 
                           <div className={style.careerItemAction}>
                             <Link
-                              href={item.btn?.link || '#'}
+                              href={item.btn?.link}
                               className={style.detailLink}
                               aria-label={`View details for ${item.title}`}>
                               <span>View Details</span>

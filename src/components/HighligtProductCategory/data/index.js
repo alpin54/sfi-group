@@ -6,13 +6,13 @@ import BgCard2 from '@assets/image/dummy/bg-card-higlight2.png';
 import BgCard3 from '@assets/image/dummy/bg-card-higlight3.jpg';
 
 const data = {
-  url: '#',
+  url: '/shop/earphones',
   title: 'Hurry, only 2 left in stock!',
   description: 'Don’t miss out—grab yours before it’s gone!',
   image: Earphone,
-  button_url: '#shop',
+  button_url: '/shop/earphones',
   button_text: 'Shop Now',
-  button_secondary_url: '#learn',
+  button_secondary_url: '/shop/earphones',
   button_secondary_text: 'Learn More',
   list: [
     {

@@ -43,9 +43,9 @@ const HighligtProductCategory = (props) => {
         <div className={style.cardBody}>
           {item.title && <h5 className={style.cardTitle}>{item.title}</h5>}
           <div className={style.cardBtn}>
-            {item.button_text && <Button href={item.button_url || '#'}>{item.button_text}</Button>}
+            {item.button_text && <Button href={item.button_url}>{item.button_text}</Button>}
           </div>
-          <Link href={item.url || '/'} className={style.link} aria-label={item.title} tabIndex='-1' />
+          <Link href={item.url} className={style.link} aria-label={item.title} tabIndex='-1' />
         </div>
       </div>
     </div>
@@ -57,18 +57,18 @@ const HighligtProductCategory = (props) => {
         {/* Left*/}
         <div className={style.leftCard}>
           <div className={style.mainInner}>
-            <Link href={url || '/'} className={style.link} aria-label={title} tabIndex='-1' />
+            <Link href={url} className={style.link} aria-label={title} tabIndex='-1' />
             <div className={style.mainText}>
               {title && <h2 className={style.title}>{title}</h2>}
               {description && <p className={style.desc}>{description}</p>}
               <div className={style.actionGroup}>
                 {button_secondary_text && (
-                  <Button href={button_secondary_url || '#'} variant='outlined'>
+                  <Button href={button_secondary_url} variant='outlined'>
                     {button_secondary_text}
                   </Button>
                 )}
                 {button_text && (
-                  <Button href={button_url || '#'} variant='primary'>
+                  <Button href={button_url} variant='primary'>
                     {button_text}
                   </Button>
                 )}

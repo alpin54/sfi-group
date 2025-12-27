@@ -39,7 +39,7 @@ const HeroBanner = (props) => {
     return (
       <div className={style.btn} role='group' aria-label='hero actions'>
         {secondaryExists && (
-          <Button href={val.button_secondary_url || '#'} variant='outlined' aria-label={val.button_secondary_text}>
+          <Button href={val.button_secondary_url} variant='outlined' aria-label={val.button_secondary_text}>
             {val.button_secondary_text}
           </Button>
         )}
@@ -55,14 +55,7 @@ const HeroBanner = (props) => {
 
   const renderItem = (val, idx) => (
     <div key={`hero-banner-item-${idx}`} className={style.item}>
-      <Link
-        href={val.url || '/'}
-        className={style.link}
-        aria-label={val.title}
-        target='_self'
-        rel='follow'
-        tabIndex='-1'
-      />
+      <Link href={val.url} className={style.link} aria-label={val.title} target='_self' rel='follow' tabIndex='-1' />
 
       <div className={style.content}>
         <div className={style.head}>

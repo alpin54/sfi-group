@@ -13,7 +13,7 @@ const Cta = (props) => {
           <h6 className={style.title}>
             {data.title}{' '}
             <span>
-              <Link href={data.url || '/'} className={style.link}>
+              <Link href={data.url} className={style.link}>
                 {data.link_text}{' '}
               </Link>{' '}
             </span>{' '}

@@ -64,7 +64,7 @@ const ModalBanner = (props) => {
 
   const renderSlide = (item, idx) => (
     <div className={style.slide} key={item.id ?? idx}>
-      <Link href={item.url || '/'} className={style.coverLink} aria-label={item.title} onClick={closeModal} />
+      <Link href={item.url} className={style.coverLink} aria-label={item.title} onClick={closeModal} />
       <div className={style.inner}>
         <div className={style.left}>
           {item.image && (
