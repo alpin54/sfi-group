@@ -3,6 +3,7 @@
 .btn {
   $b: &;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
   text-decoration: none;
   border: 0;
@@ -12,7 +13,7 @@
   @include font-size(button-medium);
   // text-transform: uppercase;
   border: solid 1px transparent;
-  @include radius(32);
+  @include radius(xl);
   color: color(neutral, 1);
   overflow: hidden;
   background-color: color(primary, 6);
@@ -44,6 +45,10 @@
     transform: scaleY(0);
     transform-origin: center bottom;
     transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  i {
+    position: relative;
+    z-index: 2;
   }
   &Text {
     overflow: hidden;
@@ -79,21 +84,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    min-width: 40px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    @include radius(xs);
+    background-color: transparent;
+    color: color(primary, 6);
+    border-color: color(primary, 6);
+    @include x-small {
+      width: 44px;
+      height: 44px;
+    }
     &::before {
-      width: 48px;
-      height: 48px;
+      background-color: color(primary, 6);
     }
     i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      transform: translate(-50%, -50%);
+      font-size: 24px;
+    }
+    &:hover {
+      color: color(neutral, 1);
     }
   }
   &Block {
@@ -104,10 +114,11 @@
   &White {
     background-color: color(neutral, 1);
     color: color(primary, 6);
-    border-color: color(primary, 6);
+    border-color: color(neutral, 1);
 
     &::before {
       background-color: color(primary, 6);
+      border-color: color(primary, 6);
     }
 
     #{$b}Text {
@@ -141,6 +152,8 @@
     }
   }
   &Small {
+    min-width: initial;
+    padding: 8px 10px 6px;
     @include font-size(button-small);
   }
   &Transparent {
@@ -157,7 +170,16 @@
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
       color: color(neutral, 1);
-
     }
+  }
+  &Ghost {
+    background-color: rgba(color(neutral, 1), 0.24);
+    color: color(neutral, 1);
+    #{$b}Text {
+      margin-right: 4px;
+    }
+  }
+  &NoRounded {
+    @include radius(sm);
   }
 }

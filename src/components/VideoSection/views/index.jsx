@@ -72,6 +72,8 @@ const VideoSection = ({ data }) => {
     }
   };
 
+  const isEnoughSlide = data.length >= 4;
+
   return (
     <section className={style.section}>
       <div className='container'>
@@ -82,9 +84,9 @@ const VideoSection = ({ data }) => {
               prevEl: `.${style.videoPrev}`,
               nextEl: `.${style.videoNext}`
             }}
-            loop={false}
-            slidesPerView={1.2}
-            centeredSlides
+            loop={true}
+            slidesPerView={isEnoughSlide ? 1.2 : 1}
+            centeredSlides={isEnoughSlide}
             spaceBetween={20}
             onSlideChange={(swiper) => {
               stopAllVideos();

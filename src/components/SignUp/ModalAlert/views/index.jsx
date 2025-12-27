@@ -71,7 +71,13 @@ const AlertModal = ({
         </div>
 
         <div className={style.footer}>
-          <Button variant='primary' size='md' onClick={handleCta} aria-label={buttonText} className={style.ctaBtn}>
+          <Button
+            variant='primary'
+            size='md'
+            onClick={handleCta}
+            aria-label={buttonText}
+            className={style.ctaBtn}
+            rounded={false}>
             {buttonText}
           </Button>
         </div>

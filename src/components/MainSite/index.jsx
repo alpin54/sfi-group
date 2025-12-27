@@ -28,10 +28,10 @@ const MainSite = (props) => {
   useBrowserCheck();
 
   // compute padding class after mount (client-side) to avoid SSR/client mismatch
-  useEffect(() => {
-    const pathIncludesShop = typeof window !== 'undefined' && window.location.pathname.includes('shop');
-    setNoPadding(menu === 'about-us' || pathIncludesShop);
-  }, [menu]);
+  // useEffect(() => {
+  //   const pathIncludesShop = typeof window !== 'undefined' && window.location.pathname.includes('shop');
+  //   setNoPadding(menu === 'category' || pathIncludesShop);
+  // }, [menu]);
 
   useEffect(() => {
     // Main effect, runs on mount and after resize ends

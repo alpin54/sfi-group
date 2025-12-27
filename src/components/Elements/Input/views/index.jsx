@@ -8,7 +8,7 @@ import style from '@elements/Input/styles/style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const InputView = (props) => {
-  const { icon, error, variant = 'input', type, ...rest } = props;
+  const { icon, error, variant = 'input', type, size, ...rest } = props;
   const [showPassword, setShowPassword] = useState(false);
 
   // Tentukan tipe input final (show/hide logic)
@@ -59,7 +59,7 @@ const InputView = (props) => {
       ) : (
         <>
           <input
-            className={`${style.input} ${error ? style.error : ''} ${icon && type !== 'password' ? style.inputIcon : type == 'password' ? style.inputPassword : ''} ${type === 'search' ? style.inputUnderline : ''}`}
+            className={`${style.input} ${error ? style.error : ''} ${icon && type !== 'password' ? style.inputIcon : type == 'password' ? style.inputPassword : ''} ${type === 'search' ? style.inputUnderline : ''} ${size === 'small' ? style.inputSmall : ''}`}
             type={inputType}
             {...rest}
           />

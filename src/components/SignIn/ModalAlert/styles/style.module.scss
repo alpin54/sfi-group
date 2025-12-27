@@ -57,12 +57,11 @@
   }
 }
 
-
 /* title + description */
 .title {
   @include font-size(h4);
   font-weight: fw(medium);
-  color: color(neutral, 13);
+  color: color(neutral, 8);
   margin-bottom: 8px;
   @include x-small {
     @include font-size(h5);
@@ -71,12 +70,11 @@
 
 .description {
   @include font-size(h6);
-  color: color(neutral, 16);
+  color: color(neutral, 7);
   margin: 0;
   @include x-small {
     @include font-size(body);
   }
-
 }
 
 /* footer */
@@ -87,5 +85,3 @@
     border-radius: 6px;
   }
 }
-
-

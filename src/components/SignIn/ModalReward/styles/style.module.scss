@@ -18,7 +18,7 @@
   position: absolute;
   inset: 0;
   backdrop-filter: blur(4px);
-  background:  rgba(23, 23, 23, 0.24);
+  background: rgba(23, 23, 23, 0.24);
 }
 
 .panel {
@@ -26,7 +26,7 @@
   width: 544px;
   max-width: calc(100% - 40px);
   background: color(neutral, 1);
-  border-radius: 12px;
+  @include radius(md);
   z-index: 2;
   overflow: hidden;
   border: 2px solid color(primary, 1);
@@ -41,7 +41,7 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: none;
-    border-top: 1px solid rgba(0,0,0,0.04);
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -58,9 +58,9 @@
 
 .title {
   margin: 0;
-  font-family: ff(title);
+
   @include font-size(h6);
-  color: color(neutral, 13);
+  color: color(neutral, 8);
   font-weight: fw(medium);
 }
 
@@ -69,13 +69,13 @@
   border: none;
   padding: 4px;
   cursor: pointer;
-  color: color(neutral, 12);
+  color: color(neutral, 6);
   & i {
     @include font-size(body);
   }
-  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
-    transform-origin: center center;
-    will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center center;
+  will-change: transform;
   &:hover {
     transform: rotate(90deg);
   }
@@ -101,7 +101,7 @@
   display: flex;
   align-items: flex-start;
   padding: 12px 14px;
-  border-radius: 8px;
+  @include radius(sm);
   border: 1px solid transparent;
   background:
     linear-gradient(#f9f9f9, #f9f9f9) padding-box,
@@ -118,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  @include radius(sm);
   margin-right: 14px;
   position: relative;
   & img {
@@ -129,21 +129,20 @@
   }
 }
 
-
 .itemContent {
   flex: 1;
 }
 
 .itemTitle {
   @include font-size(body);
-  color: color(neutral, 13);
+  color: color(neutral, 8);
   font-weight: fw(medium);
   margin-bottom: 6px;
 }
 
 .itemDesc {
   @include font-size(caption);
-  color: color(neutral, 12);
+  color: color(neutral, 6);
   margin: 0;
 }
 
@@ -155,11 +154,9 @@
   }
   & Button {
     width: 100%;
-    border-radius: 6px;
     & span {
       flex-direction: row;
-      justify-content:  space-between;
+      justify-content: space-between;
     }
   }
 }
-

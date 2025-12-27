@@ -15,7 +15,7 @@
   }
 }
 .year {
-  color: color(primary, 10);
+  color: color(primary, 2);
   font-weight: fw(regular);
   margin-bottom: 52px;
   position: relative;
@@ -37,7 +37,7 @@
     left: 0;
     top: 75px;
     border-radius: 50%;
-    background-color: color(primary, 10);
+    background-color: color(primary, 2);
     @include medium {
       top: 64px;
     }
@@ -64,9 +64,9 @@
   }
 }
 .description {
-  @include radius(12);
+  @include radius(md);
   padding: 20px;
-  background-color: color(neutral, 11);
+  background-color: color(neutral, 2);
   overflow: hidden;
   width: 608px;
   @include small {
@@ -127,7 +127,7 @@
     left: 0;
     top: 80px;
     width: 100%;
-    border: 1px solid color(neutral, 14);
+    border: 1px solid color(neutral, 3);
     @include medium {
       top: 69px;
     }

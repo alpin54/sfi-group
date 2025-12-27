@@ -268,10 +268,10 @@ const Header = (props) => {
   return (
     <>
       <div
-        className={`${style.header} ${openMenu && `${style.header} ${style.showMenu}`} ${openSearch ? style.showSearch : ''} ${openSubMenu && style.showSubMenu}`}
+        className={`${style.header} ${openMenu ? `${style.header} ${style.showMenu}` : ''} ${openSearch ? style.showSearch : ''} ${openSubMenu ? style.showSubMenu : ''}`}
         ref={headerRef}>
         <div className={style.headerWrapper}>
-          <div className='container-md'>
+          <div className='container'>
             <div className={style.headerInner}>
               {/* Logo */}
               <div className={style.logo}>
@@ -399,9 +399,9 @@ const Header = (props) => {
                   <li className={style.featureItem}>
                     <Link
                       className={
-                        menu === 'user' ? `${style.featureLink} ${style.featureLinkActive}` : style.featureLink
+                        menu === 'account' ? `${style.featureLink} ${style.featureLinkActive}` : style.featureLink
                       }
-                      href='/user'
+                      href='/account'
                       onClick={() => {
                         setOpenSearch(false);
                         setOpenMenu(false);
@@ -440,7 +440,7 @@ const Header = (props) => {
                     onMouseLeave={() => {
                       if (!isMobile) setOpenSubMenu(false);
                     }}>
-                    <div className='container-md'>
+                    <div className='container'>
                       <div className={style.menuInner}>
                         {data.map((item, idx) => (
                           <div

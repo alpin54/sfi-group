@@ -1,0 +1,169 @@
+@import '_cores/styles/_assets.scss';
+
+.row {
+  position: relative;
+  margin-bottom: 40px;
+  &:nth-child(1) {
+    margin-top: 24px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    @include font-size(button-small);
+    color: color(neutral, 6);
+    display: inline-block;
+  }
+
+  /* FILE UPLOAD BOX */
+  .fileUpload {
+    background-color: color(neutral, 4);
+    padding: 32px 16px 24px;
+    @include radius(sm);
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+
+    /* icon */
+    i,
+    svg {
+      color: color(neutral, 8);
+      @include font-size(h3);
+      margin-bottom: 8px;
+    }
+
+    .helperText {
+      text-align: center;
+      margin-bottom: 12px;
+      .subText {
+        @include font-size(button-small);
+        color: color(neutral, 8);
+      }
+      div {
+        @include font-size(body);
+        color: color(neutral, 8);
+      }
+    }
+
+    .fileInputNative {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+      @include remove-tap-highlight;
+      background-color: color(neutral, 4);
+    }
+
+    .previewWrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .previewImage {
+      display: block;
+      width: 100%;
+      height: 100%;
+      @include radius(xs);
+      object-fit: contain;
+      overflow: hidden;
+      background-color: color(neutral, 4);
+    }
+
+    .fileName {
+      @include font-size(body);
+      color: color(neutral, 8);
+      position: absolute;
+      top: 32px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      padding: 16px;
+      text-overflow: ellipsis;
+      background-color: color(neutral, 4);
+    }
+
+    .fileActions {
+      z-index: 3;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      min-height: 36px;
+    }
+
+    .selectBtn {
+      display: inline-block;
+      padding: 8px 14px;
+      @include radius(xs);
+      border: 1px solid color(primary, 6);
+      background: color(neutral, 1);
+      color: color(primary, 6);
+      font-weight: fw(medium);
+      @include font-size(button-small);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background-color: color(primary, 6);
+        color: color(neutral, 1);
+      }
+    }
+
+    .editBtn {
+      @include radius(xs);
+      background-color: color(primary, 6);
+      transition: all 0.3s ease-in-out;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px;
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      border: 1px solid transparent;
+      &:hover {
+        background-color: color(neutral, 1);
+        border: 1px solid color(primary, 6);
+        & i {
+          color: color(primary, 6);
+        }
+      }
+      & i {
+        color: color(neutral, 1);
+        @include font-size(button-small);
+        margin: 0;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .errorMsg {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      color: color(danger, 6);
+      @include font-size(small);
+      font-weight: fw(regular);
+      margin-bottom: 0;
+    }
+  }
+}

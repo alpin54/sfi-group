@@ -79,14 +79,14 @@
 .box {
   height: 100%;
   padding: 24px;
-  @include radius(12);
+  @include radius(md);
   overflow: hidden;
   border: 1px solid transparent;
   background:
     linear-gradient(#f9f9f9, #f9f9f9) padding-box,
     linear-gradient(90deg, #dc8622, #d9d14b, #0991c7) border-box;
   min-height: 210px;
-  background-color: color(neutral, 10);
+  background-color: color(neutral, 2);
   @include small {
     height: initial;
     min-height: initial;
@@ -96,7 +96,7 @@
   height: 40px;
   margin-bottom: 32px;
   i {
-    color: color(primary, 10);
+    color: color(primary, 2);
     font-size: 4rem;
   }
 }
@@ -107,6 +107,6 @@
 }
 .text {
   margin-bottom: 0;
-  color: color(neutral, 12);
+  color: color(neutral, 6);
   @include multiline-ellipsis(3);
 }

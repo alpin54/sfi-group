@@ -295,7 +295,7 @@ const CareerDetail = (props) => {
                 </div>
 
                 <div className={style.formGroup}>
-                  <Button type='submit' disabled={loading} className={style.applyBtn}>
+                  <Button type='submit' disabled={loading} className={style.applyBtn} rounded={false}>
                     {loading ? 'Mengirim...' : 'Apply Now'}
                   </Button>
                   {message && <div className={style.errorMsg}>{message}</div>}

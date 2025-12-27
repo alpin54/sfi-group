@@ -1,12 +1,15 @@
 // -- components
-import FallbackPages from '@components/FallbackSection/widgets/UnderConstruction';
 import Menu from '@components/Header/views/menu';
 
-const ShopCategory = () => {
+import CategoryBannerWidget from '@components/Category/CategoryBanner/widgets/Default';
+import CategoryItemWidget from '@components/Category/CategoryItem/widgets/Default';
+
+const ShopCategory = ({ category }) => {
   return (
     <>
       <Menu data='shop' />
-      <FallbackPages />
+      <CategoryBannerWidget category={category} />
+      <CategoryItemWidget category={category} />
     </>
   );
 };

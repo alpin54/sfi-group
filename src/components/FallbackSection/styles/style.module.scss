@@ -38,11 +38,10 @@
 }
 
 .title {
-  font-family: ff(title);
   @include font-size(h3);
   font-weight: fw(bold);
   margin-bottom: 16px;
-  color: color(primary, 9);
+  color: color(neutral, 9);
   @include medium {
     @include font-size(h3);
   }

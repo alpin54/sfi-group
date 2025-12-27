@@ -11,7 +11,7 @@
     margin-right: 6px;
     @include font-size(button-small);
     font-weight: fw(regular);
-    color: color(primary, 9);
+    color: color(neutral, 8);
     .white & {
       color: color(neutral, 1);
     }
@@ -21,7 +21,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      color: color(neutral, 6);
+      color: color(neutral, 5);
       transition: all 0.3s ease;
       .white & {
         color: color(neutral, 1);
@@ -45,7 +45,7 @@
         line-height: 1;
       }
       &:hover {
-        color: color(primary, 9);
+        color: color(neutral, 8);
         .white & {
           color: color(neutral, 1);
         }
@@ -54,7 +54,6 @@
     &:last-child {
       margin-right: 0;
       .primary & {
-        font-family: ff(title);
         font-weight: fw(regular);
         @include font-size(h2);
       }

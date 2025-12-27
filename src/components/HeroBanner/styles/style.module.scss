@@ -93,7 +93,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 75px 0 56px ;
+  padding: 75px 0 56px;
 
   @include large {
     padding: 64px 0;
@@ -124,10 +124,9 @@
 }
 
 .title {
-  font-family: ff(title);
   @include font-size(h2);
   font-weight: fw(medium);
-  color: color(primary, 9);
+  color: color(neutral, 9);
   margin-bottom: 16px;
   opacity: 0;
   transform: translateY(-12px);
@@ -143,7 +142,6 @@
 }
 
 .subtitle {
-  font-family: ff(title);
   @include font-size(h4);
   font-weight: fw(regular);
   @include text-gradient(color(gradient, 1), color(primary, 9));
@@ -185,7 +183,6 @@
     @include x-small {
       display: none;
     }
-
   }
   .imgMobile {
     display: none;

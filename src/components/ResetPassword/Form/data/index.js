@@ -30,7 +30,7 @@ const data = {
   ],
 
   title: 'Create a New Password',
-  description: 'Make sure it’s strong and easy to remember.'
+  subTitle: 'Make sure it’s strong and easy to remember.'
 };
 
 export default data;

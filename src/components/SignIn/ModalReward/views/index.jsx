@@ -79,10 +79,9 @@ const RewardModal = ({ open, onClose, title = '', items = [], cta = null }) => {
             className={style.ctaBtn}
             variant='primary'
             size='md'
+            rounded={false}
             onClick={() => {
-              // close modal first
               onClose && onClose();
-              // then call provided CTA handler (if any)
               cta && cta.onClick && cta.onClick();
             }}
             aria-label={cta ? cta.label : 'Call to action'}>

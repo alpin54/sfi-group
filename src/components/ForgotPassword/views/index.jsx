@@ -50,7 +50,7 @@ const ForgotPassword = (props) => {
   };
 
   return (
-    <AuthSectionWidget images={data.images} title={data.title} description={data.description}>
+    <AuthSectionWidget images={data.images} title={data.title} subTitle={data.subTitle}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.row}>
           <label htmlFor='email' className={style.label}>
@@ -67,7 +67,7 @@ const ForgotPassword = (props) => {
         </div>
 
         <div className={style.row}>
-          <Button type='submit' level='block'>
+          <Button type='submit' level='block' rounded={false}>
             Send Email
           </Button>
         </div>

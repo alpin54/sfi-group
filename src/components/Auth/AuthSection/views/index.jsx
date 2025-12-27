@@ -13,7 +13,7 @@ import style from '@components/Auth/AuthSection/styles/style.module.scss';
 import Link from 'next/link';
 
 const AuthSection = (props) => {
-  const { images, title, description, subDescription, children } = props;
+  const { images, title, subTitle, description, children } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -70,8 +70,8 @@ const AuthSection = (props) => {
           </div>
           <div className={style.authHeader}>
             <h3 className={style.title}>{title}</h3>
-            <p className={style.desc}>{description}</p>
-            {subDescription && <p className={style.subDesc}>{subDescription}</p>}
+            {subTitle && <h4 className={style.subTitle}>{subTitle}</h4>}
+            {description && <div className={style.desc} dangerouslySetInnerHTML={{ __html: description }} />}
           </div>
           <div className={style.authBody}>{children}</div>
         </div>

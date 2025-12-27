@@ -3,6 +3,7 @@
 // -- libraries
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 // -- styles
 import style from '@components/Faqs/styles/style.module.scss';
@@ -17,6 +18,46 @@ const Faqs = (props) => {
   // Dropdown handler
   const handleToggle = (idx) => {
     setOpenIndex(openIndex === idx ? null : idx);
+  };
+
+  // 🎯 Framer Motion Variants
+  const contentVariants = {
+    collapsed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        height: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+        opacity: { duration: 0.2, ease: 'easeOut' }
+      }
+    },
+    expanded: {
+      height: 'auto',
+      opacity: 1,
+      transition: {
+        height: { duration: 0.45, ease: [0.4, 0, 0.2, 1] },
+        opacity: { duration: 0.25, delay: 0.2, ease: 'easeIn' }
+      }
+    }
+  };
+
+  const detailsVariants = {
+    collapsed: {
+      opacity: 0,
+      x: 10,
+      transition: {
+        duration: 0.2,
+        ease: 'easeOut'
+      }
+    },
+    expanded: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.35,
+        delay: 0.25,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
   };
 
   return (
@@ -39,7 +80,7 @@ const Faqs = (props) => {
             />
             <h5 className={style.faqsEmptyTitle}>{data.empty?.title || 'No FAQs Available'}</h5>
             <p className={style.faqsEmptyDesc}>
-              {data.empty?.description || 'Looks like there are no frequently asked questions yet. Check back later!'}
+              {data.empty?.description || 'Looks like there are no frequently asked questions yet.  Check back later! '}
             </p>
           </div>
         ) : (
@@ -49,7 +90,10 @@ const Faqs = (props) => {
                 const isOpen = openIndex === idx;
 
                 return (
-                  <li key={item.id || idx} className={`${style.faqsItem} ${isOpen ? style.active : ''}`}>
+                  <motion.li
+                    key={item.id || idx}
+                    className={`${style.faqsItem} ${isOpen ? style.active : ''}`}
+                    initial={false}>
                     <div
                       className={style.faqsItemHead}
                       role='button'
@@ -60,13 +104,20 @@ const Faqs = (props) => {
                       <div className={style.faqsItemContent}>
                         <h6 className={style.faqsItemTitle}>{item.title}</h6>
 
-                        <div className={style.faqsItemBody + (isOpen ? ' ' + style.open : '')}>
-                          <div className={style.faqsItemDetails + (isOpen ? ' ' + style.show : '')}>
-                            {isOpen && <p className={style.faqsItemDesc}>{item.description}</p>}
-                          </div>
-                        </div>
+                        {/* Animated Body */}
+                        <motion.div
+                          className={style.faqsItemBody}
+                          variants={contentVariants}
+                          initial='collapsed'
+                          animate={isOpen ? 'expanded' : 'collapsed'}>
+                          {/* Content */}
+                          <motion.div className={style.faqsItemDetails} variants={detailsVariants}>
+                            <p className={style.faqsItemDesc}>{item.description}</p>
+                          </motion.div>
+                        </motion.div>
                       </div>
 
+                      {/* Animated Toggle Button */}
                       <button
                         className={style.faqsItemToggle}
                         aria-label={isOpen ? 'Close detail' : 'Open detail'}
@@ -76,15 +127,27 @@ const Faqs = (props) => {
                           e.stopPropagation();
                           handleToggle(idx);
                         }}>
-                        <span className={isOpen ? style.iconHidden : style.iconVisible}>
-                          <SystemIcon name='add' />
-                        </span>
-                        <span className={isOpen ? style.iconVisible : style.iconHidden}>
-                          <SystemIcon name='mines' />
+                        <span className={style.faqsItemIconWrapper}>
+                          <motion.span
+                            className={style.faqsItemIcon}
+                            animate={
+                              isOpen ? { opacity: 0, rotate: 90, scale: 0.8 } : { opacity: 1, rotate: 0, scale: 1 }
+                            }
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}>
+                            <SystemIcon name='add' />
+                          </motion.span>
+                          <motion.span
+                            className={style.faqsItemIcon}
+                            animate={
+                              isOpen ? { opacity: 1, rotate: 0, scale: 1 } : { opacity: 0, rotate: -90, scale: 0.8 }
+                            }
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}>
+                            <SystemIcon name='mines' />
+                          </motion.span>
                         </span>
                       </button>
                     </div>
-                  </li>
+                  </motion.li>
                 );
               })}
             </ul>

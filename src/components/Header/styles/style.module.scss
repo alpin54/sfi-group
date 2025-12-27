@@ -53,6 +53,7 @@
 }
 
 :global(.window--scrolled) .header {
+  border-bottom: 1px solid color(neutral, 3);
   &::before {
     opacity: 1;
     transform: none;
@@ -628,7 +629,7 @@
       color: color(neutral, 9);
       min-width: 64px;
       border: solid 1px color(neutral, 5);
-      @include radius(16);
+      @include radius(lg);
       padding: 8px 12px 6px;
       transition: all 0.3s ease;
       background-color: transparent;
@@ -733,7 +734,7 @@
     &Box {
       position: relative;
       @include shadow(1);
-      @include radius(6);
+      @include radius(xs);
       &:hover {
         #{$sp} {
           &ImgEl {
@@ -832,7 +833,7 @@
       color: color(neutral, 9);
       min-width: 64px;
       border: solid 1px color(neutral, 5);
-      @include radius(16);
+      @include radius(lg);
       padding: 8px 12px 6px;
       transition: all 0.3s ease;
       @include remove-tap-highlight;

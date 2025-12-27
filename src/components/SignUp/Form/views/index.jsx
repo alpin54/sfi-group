@@ -165,7 +165,7 @@ const SignUp = (props) => {
   };
 
   return (
-    <AuthSectionWidget images={data.images} title={data.title} description={data.description}>
+    <AuthSectionWidget images={data.images} title={data.title} subTitle={data.subTitle}>
       <form onSubmit={handleSubmit(handleOnSubmit)}>
         <div className={style.tabWrap} role='tablist' aria-label='Sign up tabs'>
           <button
@@ -243,8 +243,8 @@ const SignUp = (props) => {
         </div>
 
         <div className={style.row}>
-          <Button type='submit' level='block' disabled={loading}>
-            {loading ? 'Signing Up...' : 'Sign Up'}
+          <Button type='submit' level='block' disabled={loading} rounded={false}>
+            {loading ? 'Creating Account...' : 'Create Account'}
           </Button>
         </div>
 

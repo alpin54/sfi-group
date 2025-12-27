@@ -1,0 +1,386 @@
+@import '_cores/styles/_assets.scss';
+
+.order {
+  padding-top: 64px;
+  padding-bottom: 104px;
+  @include medium {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+  @include small {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+}
+.head {
+  margin-bottom: 32px;
+  @include medium {
+    margin-bottom: 24px;
+  }
+  @include x-small {
+    margin-bottom: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid color(neutral, 3);
+  }
+}
+.title {
+  @include font-size(h3);
+  font-weight: fw(medium);
+  margin-bottom: 8px;
+  @include small {
+    @include font-size(h4);
+  }
+}
+.subtitle {
+  margin-bottom: 0;
+  font-weight: fw(regular);
+  @include medium {
+    @include font-size(h5);
+  }
+  @include small {
+    @include font-size(body);
+  }
+}
+.status {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  background-color: color(info, 1);
+  color: color(info, 7);
+  padding: 4px 12px;
+  font-weight: fw(regular);
+  @include radius(lg);
+  height: 30px;
+}
+.divider {
+  display: inline-block;
+  vertical-align: middle;
+  @include font-size(caption);
+}
+.body {
+  padding: 24px;
+  border: 1px solid color(neutral, 3);
+  @include radius(md);
+  @include small {
+    padding: 0;
+    border: 0;
+  }
+}
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid color(neutral, 3);
+  @include x-small {
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include x-small {
+    display: block;
+    justify-content: flex-end;
+    text-align: right;
+    .divider {
+      display: none;
+    }
+  }
+}
+.divider {
+  @include font-size(small);
+}
+.code {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: fw(regular);
+  @include small {
+    @include font-size(body);
+  }
+  @include x-small {
+    margin-bottom: 8px;
+    justify-content: flex-end;
+  }
+}
+.datetime {
+  font-weight: fw(regular);
+  margin-bottom: 0;
+  @include small {
+    @include font-size(body);
+  }
+}
+.list {
+  padding-bottom: 24px;
+  padding-top: 24px;
+  border-bottom: 1px solid color(neutral, 3);
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.subtotal {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid color(neutral, 3);
+}
+.label {
+  font-weight: fw(regular);
+  @include font-size(body);
+  color: color(neutral, 6);
+  margin-bottom: 0;
+  span {
+    color: color(neutral, 4);
+  }
+}
+.value {
+  margin-bottom: 0;
+  @include font-size(body);
+  font-weight: fw(medium);
+  color: color(neutral, 8);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  span {
+    color: color(neutral, 4);
+  }
+  .point {
+    color: color(neutral, 6);
+  }
+}
+.total {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid color(neutral, 3);
+  .value {
+    color: color(primary, 2);
+  }
+}
+.payment {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid color(neutral, 3);
+  @include x-small {
+    display: block;
+  }
+  &Method {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    @include x-small {
+      margin-bottom: 16px;
+    }
+  }
+  &Name {
+    font-weight: fw(medium);
+    margin-bottom: 0;
+    @include font-size(body);
+  }
+  &Logo {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 32px;
+    &El {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &Total {
+    font-weight: fw(medium);
+    margin-bottom: 0;
+    @include font-size(body);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: color(primary, 2);
+    span {
+      color: color(neutral, 6);
+    }
+  }
+}
+.shipping {
+  padding-top: 24px;
+  max-width: 648px;
+  @include large {
+    max-width: initial;
+  }
+  &Method {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  &Logo {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 32px;
+    &El {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &Name {
+    font-weight: fw(medium);
+    margin-bottom: 0;
+    @include font-size(body);
+  }
+  &Label {
+    font-weight: fw(regular);
+    @include font-size(caption);
+    color: color(neutral, 6);
+    margin-bottom: 14px;
+  }
+  &List {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+    @include x-small {
+      display: block;
+      margin: 0;
+    }
+  }
+  &Item {
+    flex: 0 0 50%;
+    padding: 16px;
+    @include x-small {
+      padding: 0;
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &Profile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: fw(regular);
+      @include font-size(body);
+      color: color(neutral, 8);
+      margin-bottom: 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    i {
+      font-size: 2rem;
+      flex: 0 0 20px;
+      color: color(primary, 2);
+    }
+  }
+  &Box {
+    display: flex;
+    gap: 8px;
+    i {
+      font-size: 2rem;
+      flex: 0 0 20px;
+      color: color(primary, 2);
+    }
+    p {
+      margin-bottom: 0;
+      @include font-size(body);
+      color: color(neutral, 7);
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+  }
+  &Tracking {
+    display: flex;
+    align-items: center;
+    color: color(neutral, 6);
+    &Btn {
+      border: 0;
+      outline: 0;
+      background-color: color(neutral, 2);
+      @include radius(sm);
+      @include font-size(body);
+      font-weight: fw(medium);
+      padding: 10px 16px;
+      width: 100%;
+      max-width: 256px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      justify-content: space-between;
+      box-shadow:
+        -1px -1px 2px 0 rgba(0, 0, 0, 0.06),
+        1px 1px 2px 0 rgba(0, 0, 0, 0.06);
+      i {
+        font-size: 2rem;
+      }
+      &:hover {
+        color: color(primary, 2);
+      }
+    }
+    &Col {
+      display: flex;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &Left {
+    flex: 0 0 72px;
+    margin-right: 20px;
+    &Time {
+      margin-bottom: 2px;
+      font-weight: fw(regular);
+      @include font-size(body);
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+    &Date {
+      margin-bottom: 0;
+      font-weight: fw(regular);
+      @include font-size(body);
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+  }
+  &Right {
+    flex: 1;
+    &Description {
+      margin-bottom: 12px;
+      font-weight: fw(regular);
+      @include font-size(body);
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+    &Logo {
+      display: flex;
+      gap: 8px;
+      &El {
+        flex: 0 0 60px;
+        height: 22px;
+        object-fit: contain;
+      }
+      &Name {
+        font-weight: fw(medium);
+        margin-bottom: 0;
+        @include font-size(body);
+      }
+    }
+  }
+}

@@ -24,6 +24,12 @@
     &:last-child {
       margin-right: 0;
     }
+    &:nth-child(1),
+    &:last-child {
+      .paginationLink {
+        padding: 0;
+      }
+    }
   }
   &Link {
     position: relative;
@@ -34,30 +40,37 @@
     height: 40px;
     border-radius: 8px;
     overflow: hidden;
-    color: color(primary, 9);
-    @include font-size(button-small);
+    color: color(neutral, 9);
+    @include font-size(button-medium);
+    line-height: 1;
     text-decoration: none;
-    border: 1px solid color(primary, 10);
+    border: 1px solid transparent;
     background-color: color(neutral, 1);
     transition: all 0.3s ease;
+    padding: 15px 0 12px;
+    &[aria-label='Previous'],
+    &[aria-label='Next'] {
+      border-color: color(primary, 6);
+    }
     @include small {
       width: 32px;
       height: 32px;
     }
     &:hover {
-      border-color: color(primary, 10);
+      border-color: color(primary, 6);
       background-color: color(primary, 2);
-      color: color(primary, 10);
+      color: color(primary, 6);
     }
     &.active {
       background-color: color(primary, 2);
-      color: color(primary, 10);
-      border-color: color(primary, 10);
+      color: color(primary, 6);
+      border-color: color(primary, 6);
     }
     &.disabled {
       cursor: not-allowed;
       background-color: color(neutral, 3);
-      border-color: color(neutral, 14);
+      border-color: color(neutral, 3);
+      color: color(neutral, 6);
     }
     &.dots {
       pointer-events: none;
@@ -98,15 +111,18 @@
     margin: 0;
     display: flex;
     align-items: center;
+    padding: 10px 19px 9px;
+    border: 1px solid color(neutral, 4);
+    border-radius: 8px;
     @include retina {
       display: none;
     }
     &Item {
       position: relative;
-      @include font-size(h6);
+      @include font-size(button-medium);
       &::after {
-        content: '/';
-        margin: 0 16px;
+        content: 'of';
+        margin: 0 4px;
         @include small {
           margin: 0 8px;
         }

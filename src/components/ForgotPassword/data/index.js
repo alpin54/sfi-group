@@ -30,7 +30,7 @@ const data = {
   ],
 
   title: 'Forgot Your Password?',
-  description: 'No worries we’ll help you reset it.'
+  subTitle: 'No worries we’ll help you reset it.'
 };
 
 export default data;

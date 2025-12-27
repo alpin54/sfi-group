@@ -1,17 +1,23 @@
+'use client';
+
+// -- libraries
 import { useMemo, useEffect, useState } from 'react';
+
+// -- styles
 import style from '@elements/Pagination/styles/style.module.scss';
+
+// -- elements
 import SystemIcon from '@elements/SystemIcon/views';
 
 const DOTS = '...';
 
+// -- helper functions
 const range = (start, end) => {
   let length = end - start + 1;
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
-/* =========================
- * PAGINATION LOGIC
- * ========================= */
+// -- pagination hook
 const usePagination = ({ currentPage, totalPage, siblingCount, isMobile }) => {
   return useMemo(() => {
     /* =====================
@@ -147,8 +153,8 @@ const Pagination = ({ currentPage, totalPage, onPageChange, siblingCount = 1 }) 
 
       {/* COUNTER */}
       <ul className={style.paginationCounter}>
-        <li className={style.paginationCounterItem}>{currentPage.toString().padStart(2, '0')}</li>
-        <li className={style.paginationCounterItem}>{totalPage.toString().padStart(2, '0')}</li>
+        <li className={style.paginationCounterItem}>{currentPage.toString().padStart(2)}</li>
+        <li className={style.paginationCounterItem}>{totalPage.toString().padStart(2)}</li>
       </ul>
     </div>
   );

@@ -30,9 +30,9 @@ const data = {
   ],
 
   title: 'Check Your Email',
-  description: 'Reset link is on its way!',
-  subDescription:
-    'We have sent a password reset link to your email address. Be sure to check your Spam, Promotions, or Recent folders too.'
+  subTitle: 'Reset link is on its way!',
+  description:
+    '<p>We’ve sent a link to reset your password to <a href="mailto:email@dummy.com">email@dummy.com</a>. Be sure to check your Spam, Promotions, or Recent folders too.</p>'
 };
 
 export default data;

@@ -15,7 +15,7 @@ const data = {
       price: 'Rp549.000',
       rating: '5.0',
       reviewCount: 1289,
-      badge: null
+      promotions: [{ id: 1, title: 'Sale' }]
     },
     {
       id: 'p-002',
@@ -25,7 +25,10 @@ const data = {
       price: 'Rp3.599.100',
       rating: '5.0',
       reviewCount: 800,
-      badge: 'Sale'
+      promotions: [
+        { id: 1, title: 'Sale' },
+        { id: 2, title: 'Buy 1 Get 1' }
+      ]
     },
     {
       id: 'p-003',
@@ -36,7 +39,7 @@ const data = {
       oldPrice: 'Rp999.000',
       rating: '5.0',
       reviewCount: 1106,
-      badge: 'Building'
+      promotions: [{ id: 1, title: 'Building' }]
     },
     {
       id: 'p-004',
@@ -47,7 +50,7 @@ const data = {
       oldPrice: 'Rp899.000',
       rating: '5.0',
       reviewCount: 745,
-      badge: 'Buy 1 Get 1'
+      promotions: []
     }
   ]
 };

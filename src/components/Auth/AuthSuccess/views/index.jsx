@@ -50,13 +50,22 @@ const AuthSuccess = (props) => {
       <AuthSectionWidget
         images={data.images}
         title={data.title}
-        description={data.description}
-        subDescription={data.subDescription}>
-        <div className={style.row}>
-          <Button href='mailto:' level='block'>
-            Open Email
-          </Button>
-        </div>
+        subTitle={data.subTitle}
+        description={data.description}>
+        {menu === 'success-upload-document' ? (
+          <div className={style.row}>
+            <Button href='/sign-in' level='block'>
+              Go to Sign In
+            </Button>
+          </div>
+        ) : (
+          <div className={style.row}>
+            <Button href='mailto:someone@example.com' level='block'>
+              Open Email
+            </Button>
+          </div>
+        )}
+
         {menu === 'success-verify-email' && (
           <div className={style.row}>
             <p className={style.rowText}>

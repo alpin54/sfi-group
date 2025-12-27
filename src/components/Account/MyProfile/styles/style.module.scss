@@ -1,0 +1,558 @@
+@import '_cores/styles/_assets.scss';
+
+.profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  @include medium {
+    padding: 24px 0;
+  }
+}
+
+.greeting {
+  @include font-size(h3);
+  font-weight: fw(medium);
+  margin-bottom: 24px;
+  @include small {
+    @include font-size(h4);
+  }
+}
+
+.formMessage {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background-color: color(primary, 1);
+  color: color(primary, 9);
+  border: 1px solid color(primary, 3);
+  @include font-size(body);
+}
+
+// Grid Layout
+.summary,
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+  .card {
+    padding: 8px;
+    width: 33.33333%;
+    @include medium {
+      width: 50%;
+    }
+    @include x-small {
+      width: 100%;
+    }
+  }
+}
+.summary {
+  margin-bottom: 8px;
+}
+.info {
+  margin-bottom: 136px;
+  @include large {
+    margin-bottom: 96px;
+  }
+  @include medium {
+    margin-bottom: 40px;
+  }
+  @include small {
+    margin-bottom: 24px;
+  }
+}
+
+// Profile Card
+.card {
+  $crd: &;
+  display: flex;
+  flex-direction: column;
+  &Box {
+    height: 100%;
+    background: color(neutral, 1);
+    border: 1px solid color(neutral, 3);
+    @include radius(md);
+    padding: 12px;
+    transition: all 0.3s ease;
+    &:hover {
+      border-color: color(primary, 3);
+    }
+  }
+
+  &Header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &Icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: color(primary, 6);
+    margin-right: 12px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  &Download {
+    text-decoration: none;
+    color: color(info, 7);
+    transition: color 0.3s ease;
+    &:hover {
+      color: color(info, 9);
+    }
+  }
+
+  &Label {
+    @include font-size(caption);
+    color: color(neutral, 6);
+    margin-bottom: 0;
+  }
+
+  &Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &Value {
+    @include font-size(body);
+    color: color(neutral, 6);
+    font-weight: fw(medium);
+    padding-left: 36px;
+    margin-bottom: 0;
+  }
+
+  &Summary {
+    &Col {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      overflow: hidden;
+      display: block;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    &Img {
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
+      &Small {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+    }
+    &Text {
+      margin-right: auto;
+    }
+    &Value {
+      display: flex;
+      align-items: center;
+    }
+    &Title {
+      @include font-size(h4);
+      color: color(neutral, 1);
+      font-weight: fw(medium);
+      margin-bottom: 0;
+      span {
+        @include font-size(small);
+      }
+    }
+    &Desc {
+      @include font-size(small);
+      color: color(neutral, 1);
+      margin-bottom: 0;
+    }
+    #{$crd} {
+      &Box {
+        background-color: color(primary, 6);
+      }
+      &Label,
+      &Desc {
+        color: color(neutral, 1);
+      }
+    }
+  }
+}
+
+// Offer Section
+.offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  @include radius(md);
+  background: color(gradient, 1);
+  @include small {
+    flex-direction: column;
+  }
+  &Title {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(neutral, 1);
+    filter: drop-shadow(1px 2px 2px 0px rgba(0, 0, 0, 0.08));
+    margin-bottom: 0;
+    @include small {
+      margin-bottom: 16px;
+    }
+  }
+  a,
+  button {
+    @include small {
+      flex: 1;
+      width: 100%;
+    }
+  }
+}
+
+// Modal Styles
+.modal {
+  &Field {
+    position: relative;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &Label {
+    display: flex;
+    align-items: center;
+    @include font-size(h6);
+    color: color(neutral, 8);
+    font-weight: fw(medium);
+    margin-bottom: 24px;
+    i {
+      font-size: 22px;
+      color: color(primary, 6);
+      margin-right: 12px;
+    }
+  }
+  &Actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    button,
+    a {
+      flex: 1;
+    }
+  }
+}
+
+// Date of Birth Selects
+.dobSelects {
+  display: flex;
+  gap: 12px;
+}
+
+.dobSelect {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid color(neutral, 3);
+  border-radius: 6px;
+  @include font-size(body);
+  color: color(neutral, 8);
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: color(primary, 6);
+  }
+}
+
+// Gender Options
+.genderOptions {
+  display: flex;
+}
+
+.radioLabel {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  @include font-size(button-medium);
+  border: 1px solid color(neutral, 4);
+  @include radius(sm);
+  padding: 16px 16px 16px 48px;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  input[type='radio'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    &:checked + span {
+      &::before {
+        border-color: color(primary, 6);
+      }
+      &::after {
+        opacity: 1;
+        color: color(primary, 6);
+      }
+    }
+  }
+  span {
+    &::before,
+    &::after {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 1px solid color(neutral, 5);
+      @include radius(xs);
+    }
+    &::after {
+      content: '\e90d';
+      font-family: ff(icon);
+      font-size: 23px;
+      left: 15px;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+// Field Error
+.fieldError {
+  @include font-size(caption);
+  color: color(danger, 6);
+  margin-top: 6px;
+}
+
+// Logout (if needed)
+.logoutWrapper {
+  margin-top: 32px;
+}
+
+.logout {
+  @include remove-tap-highlight;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  @include font-size(body);
+  color: color(danger, 7);
+  cursor: pointer;
+  position: relative;
+
+  i {
+    margin-right: 8px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: color(danger, 9);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover,
+  &:focus {
+    color: color(danger, 9);
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+.alert {
+  width: 100%;
+  margin-bottom: 16px;
+  &Box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: color(primary, 6);
+  }
+  &Info {
+    flex: 1;
+    margin-right: 8px;
+  }
+  &Title {
+    display: flex;
+    align-items: center;
+    @include font-size(caption);
+    color: color(neutral, 1);
+    margin-bottom: 8px;
+    i {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+    span {
+      margin-bottom: -4px;
+    }
+  }
+  &Note {
+    @include font-size(h6);
+    color: color(neutral, 1);
+    margin-bottom: 0;
+  }
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    margin-bottom: 16px;
+  }
+
+  &Tabs {
+    &Control {
+      display: flex;
+      border-bottom: 1px solid color(neutral, 3);
+      margin-bottom: 8px;
+      &Btn {
+        display: block;
+        background: none;
+        border: none;
+        outline: none;
+        @include font-size(button-medium);
+        color: color(neutral, 6);
+        padding: 12px;
+        position: relative;
+        cursor: pointer;
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .activeTab {
+      color: color(primary, 6);
+      font-weight: fw(medium);
+    }
+
+    .tabUnderline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2.5px;
+      background: color(primary, 6);
+      border-radius: 2px;
+    }
+    &Content {
+      min-height: 140px;
+    }
+
+    &Panel {
+      width: 100%;
+    }
+
+    &Row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid color(neutral, 3);
+    }
+    &Detail {
+      display: flex;
+      flex-direction: column;
+    }
+    &Title {
+      @include font-size(caption);
+      font-weight: fw(regular);
+      margin-bottom: 8px;
+      span {
+        color: color(neutral, 6);
+      }
+    }
+    &Desc {
+      @include font-size(small);
+      color: color(neutral, 6);
+      margin-bottom: 0;
+    }
+    &Value {
+      position: relative;
+      display: flex;
+    }
+    &Icon {
+      margin-top: 4px;
+      margin-right: 4px;
+    }
+    &PointsChange {
+      @include font-size(body);
+      font-weight: fw(medium);
+      color: color(primary, 6);
+    }
+    &Used {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px;
+      li {
+        position: relative;
+        @include font-size(caption);
+        color: color(neutral, 6);
+        margin-right: 24px;
+        &::after {
+          content: '';
+          position: absolute;
+          right: -14px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 4px;
+          height: 4px;
+          background: color(neutral, 5);
+          @include radius(xs);
+        }
+        &:first-child {
+          color: color(neutral, 8);
+        }
+        &:last-child {
+          margin-right: 0;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    &Expired {
+      @include font-size(caption);
+      color: color(danger, 6);
+      margin-bottom: 8px;
+    }
+    &Note {
+      @include font-size(small);
+      color: color(neutral, 8);
+      margin-bottom: 8px;
+    }
+    &Empty {
+      text-align: center;
+      margin-top: 30px;
+    }
+  }
+}

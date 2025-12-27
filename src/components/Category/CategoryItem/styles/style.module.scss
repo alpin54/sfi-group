@@ -1,0 +1,192 @@
+@import '_cores/styles/_assets.scss';
+
+.categorySection {
+  padding: 40px 0;
+  overflow: hidden;
+  position: relative;
+  @include medium {
+    padding: 32px 0;
+  }
+  @include x-small {
+    padding: 24px 0;
+  }
+  &Item {
+    display: flex;
+    padding: 64px 0;
+    @include medium {
+      flex-direction: column;
+      padding: 32px 0;
+    }
+    @include x-small {
+      padding: 24px 0;
+    }
+  }
+  .categoryCard {
+    width: 302px;
+    margin-right: 24px;
+    height: 442px;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    @include radius(md);
+    border: 1px solid color(neutral, 3);
+    background-color: color(neutral,2);
+    text-align: center;
+    @include large {
+      width: 250px;
+      height: 390px;
+    }
+    @include medium {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      background-color: color(neutral, 1);
+      border: none;
+      padding: 0 0 32px;
+    }
+    @include x-small {
+      padding-bottom: 28px;
+    }
+    &Title {
+      @include font-size(h3);
+      font-weight: fw(medium);
+      color: color(neutral, 9);
+      margin: 0;
+      @include x-small {
+        @include font-size(h4);
+      }
+      @include retina {
+        @include font-size(h5);
+      }
+    }
+    &Btn {
+      @include medium {
+        display: none;
+      }
+    }
+    &BtnMobile {
+      display: none;
+      @include medium {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  &List {
+    display: flex;
+    @include x-small {
+        overflow-x: auto;
+      }
+    @include medium {
+      padding-bottom: 32px;
+    }
+    & .categorySectionProductItem {
+      width: 250px;
+
+    }
+  }
+  &Slider {
+    position: absolute;
+    left: calc(50% - 302px);
+    width: calc(50% + 302px);
+    height: 100%;
+    @include large {
+      left: calc(50% - 210px);
+      width: calc(50% + 250px);
+    }
+    @include medium {
+      position: static;
+      width: calc(100% + 32px);
+      height: auto;
+      // margin-top: 32px;
+    }
+    & .categorySectionProductItem {
+      flex: 0 0 302px;
+      padding-right: 24px;
+      @include large {
+        flex: 0 0 250px;
+      }
+      @include medium {
+        flex: 0 0 auto;
+        padding-right: 16px;
+      }
+      @include x-small {
+        flex: 0 0 192px;
+      }
+      @include retina {
+        flex: 0 0 260px;
+      }
+
+    }
+  }
+  .categorySectionProductSlider {
+    position: relative;
+    @include medium {
+      padding-bottom: 32px;
+    }
+    :global(.slick-slide) {
+      width: 302px !important;
+      @include large {
+        width: 250px !important;
+      }
+      @include x-small {
+        width: 192px !important;
+      }
+      @include retina {
+        width: 260px !important;
+      }
+    }
+    :global(.slick-arrow) {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+      border: 1px solid color(primary, 6);
+      border-radius: 50%;
+      background-color: color(primary, 6);
+      color: color(neutral, 1);
+      @include font-icon(before);
+      transition: all 0.3s ease;
+      @include x-small {
+        display: none !important;
+      }
+      &:hover {
+        background-color: color(neutral, 1);
+        color: color(primary, 6);
+      }
+    }
+
+    :global(.slick-prev) {
+      left: 8px;
+      @include font-icon-set(caret-left, before, 2rem);
+    }
+    :global(.slick-next) {
+      right: calc(50% - 244px);
+      @include font-icon-set(caret-right, before, 2rem);
+      @media (max-width: 1440.98px) {
+        right: calc(50% - 364px);
+      }
+      @include large {
+        right: 56px;
+      }
+      @include medium {
+        right: 40px;
+      }
+      @include medium {
+        right: 32px;
+      }
+    }
+
+    :global(.slick-disabled) {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+}

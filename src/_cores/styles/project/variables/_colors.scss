@@ -4,116 +4,106 @@
 
 $colors: (
   primary: (
-    1: #fff7ea,
-    2: #fcefd6,
-    3: #f8e2b8,
-    4: #e8b259,
-    5: #e09a2b,
-    6: #d17720,
-    7: #a84a1a,
-    8: #7a3412,
-    9: #3e1a0c,
-    10: #dc8622
+    1: #f8eccd,
+    2: #fdf9f1,
+    3: #f1d796,
+    4: #eabc5f,
+    5: #e5a63a,
+    6: #dc8622,
+    7: #c3661c,
+    8: #a2491b,
+    9: #843a1c
   ),
 
   // Curious Blue Color
   curious-blue: (
-      1: #f0fbff,
-      2: #e2f4ff,
-      3: #c8efff,
-      4: #8fe4ff,
-      5: #43c6ff,
-      6: #1795d6,
-      7: #0e6c8b,
-      8: #09506e,
-      9: #06364f
+      1: #f1fafe,
+      2: #e1f4fd,
+      3: #bce9fb,
+      4: #81d8f8,
+      5: #3fc4f1,
+      6: #15ade2,
+      7: #0991c7,
+      8: #086f9c,
+      9: #0b5f81
     ),
 
   // Sunflower Color
   sunflower: (
-      1: #fffce6,
-      2: #fff9b3,
-      3: #fff266,
-      4: #ffe000,
-      5: #f0c400,
-      6: #d4a400,
-      7: #a77a00,
-      8: #7a5500,
-      9: #4e3800
+      1: #fcfee8,
+      2: #f7ff89,
+      3: #fbff45,
+      4: #fff100,
+      5: #ded105,
+      6: #ccb002,
+      7: #a37f05,
+      8: #86630d,
+      9: #725111
     ),
 
   // Functional Color - Success (greens)
   success: (
-      1: #f1fbf6,
-      2: #d9efe6,
-      3: #bfe5d0,
-      4: #8cd1b3,
-      5: #44b58d,
-      6: #0e9c6f,
-      7: #087a56,
-      8: #055e41,
-      9: #044334
+      1: #edf5f1,
+      2: #cbdfd5,
+      3: #acccbd,
+      4: #85b9a0,
+      5: #4da27e,
+      6: #058f64,
+      7: #04805a,
+      8: #046f4e,
+      9: #035a3f
     ),
 
   // Functional Color - Info (blue variants)
   info: (
-      1: #f3f6ff,
-      2: #e6ebff,
-      3: #c9d6ff,
-      4: #93b6ff,
-      5: #5a86ff,
-      6: #325ee0,
-      7: #1f47c8,
-      8: #14346a,
-      9: #0e2a5a
+      1: #e7eafb,
+      2: #cdd4f8,
+      3: #aebbf4,
+      4: #899ef1,
+      5: #547aed,
+      6: #235ee0,
+      7: #2054c9,
+      8: #1b49ae,
+      9: #163c8e
     ),
 
   // Functional Color - Warning (amber/yellow)
   warning: (
-      1: #fff8f0,
-      2: #fde7c8,
-      3: #f9d39a,
-      4: #f6bf63,
-      5: #f0a800,
-      6: #d58f00,
-      7: #b36b00,
-      8: #8a4f00,
-      9: #5c3400
+      1: #fef5e7,
+      2: #fde5c0,
+      3: #fcd796,
+      4: #fcd288,
+      5: #fbbf24,
+      6: #efb622,
+      7: #d6a31f,
+      8: #b98d1b,
+      9: #977316
     ),
 
   // Functional Color - Danger (reds)
   danger: (
-      1: #fff2f2,
-      2: #f8d7d7,
-      3: #f0baba,
-      4: #ea8f8f,
-      5: #e24f4f,
-      6: #d11a1a,
-      7: #b21212,
-      8: #8f0f0f,
-      9: #5e0b0b,
-    10: #bc2020
+      1: #fff5f5,
+      2: #f3cdcd,
+      3: #edaeae,
+      4: #e68989,
+      5: #df5555,
+      6: #d22424,
+      7: #bc2020,
+      8: #a31c1c,
+      9: #851717
     ),
 
   // Neutral Color (white -> black)
   neutral: (
       1: #ffffff,
-      2: #fafafa,
-      3: #f1f1f1,
-      4: #e6e6e6,
-      5: #bdbdbd,
-      6: #6a6a6a,
-      7: #4a4a4a,
-      8: #2b2b2b,
-      9: #111111,
-      10: #f9f9f9,
-      11: #f7f7f9,
-      12: #525252,
-      13: #262626,
-      14: #ebebeb,
-      15: #e4e4e4,
-      16: #404040,
-      17: #b7b7b7
+      2: #f9f9f9,
+      3: #ebebeb,
+      4: #e4e4e4,
+      5: #b7b7b7,
+      6: #525252,
+      7: #404040,
+      8: #262626,
+      9: #171717
     ),
 
   // Opacity Color / overlays

@@ -9,13 +9,13 @@
   &Icon {
     position: absolute;
     top: 14px;
-    right: 0;
-    @include font-size(h5);
+    right: 16px;
+    font-size: 20px;
     line-height: 1;
     color: color(neutral, 8);
     transition: all 0.3s ease;
     @include medium {
-      top: 0;
+      right: 0;
     }
     .open & {
       transform: rotateX(180deg);
@@ -23,12 +23,12 @@
     &Faders {
       position: absolute;
       top: 14px;
-      left: 0;
+      left: 16px;
       z-index: 1;
-      @include font-size(h5);
+      font-size: 20px;
       line-height: 1;
       @include medium {
-        top: 0;
+        left: 0;
       }
     }
   }
@@ -36,21 +36,21 @@
     display: block;
     width: 100%;
     border: 0;
-    padding: 14px 32px 14px 0;
+    padding: 16px;
+    @include radius(sm);
     @include placeholder-color(color(neutral, 6));
     @include font-size(button-medium);
+    background-color: color(neutral, 2);
     color: color(neutral, 6);
-    border-bottom: 1px solid color(neutral, 5);
     position: relative;
-
     @include medium {
-      padding-top: 0;
-      border-bottom: 0;
-      @include font-size(body);
-      padding-bottom: 16px;
+      background-color: color(neutral, 1);
     }
     .icon & {
-      padding-left: 32px;
+      padding-left: 48px;
+      @include medium {
+        padding-left: 32px;
+      }
     }
   }
   &Box {
@@ -60,12 +60,13 @@
     width: 100%;
     max-height: 240px;
     padding: 16px;
-    margin-top: 8px;
+    margin-top: 16px;
     background-color: color(neutral, 1);
     border: 1px solid color(neutral, 3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-16px);
+    @include radius(sm);
     transition: all 0.3s ease;
     @include scroll(y);
     @include medium {
@@ -162,7 +163,7 @@
     border-radius: 4px;
     transition: all 0.3s ease;
     @include font-icon(after);
-    @include font-icon-set(check-bold, after, 1rem);
+    @include font-icon-set(check, after, 1rem);
     &::after {
       color: color(neutral, 1);
       opacity: 0;
@@ -178,11 +179,18 @@
     transition: all 0.3s ease;
     &Color {
       position: relative;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
+      display: block;
+      width: 24px;
+      height: 16px;
       margin-right: 6px;
+      margin-top: -4px;
       border: 1px solid color(neutral, 3);
+    }
+    &Image {
+      display: block;
+      height: 16px;
+      object-fit: contain;
+      margin-right: 6px;
     }
   }
 }

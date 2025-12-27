@@ -3,7 +3,7 @@
 .ourGroupCompanies {
   padding-top: 96px;
   padding-bottom: 96px;
-  background-color: color(neutral, 11);
+  background-color: color(neutral, 2);
   @include large {
     padding-top: 64px;
     padding-bottom: 64px;
@@ -53,7 +53,7 @@
 .img {
   position: relative;
   padding-bottom: 71.234%;
-  @include radius(8);
+  @include radius(sm);
   overflow: hidden;
   margin-bottom: 32px;
   @include medium {

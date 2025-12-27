@@ -23,6 +23,7 @@ const Modal = (props) => {
   if (variant === 'success') variantStyle = style.success;
   if (variant === 'error') variantStyle = style.error;
   if (variant === 'warning') variantStyle = style.warning;
+  if (variant === 'fullscreen') variantStyle = style.fullscreen;
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -71,16 +72,18 @@ const Modal = (props) => {
       tabIndex={-1}
       ref={modalRef}>
       <div className={style.inner}>
-        <div className={style.head}>
-          <h6 id='modal-title' className={style.title}>
-            {title}
-          </h6>
-          {closeIcon === 'show' && (
-            <button className={style.close} onClick={onClose} aria-label='Close modal' type='button'>
-              <SystemIcon name='close' />
-            </button>
-          )}
-        </div>
+        {title && (
+          <div className={style.head}>
+            <h6 id='modal-title' className={style.title}>
+              {title}
+            </h6>
+            {closeIcon === 'show' && (
+              <button className={style.close} onClick={onClose} aria-label='Close modal' type='button'>
+                <SystemIcon name='close' />
+              </button>
+            )}
+          </div>
+        )}
         <div className={style.body}>{children}</div>
       </div>
       <div className={style.overlay} onClick={handleOverlayClick} />

@@ -23,8 +23,9 @@ const schemadata = schema.dynamic();
 // ProductPage
 // ==================
 
-const ProductPage = async () => {
-  return <Product />;
+const ProductPage = async ({ params }) => {
+  const { slug } = params;
+  return <Product slug={slug} />;
 };
 
 export { generateMetadata, schemadata };

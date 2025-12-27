@@ -7,6 +7,7 @@ import NewProductWidget from '@components/NewProduct/widgets/Default';
 import SectionBrandWidget from '@components/SectionBrand/widgets/Default';
 import VideoSectionWidget from '@components/VideoSection/widgets/Default';
 import ProductPopularWidget from '@components/Product/ProductPopular/widgets/Default';
+import ScrollReveal from '@components/ScrollReveal/views';
 
 // -- Men
 import Menu from '@components/Header/views/menu';
@@ -15,14 +16,30 @@ const Home = () => {
   return (
     <>
       <Menu data='home' />
+      {/* Modal Banner */}
       <ModalBannerWidget />
+      {/* Call to Action */}
       <CtaWidget />
+      {/* Hero Banner */}
       <HeroBannerWidget />
+      {/* Highlight Product Category */}
       <HighligtProductCategory />
-      <NewProductWidget />
-      <ProductPopularWidget />
-      <SectionBrandWidget />
-      <VideoSectionWidget />
+      {/* New Product */}
+      <ScrollReveal direction='up'>
+        <NewProductWidget />
+      </ScrollReveal>
+      {/* Popular Product */}
+      <ScrollReveal direction='up'>
+        <ProductPopularWidget />
+      </ScrollReveal>
+      {/* Brand */}
+      <ScrollReveal direction='up'>
+        <SectionBrandWidget />
+      </ScrollReveal>
+      {/* Video Section */}
+      <ScrollReveal direction='up'>
+        <VideoSectionWidget />
+      </ScrollReveal>
     </>
   );
 };

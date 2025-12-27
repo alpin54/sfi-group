@@ -10,10 +10,10 @@
   }
   &__title {
     display: inline-block;
-    font-family: ff(title);
+
     @include font-size(h2);
     font-weight: fw(medium);
-     @include text-gradient(color(gradient, 1), color(primary, 9));
+    @include text-gradient(color(gradient, 1), color(primary, 9));
     margin-bottom: 56px;
     @include medium {
       @include font-size(h3);
@@ -40,7 +40,6 @@
       padding-right: 0;
       width: 100%;
     }
-
   }
   &__formGroup {
     margin-bottom: 24px;
@@ -50,9 +49,6 @@
     }
     & Button {
       width: 100%;
-    }
-    & button {
-      border-radius: 8px;
     }
   }
   &__formField {
@@ -65,12 +61,11 @@
   &__label {
     @include font-size(button-small);
     font-weight: fw(regular);
-    color: color(neutral, 12);
+    color: color(neutral, 6);
     margin-bottom: 8px;
-
   }
 
-  &__agreement{
+  &__agreement {
     margin-bottom: 16px;
     &Wrapp {
       display: flex;
@@ -81,7 +76,7 @@
       cursor: pointer;
     }
     &Text {
-      color: color(neutral, 12);
+      color: color(neutral, 6);
       margin-left: 8px;
       padding-top: 2px;
     }
@@ -102,7 +97,6 @@
     color: color(danger, 6);
     @include font-size(caption);
   }
-
 
   &__right {
     flex: 1;
@@ -193,9 +187,9 @@
       display: inline-block;
       margin-right: 16px;
       padding: 6px;
-      border-radius: 6px;
+      @include radius(xs);
       background-color: color(neutral, 3);
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -204,7 +198,6 @@
       &:last-child {
         margin-right: 0;
       }
-
     }
     &Image {
       display: block;
@@ -219,9 +212,11 @@
       display: inline-block;
       margin-right: 16px;
       padding: 8px;
-      border-radius: 6px;
+      @include radius(xs);
       background-color: color(neutral, 3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -238,5 +233,4 @@
       object-fit: contain;
     }
   }
-
 }

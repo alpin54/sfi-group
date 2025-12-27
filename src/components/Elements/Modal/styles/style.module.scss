@@ -10,10 +10,25 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  @include medium {
-    &.chart {
+  &.fullscreen {
+    @include small {
       left: 0;
-      align-items: flex-end;
+      top: 0;
+      align-items: flex-start;
+    }
+    .inner {
+      @include small {
+        width: 100%;
+        max-width: initial;
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+    .body {
+      @include small {
+        height: calc(100vh - 64px);
+        max-height: 100%;
+      }
     }
   }
   &Open {
@@ -42,15 +57,21 @@
     border: 0;
     justify-content: center;
     margin-bottom: 40px;
-    @include x-small {
+    @include medium {
       margin-bottom: 32px;
+    }
+    @include small {
+      margin-bottom: 24px;
     }
   }
   .title {
     @include font-size(h2);
     text-align: center;
-    @include x-small {
+    @include medium {
       @include font-size(h3);
+    }
+    @include small {
+      @include font-size(h4);
     }
   }
 
@@ -112,12 +133,9 @@
 .body {
   @include scroll(y);
   max-height: 680px;
-  padding: 32px 24px;
-  @include large {
-    max-height: 560px;
-  }
+  padding: 24px;
   @include medium {
-    max-height: 480px;
+    max-height: 560px;
     .chart & {
       max-height: calc(100% - 64px);
     }
@@ -125,65 +143,11 @@
   @include small {
     padding: 24px 16px;
   }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 24px;
-    th,
-    td {
-      padding: 24px 8px;
-      @include font-size(body);
-      font-weight: fw(regular);
-      text-align: center;
-      border-bottom: 1px solid color(neutral, 3);
-      @include x-small {
-        @include font-size(small);
-      }
-    }
-    th {
-      color: color(neutral, 6);
-    }
-    td {
-      color: color(primary, 9);
-    }
-  }
-
-  p {
-    color: color(primary, 9);
-    margin-bottom: 8px;
-    @include x-small {
-      @include font-size(small);
-    }
-  }
-
-  ul {
-    list-style: disc;
-  }
-
-  ul,
-  ol {
-    margin-bottom: 16px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  li {
-    @include font-size(body);
-    margin-bottom: 8px;
-    @include x-small {
-      @include font-size(small);
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 .title {
   @include font-size(h6);
-  font-weight: fw(regular);
-  color: color(primary, 9);
+  font-weight: fw(medium);
+  color: color(neutral, 8);
   margin-bottom: 0;
 }
 .close {

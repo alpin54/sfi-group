@@ -13,7 +13,7 @@
   .title {
     @include font-size(h3);
     font-weight: fw(regular);
-    color: color(primary, 9);
+    color: color(neutral, 9);
     text-align: center;
     margin-bottom: 72px;
     @include medium {

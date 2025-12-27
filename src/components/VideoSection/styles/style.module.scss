@@ -11,7 +11,7 @@
 }
 .wrapper {
   position: relative;
-  border-radius: 8px;
+  @include radius(md);
   overflow: hidden;
 }
 

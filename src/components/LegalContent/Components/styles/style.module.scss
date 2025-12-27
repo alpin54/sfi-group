@@ -26,27 +26,24 @@
   }
   &__date {
     @include font-size(caption);
-    color: color(neutral, 16);
+    color: color(neutral, 7);
     margin-bottom: 24px;
   }
 
   &__title {
-    font-family: ff(title);
     @include font-size(h3);
     font-weight: fw(medium);
     margin-bottom: 16px;
-     @include text-gradient(color(gradient, 1), color(primary, 9));
+    @include text-gradient(color(gradient, 1), color(primary, 9));
     display: inline-block;
     @include x-small {
       @include font-size(h4);
-
     }
   }
 
-
   &__description {
     @include font-size(h6);
-    color: color(neutral, 16);
+    color: color(neutral, 7);
     margin: 0;
     @include x-small {
       @include font-size(body);
@@ -56,7 +53,7 @@
     & :global(h4) {
       @include font-size(h4);
       font-weight: fw(medium);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       margin-bottom: 24px;
       @include x-small {
         @include font-size(h5);
@@ -66,7 +63,7 @@
     & :global(h5) {
       @include font-size(h5);
       font-weight: fw(medium);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       margin-bottom: 8px;
       @include x-small {
         @include font-size(h6);
@@ -75,7 +72,7 @@
     & :global(h6) {
       @include font-size(h6);
       font-weight: fw(medium);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       margin-bottom: 8px;
     }
     & :global(ol) {
@@ -91,7 +88,7 @@
       margin-bottom: 24px;
       @include font-size(body);
       font-weight: fw(regular);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       @include x-small {
         margin-bottom: 16px;
       }
@@ -99,7 +96,7 @@
     & :global(strong) {
       @include font-size(h6);
       font-weight: fw(medium);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       display: block;
       margin-bottom: 8px;
       @include x-small {
@@ -109,7 +106,7 @@
     & :global(li) {
       @include font-size(h6);
       font-weight: fw(regular);
-      color: color(neutral, 16);
+      color: color(neutral, 7);
       @include x-small {
         @include font-size(body);
       }

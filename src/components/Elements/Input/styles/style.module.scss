@@ -6,7 +6,7 @@
   display: block;
   width: 100%;
   padding: 15px;
-  border-radius: 8px;
+  @include radius(sm);
   border: 1px solid color(neutral, 4);
   @include placeholder-color(color(neutral, 6));
   color: color(neutral, 7);
@@ -15,12 +15,12 @@
   transition: all 0.3s ease;
   &:hover,
   &:focus {
-    border-color: color(primary, 10);
+    border-color: color(primary, 2);
     @include shadow(5);
     outline: none;
   }
   @include small {
-    padding: 11px;
+    padding: 14px 12px 12px;
   }
   &Icon {
     padding-left: 48px;
@@ -38,6 +38,10 @@
       border-color: color(primary, 9);
     }
   }
+  &Small {
+    padding: 12px 12px 10px;
+    @include font-size(button-small);
+  }
 }
 .textarea {
   height: 112px;
@@ -47,14 +51,19 @@
 .icon {
   position: absolute;
   left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 12px;
+  // top: 50%;
+  // transform: translateY(-50%);
   @include font-size(h5);
   color: color(neutral, 6);
   line-height: 1;
+  @include small {
+    bottom: 10px;
+  }
   &Password {
     left: auto;
     right: 16px;
+    bottom: 8px;
     cursor: pointer;
   }
   &Underline {

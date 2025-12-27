@@ -1,14 +1,14 @@
 // -- components
-import FallbackPages from '@components/FallbackSection/widgets/UnderConstruction';
 import Menu from '@components/Header/views/menu';
+import ProductDetailSection from '@components/Product/ProductDetail/widgets/Default';
 
-const User = () => {
+const ProductDetail = ({ slug }) => {
   return (
     <>
-      <Menu data='user' />
-      <FallbackPages />
+      <Menu data={slug} />
+      <ProductDetailSection />
     </>
   );
 };
 
-export default User;
+export default ProductDetail;

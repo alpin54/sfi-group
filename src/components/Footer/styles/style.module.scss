@@ -6,7 +6,7 @@
   bottom: 0;
   width: 100%;
   z-index: zi(footer);
-  background-color: color(neutral, 10);
+  background-color: color(neutral, 2);
   padding: 56px 0 40px;
   @include medium {
     position: relative;
@@ -33,7 +33,10 @@
 /* ===============================
    Common Menu Block
 =============================== */
-.menuTitle, .menuTitleContact, .menuTitleSocial, .menuTitleMarket {
+.menuTitle,
+.menuTitleContact,
+.menuTitleSocial,
+.menuTitleMarket {
   @include font-size(caption);
   font-weight: fw(medium);
   color: color(neutral, 8);
@@ -121,7 +124,7 @@
   color: color(neutral, 6);
   @include remove-tap-highlight;
   &:hover {
-    color: color(primary, 9);
+    color: color(primary, 6);
     @include hover-underline(active);
   }
 }
@@ -132,7 +135,10 @@
   gap: 40px;
 }
 
-.menuGroup, .rowTwo, .rowThree, .footerExtra {
+.menuGroup,
+.rowTwo,
+.rowThree,
+.footerExtra {
   @include medium {
     width: 100%;
   }
@@ -209,7 +215,7 @@
   }
   .contactLink {
     @include font-size(button-small);
-    color: color(neutral, 12);
+    color: color(neutral, 6);
     text-decoration: none;
     transition: all 0.3s ease;
     @include hover-underline;
@@ -237,7 +243,9 @@
     padding: 6px;
     border-radius: 6px;
     background-color: color(neutral, 3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -266,7 +274,9 @@
     padding: 6px 8px;
     border-radius: 6px;
     background-color: color(neutral, 3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -301,8 +311,8 @@
     @include font-size(button-small);
     color: color(neutral, 8);
     @include retina {
-        @include font-size(small);
-      }
+      @include font-size(small);
+    }
   }
 
   .language {
@@ -326,7 +336,8 @@
 
       &:hover {
         & span {
-          color: color(warning, 6);}
+          color: color(warning, 6);
+        }
       }
     }
     .languageIcon {
@@ -351,4 +362,3 @@
     }
   }
 }
-

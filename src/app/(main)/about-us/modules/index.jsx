@@ -7,18 +7,33 @@ import AboutUsOurGroupCompanies from '@components/AboutUs/AboutUsOurGroupCompani
 import AboutUsOurBranches from '@components/AboutUs/AboutUsOurBranches/widgets/Default';
 import AboutUsOurPartnerNetwork from '@components/AboutUs/AboutUsOurPartnerNetwork/widgets/Default';
 import AboutUsGallery from '@components/AboutUs/AboutUsGallery/widgets/Default';
+import ScrollReveal from '@components/ScrollReveal/views';
 
 const AboutUs = () => {
   return (
     <>
       <Menu data='about-us' />
-      <AboutUsOverview />
-      <AboutUsVisionMission />
-      <AboutUsStory />
-      <AboutUsOurGroupCompanies />
-      <AboutUsOurBranches />
-      <AboutUsOurPartnerNetwork />
-      <AboutUsGallery />
+      <ScrollReveal direction='up'>
+        <AboutUsOverview />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsVisionMission />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsStory />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsOurGroupCompanies />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsOurBranches />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsOurPartnerNetwork />
+      </ScrollReveal>
+      <ScrollReveal direction='up'>
+        <AboutUsGallery />
+      </ScrollReveal>
     </>
   );
 };

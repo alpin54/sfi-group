@@ -164,7 +164,7 @@ const SignInMain = (props) => {
   const modalProps = selectedRole === 'dealer' ? rewardData.dealer : rewardData.member;
 
   return (
-    <AuthSectionWidget images={data.images} title={data.title} description={data.description}>
+    <AuthSectionWidget images={data.images} title={data.title} subTitle={data.subTitle}>
       <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
         {formMessage ? <div className={style.formMessage}>{formMessage}</div> : null}
 
@@ -231,7 +231,7 @@ const SignInMain = (props) => {
             </Link>
           </div>
           <div className={style.rowItem}>
-            <Button type='submit' level='block' disabled={loading}>
+            <Button type='submit' level='block' disabled={loading} rounded={false}>
               {loading ? 'Signing In...' : 'Sign In'}
             </Button>
           </div>

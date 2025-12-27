@@ -23,16 +23,16 @@
     }
     .btnBack {
       background-color: transparent;
-      border: 1px solid color(neutral, 15);
-      color: color(neutral, 12);
-      border-radius: 8px;
+      @include radius(sm);
+      border: 1px solid color(neutral, 4);
+      color: color(neutral, 6);
       padding: 10px 20px 10px 12px;
       display: inline-flex;
       align-items: center;
       transition: all 0.3s ease;
       @include font-size(button-medium);
       &:hover {
-        color: color(primary, 9);
+        color: color(neutral, 9);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         & i {
           transform: translateX(-4px);
@@ -45,7 +45,6 @@
       & span {
         padding-top: 2px;
       }
-
     }
   }
   .content {
@@ -71,12 +70,11 @@
     @include medium {
       width: 100%;
     }
-
   }
   .title {
     @include font-size(h3);
     font-weight: fw(medium);
-    color: color(neutral, 13);
+    color: color(neutral, 8);
     margin-bottom: 32px;
     @include medium {
       max-width: 100%;
@@ -103,29 +101,28 @@
     &Label {
       @include font-size(caption);
       font-weight: normal;
-      color: color(neutral, 12);
+      color: color(neutral, 6);
       margin-bottom: 8px;
     }
     &Value {
       display: flex;
       align-items: center;
-      color: color(neutral, 13);
+      color: color(neutral, 8);
       & i {
         margin-right: 12px;
         @include font-size(body);
-        color: color(neutral, 13);
+        color: color(neutral, 8);
       }
       & span {
         @include font-size(h6);
-        color: color(neutral, 13);
+        color: color(neutral, 8);
       }
     }
-
   }
   .subtitle {
     @include font-size(body);
     font-weight: fw(medium);
-    color: color(neutral, 13);
+    color: color(neutral, 8);
     margin-bottom: 8px;
   }
   .body {
@@ -133,9 +130,10 @@
     @include x-small {
       margin-bottom: 24px;
     }
-    & p, & ul {
+    & p,
+    & ul {
       @include font-size(body);
-      color: color(neutral, 12);
+      color: color(neutral, 6);
       margin-bottom: 16px;
       @include x-small {
         margin-bottom: 12px;
@@ -154,7 +152,12 @@
     }
     & button {
       width: 100%;
-      border-radius: 8px;
+    }
+    .formLabel {
+      @include font-size(button-small);
+      color: color(neutral, 6);
+      font-weight: fw(regular);
+      margin-bottom: 8px;
     }
   }
   .formFile {
@@ -180,7 +183,8 @@
       width: 100%;
       box-sizing: border-box;
       padding: 15px;
-      border: 1px solid color(neutral, 15);
+      @include radius(sm);
+      border: 1px solid color(neutral, 4);
       border-radius: 8px;
       background: #fff;
       color: color(neutral, 6);
@@ -189,7 +193,7 @@
       transition: border-color 0.2s;
       &:hover,
       &:focus {
-        border-color: color(primary, 10);
+        border-color: color(primary, 2);
         @include shadow(5);
         outline: none;
       }
@@ -214,5 +218,4 @@
       margin-bottom: 0;
     }
   }
-
 }

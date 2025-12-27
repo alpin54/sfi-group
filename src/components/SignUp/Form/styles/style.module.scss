@@ -1,10 +1,5 @@
 @import '_cores/styles/_assets.scss';
 
-/* ==========================================================================
-   Login
-   ========================================================================== */
-
-
 .tabWrap {
   display: flex;
   margin-bottom: 56px;
@@ -16,18 +11,18 @@
 
 .tabItem {
   padding: 12px 20px;
-  border-radius: 6px;
+  @include radius(xs);
   margin-right: 16px;
-  border: 1px solid color(neutral, 17);
+  border: 1px solid color(neutral, 5);
   background: color(neutral, 1);
-  color: color(neutral, 16);
+  color: color(neutral, 7);
   cursor: pointer;
   @include font-size(button-medium);
   transition: all 160ms ease;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: color(primary, 10);
+    border-color: color(primary, 6);
   }
   &:last-child {
     margin-right: 0;
@@ -35,16 +30,16 @@
 
   &[aria-pressed='true'] {
     /* fallback if JS sets aria-pressed */
-    border-color: color(primary, 10);
+    border-color: color(primary, 2);
     background: color(primary, 1);
-    color: color(primary, 10);
+    color: color(primary, 2);
   }
 }
 
 .tabActive {
-  border-color: color(primary, 10);
+  border-color: color(primary, 6);
   background: color(primary, 1);
-  color: color(primary, 10);
+  color: color(primary, 6);
 }
 
 .row {
@@ -68,7 +63,7 @@
     text-decoration: none;
     @include font-size(button-small);
     font-weight: fw(medium);
-    color: color(primary, 10);
+    color: color(primary, 6);
     @include hover-underline;
     &:hover {
       @include hover-underline(active);
@@ -79,7 +74,7 @@
     justify-content: center;
     align-items: center;
     @include font-size(button-small);
-    color: color(neutral, 12);
+    color: color(neutral, 6);
     margin-bottom: 0;
     a {
       margin-left: 8px;
@@ -91,11 +86,9 @@
     top: -20px;
     left: 0;
     @include font-size(button-small);
-    color: color(neutral, 12);
+    color: color(neutral, 6);
     display: inline-block;
   }
-  & Button {
-    border-radius: 8px;
-  }
+
 
 }

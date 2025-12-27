@@ -51,7 +51,7 @@ const data = {
         type: 'menu',
         links: [
           { name: 'Join Member', url: '/sign-in' },
-          { name: 'Join Dealer', url: '/sign-in' },
+          { name: 'Join Dealer', url: '#' },
           { name: 'Reward & Benefit', url: '/reward-benefit' }
         ]
       },

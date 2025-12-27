@@ -78,7 +78,7 @@
   height: auto;
 }
 .mapGeo {
-  fill: color(neutral, 15);
+  fill: color(neutral, 4);
   stroke: color(neutral, 1);
   stroke-width: 1;
   outline: none;
@@ -122,7 +122,7 @@
   will-change: opacity, transform;
   border-radius: 6px;
   padding: 4px 8px;
-  background: color(primary, 10);
+  background: color(primary, 6);
   color: color(neutral, 1);
   border: 1px solid color(neutral, 1);
   @include font-size(small);
@@ -144,7 +144,7 @@
   }
   &::after {
     bottom: -5px;
-    border-top: 5px solid color(primary, 10);
+    border-top: 5px solid color(primary, 2);
   }
 }
 .markerLabel {

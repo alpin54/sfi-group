@@ -8,7 +8,7 @@ import style from '@elements/Button/styles//style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const Button = (props) => {
-  const { variant, children, href, icon, level = 'default', color, size } = props;
+  const { variant, children, href, icon, level = 'default', color, size, rounded = false } = props;
 
   const iconCont = icon && <SystemIcon name={icon} />;
   let variantStyle = style.btn;
@@ -24,6 +24,9 @@ const Button = (props) => {
   if (variant === 'transparent') {
     variantStyle += ' ' + style.btnTransparent;
   }
+  if (variant === 'ghost') {
+    variantStyle += ' ' + style.btnGhost;
+  }
   if (level === 'block') {
     variantStyle += ' ' + style.btnBlock;
   }
@@ -33,11 +36,18 @@ const Button = (props) => {
   if (size === 'small') {
     variantStyle += ' ' + style.btnSmall;
   }
+  if (!rounded) {
+    variantStyle += ' ' + style.btnNoRounded;
+  }
 
   if (href) {
     return (
       <Link {...props} className={variantStyle}>
-        {variant !== 'underline' ? <span className={style.btnText}>{children}</span> : children}
+        {variant !== 'underline' && variant !== 'ghost' && variant !== 'icon' ? (
+          <span className={style.btnText}>{children}</span>
+        ) : (
+          children
+        )}
         {iconCont}
       </Link>
     );
@@ -45,7 +55,11 @@ const Button = (props) => {
 
   return (
     <button {...props} className={variantStyle}>
-      {variant !== 'underline' ? <span className={style.btnText}>{children}</span> : children}
+      {variant !== 'underline' && variant !== 'ghost' && variant !== 'icon' ? (
+        <span className={style.btnText}>{children}</span>
+      ) : (
+        children
+      )}
       {iconCont}
     </button>
   );

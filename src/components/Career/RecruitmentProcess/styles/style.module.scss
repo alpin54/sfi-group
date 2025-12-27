@@ -34,10 +34,10 @@
 
 .listItem {
   width: 100%;
-  background: white;
-  border: 1px solid color(neutral, 14);
-  border-radius: 32px;
-  padding: 16px 24px;
+  background: color(neutral, 1);
+  @include radius(xxl);
+  padding:  16px 24px;
+  border: 1px solid color(neutral, 3);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,35 +45,41 @@
   transition: all 0.3s ease;
   text-align: left;
   margin-bottom: 20px;
+  transition: all 0.3s ease;
   &:hover {
-    border-color: color(primary, 10);
+    border-color: color(primary, 6);
+    .title {
+      color: color(primary, 6);
+    }
   }
+
   &:last-child {
     margin-bottom: 0;
   }
+
   .title {
     display: inline-block;
     @include font-size(button-large);
     font-weight: fw(regular);
+    color: color(neutral, 6);
+    transition: all 0.3s ease;
   }
+
   .chev {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     & i {
       color: color(neutral, 1);
-      display: none;
     }
   }
-}
-
-.active {
-  background: color(primary, 10);
-  color: color(neutral, 1);
-  border-color: color(primary, 6);
-  .chev {
-    & i {
-      display: inline-block;
+  &.active {
+    background: color(primary, 6);
+    color: color(neutral, 1);
+    border-color: color(primary, 6);
+    .title {
+      color: color(neutral, 1);
     }
   }
 }
@@ -81,42 +87,44 @@
 /* CONTENT (image panel) */
 .content {
   flex: 1;
+
   .imageWrapp {
     width: 100%;
-    height: 464px;
-    border-radius: 12px;
+    height:  464px;
+    @include radius(md);
     overflow: hidden;
+    position: relative;
   }
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .desktopImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity .45s ease, transform .45s ease;
-  overflow: hidden;
-
-  &.slideIn {
-    opacity: 1;
-    transform: none;
-  }
+  display: block;
+  @include radius(md);
 }
-
-
 
 /* ACCORDION (mobile) */
 .accordion {
   width: 100%;
   display: block;
+
+  @include medium {
+    @include radius(xs);
+  }
+
   .accordionItem {
-    border-bottom: 1px solid color(neutral, 14);
-    overflow: hidden;
+    border-bottom: 1px solid color(neutral, 3);
     background: color(neutral, 1);
-    &.open {
-      // optional styles when open
-    }
   }
 
   .accordionHeader {
@@ -129,88 +137,72 @@
     justify-content: space-between;
     cursor: pointer;
     text-align: left;
+
+    @include medium {
+      font-weight: 500;
+    }
   }
 
   .accordionPanel {
     overflow: hidden;
-    transition: max-height .35s ease;
-    background: transparent;
-    // inner padding and content
+
     .panelInner {
-      .image {
-        border-radius: 8px;
+      padding-bottom: 12px;
+
+      @include medium {
+        height: 420px;
+      }
+
+      @include small {
+        height: auto;
       }
     }
   }
 }
 
+.accordionTitle {
+  @include font-size(button-medium);
+  color: color(neutral, 6);
+  transition: color 0.3s ease;
 
-.accordion {
+  .open & {
+    color: color(primary, 2);
+  }
+}
+
+.accordionIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: color(neutral, 6);
+
+  .open & {
+    color: color(primary, 2);
+  }
+}
+
+.accordionIcon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & i {
+    @include font-size(h6);
+  }
+}
+
+.accordionImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  @include radius(sm);
 
   @include medium {
-    border-radius: 6px;
-    .accordionPanel .panelInner {
-      padding-bottom: 12px;
-    }
-  }
-  &Header {
-    @include medium {
-      font-weight: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-  &Title {
-    @include font-size(button-medium);
-    color: color(neutral, 12);
-    .open & {
-      color: color(primary, 10);
-    }
-  }
-  &Icon {
-    @include medium {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: color(neutral, 12);
-      transition: all 0.35s ease;
-      .open & {
-        color: color(primary, 10);
-        transform: rotate(180deg);
-      }
-      & i {
-        @include font-size(h6);
-      }
-
-    }
-  }
-  .panelInner {
-    @include medium {
-      height: 420px;
-
-    }
-    @include small {
-      height: auto;
-    }
-  }
-  &Image {
-    @include medium {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      border-radius: 8px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .4s ease, transform .4s ease;
-      transition-delay: 0.30s;
-      .show & {
-        opacity: 1;
-        transform: none;
-        transition-delay: 0s;
-      }
-    }
+    display: block;
   }
 }
-

@@ -30,7 +30,7 @@ const data = {
   ],
 
   title: 'Welcome!',
-  description: 'Let’s get you started'
+  subTitle: 'Let’s get you started'
 };
 
 export default data;

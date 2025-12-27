@@ -6,7 +6,20 @@ import style from '@components/Product/ProductItem/styles/style.module.scss';
 import SystemIcon from '@components/Elements/SystemIcon/views';
 
 const ProductItem = (props) => {
-  const { id, images, name, description, url, price, oldPrice, rating, reviewCount, badge } = props;
+  const {
+    id,
+    images,
+    name,
+    description,
+    url,
+    price,
+    oldPrice,
+    rating,
+    reviewCount,
+    promotions = [],
+    favorite = false
+  } = props;
+
   const parseToNumber = (val) => {
     if (typeof val === 'number') return val;
     if (!val) return null;
@@ -36,9 +49,20 @@ const ProductItem = (props) => {
 
   return (
     <div className={style.card}>
+      <Link href={url} className={style.link} aria-label={name} />
       <div className={style.cardImage}>
         <Image src={images} alt={name} width={200} height={200} className={style.cardImageEl} />
-        {badge && <span className={style.badge}>{badge}</span>}
+        {promotions.length > 0 && (
+          <div className={style.badgeWrap}>
+            {promotions.map((promo) => (
+              <span
+                key={promo.id}
+                className={`${style.badge} ${style[`badge-${promo.title.toLowerCase().replace(/\s+/g, '-')}`]}`}>
+                {promo.title}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
       <div className={style.details}>
         <div className={style.meta}>
@@ -51,8 +75,11 @@ const ProductItem = (props) => {
             )}
           </div>
 
-          <button type='button' className={style.button} aria-label='Add to wishlist'>
-            <SystemIcon name='heart-off' className={style.iconLove} />
+          <button
+            type='button'
+            className={`${style.button} ${favorite ? style.favorited : ''}`}
+            aria-label={favorite ? 'Remove from wishlist' : 'Add to wishlist'}>
+            <SystemIcon name={favorite ? 'heart-on' : 'heart-off'} className={style.iconLove} />
           </button>
         </div>
         <h6 className={style.name}>{name}</h6>
@@ -67,7 +94,6 @@ const ProductItem = (props) => {
             )}
           </div>
         </div>
-        <Link href={url} className={style.link} aria-label={name} />
       </div>
     </div>
   );

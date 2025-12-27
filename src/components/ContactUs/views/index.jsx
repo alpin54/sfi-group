@@ -209,7 +209,7 @@ const ContactUs = ({ data }) => {
 
               {/* BUTTON */}
               <div className={style.contactUs__formGroup}>
-                <Button type='submit' disabled={loading}>
+                <Button type='submit' disabled={loading} rounded={false}>
                   {loading ? 'Submitting...' : 'Submit'}
                 </Button>
               </div>

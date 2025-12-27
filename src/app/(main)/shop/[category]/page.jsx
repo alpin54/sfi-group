@@ -3,8 +3,8 @@ import metaTag from '@utils/metaTag';
 import schema from '@utils/schema';
 
 // -- modules
-import ShopCategory from './modules';
 import reverseSlug from '@utils/reverseSlug';
+import ShopCategory from './modules';
 
 // -- metadata
 const generateMetadata = async ({ params }) => {
@@ -23,8 +23,9 @@ const schemadata = schema.dynamic();
 // ShopCategoryPage
 // ==================
 
-const ShopCategoryPage = async () => {
-  return <ShopCategory />;
+const ShopCategoryPage = async ({ params }) => {
+  const { category } = params;
+  return <ShopCategory category={category} />;
 };
 
 export { generateMetadata, schemadata };

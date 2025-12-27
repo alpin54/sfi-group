@@ -8,7 +8,7 @@ import style from '@elements/Breadcrumb/styles/style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const BreadcrumbView = (props) => {
-  const { data, variant = 'default', color = 'default' } = props;
+  const { items, variant = 'default', color = 'default' } = props;
   let styleClass = style.breadcrumb;
   if (color === 'white') {
     styleClass += ' ' + style.white;
@@ -19,10 +19,10 @@ const BreadcrumbView = (props) => {
 
   return (
     <ul className={styleClass}>
-      {data.map((item, index) => (
+      {items.map((item, index) => (
         <li key={index} className={style.breadcrumbItem}>
           {index === 0 ? <Link href={item.href}>{item.text}</Link> : item.text}
-          {item.icon && <SystemIcon name={item.icon} />}
+          {item.icon ? <SystemIcon name={item.icon} /> : items.length - 1 !== index && '/'}
         </li>
       ))}
     </ul>

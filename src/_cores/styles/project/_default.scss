@@ -21,8 +21,11 @@ body {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1 {
-  font-family: ff(title);
   font-weight: fw(bold);
   @include font-size(h1);
 }

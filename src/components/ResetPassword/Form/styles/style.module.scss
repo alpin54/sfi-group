@@ -24,7 +24,7 @@
   &Link {
     text-decoration: none;
     @include font-size(small);
-    color: color(primary, 9);
+    color: color(neutral, 9);
     @include hover-underline;
     &:hover {
       @include hover-underline(active);
@@ -79,14 +79,12 @@
     }
   }
   .label {
-    position: absolute ;
+    position: absolute;
     top: -20px;
     left: 0;
     @include font-size(button-small);
-    color: color(neutral, 12);
+    color: color(neutral, 6);
     display: inline-block;
   }
-  & Button {
-    border-radius: 8px;
-  }
+
 }

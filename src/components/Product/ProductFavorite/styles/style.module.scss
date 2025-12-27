@@ -1,0 +1,242 @@
+@import '_cores/styles/_assets.scss';
+
+.promo {
+  padding: 88px 0;
+  @include medium {
+    padding: 64px 0;
+  }
+  @include x-small {
+    padding: 48px 0;
+  }
+}
+
+.emptyLargeWrap {
+  padding: 72px 0 102px;
+  @include medium {
+    padding: 48px 0 72px;
+  }
+  @include x-small {
+    padding: 32px 0 48px;
+  }
+
+}
+
+.head {
+  margin-bottom: 36px;
+  @include small {
+    margin-bottom: 32px;
+  }
+}
+
+.body {
+  margin-bottom: 36px;
+  @include small {
+    margin-bottom: 40px;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 24px;
+}
+
+.title {
+  @include font-size(h3);
+  font-weight: fw(medium);
+  color: color(neutral, 8);
+  margin-bottom: 8px;
+}
+.subtitle {
+  @include font-size(h4);
+  color: color(neutral, 7);
+  font-weight: fw(regular);
+  margin-bottom: 56px;
+}
+
+.filter {
+  @include medium {
+    display: flex;
+  }
+  &Form {
+    @include medium {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-bottom: 88px;
+      background-color: color(neutral, 1);
+      z-index: zi(product-filter);
+      display: flex;
+      flex-direction: column;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.45s ease 0.2s;
+      .showFilter & {
+        transform: scaleY(1);
+        transition-delay: 0s;
+      }
+    }
+  }
+  &Btn {
+    display: none;
+    @include medium {
+      position: relative;
+      display: block;
+      width: 88px;
+      text-align: left;
+      padding: 14px 12px 12px 40px;
+      margin-right: 12px;
+      outline: 0;
+      border: 0;
+      @include radius(sm);
+      background-color: color(neutral, 1);
+      border: 1px solid color(neutral, 3);
+      color: color(neutral, 6);
+      @include font-size(button-medium);
+      cursor: pointer;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+  }
+  &Search {
+    position: relative;
+    margin-bottom: 24px;
+    @include medium {
+      flex: 1;
+      margin-bottom: 0;
+    }
+  }
+  &Head {
+    display: none;
+    @include medium {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid color(neutral, 3);
+    }
+  }
+  &Title {
+    @include font-size(body);
+    font-weight: fw(semi-bold);
+    color: color(neutral, 8);
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.35s ease 0s;
+    .showFilter & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+  }
+  &Close {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: color(neutral, 8);
+    @include font-size(h5);
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.35s ease 0s;
+    .showFilter & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+  }
+  &Body {
+    display: flex;
+    margin-left: -8px;
+    margin-right: -8px;
+    @include medium {
+      flex-direction: column;
+      padding: 24px;
+      margin: 0;
+      @include scroll('y', 'touch', 'hide');
+    }
+  }
+  &Item {
+    flex: 0 0 auto;
+    width: 25%;
+    padding: 0 8px;
+    @include medium {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.35s ease 0s;
+      border-bottom: 1px solid color(neutral, 3);
+      .showFilter & {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s;
+      }
+    }
+  }
+  &Foot {
+    display: none;
+    @include medium {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      padding: 16px 24px;
+      border-top: 1px solid color(neutral, 3);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.35s ease 0s;
+      .showFilter & {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s;
+      }
+      button {
+        flex: 1;
+        margin-right: 16px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
+  min-height: 540px;
+  @include small {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+}
+
+.item {
+  width: 25%;
+  padding: 12px;
+  @include medium {
+    width: 50%;
+  }
+  @include small {
+    padding: 8px;
+  }
+}
