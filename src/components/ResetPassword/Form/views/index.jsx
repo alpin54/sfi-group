@@ -103,7 +103,7 @@ const ResetPassword = (props) => {
         </div>
 
         <div className={style.row}>
-          <Button type='submit' level='block' rounded={false}>
+          <Button type='submit' level='block' rounded>
             Reset Password
           </Button>
         </div>

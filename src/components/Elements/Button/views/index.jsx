@@ -8,7 +8,7 @@ import style from '@elements/Button/styles//style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const Button = (props) => {
-  const { variant, children, href, icon, level = 'default', color, size, rounded = false } = props;
+  const { variant, children, href, icon, level = 'default', color, size, rounded } = props;
 
   const iconCont = icon && <SystemIcon name={icon} />;
   let variantStyle = style.btn;
@@ -36,7 +36,7 @@ const Button = (props) => {
   if (size === 'small') {
     variantStyle += ' ' + style.btnSmall;
   }
-  if (!rounded) {
+  if (rounded) {
     variantStyle += ' ' + style.btnNoRounded;
   }
 

@@ -12,38 +12,38 @@ const Brand = (props) => {
   const { image, color, name, slug, description, totalProduct, sold, rating, review } = props;
   return (
     <div className={style.brand}>
-      <div className={style.brand__info}>
-        <div className={style.brand__logo} style={color ? { backgroundColor: color } : undefined}>
+      <div className={style.brandInfo}>
+        <div className={style.brandLogo} style={color ? { backgroundColor: color } : undefined}>
           <Image src={image} alt={name} />
         </div>
-        <div className={style.brand__text}>
-          <h3 className={style.brand__name}>{name}</h3>
+        <div className={style.brandText}>
+          <h3 className={style.brandName}>{name}</h3>
           {slug ? (
-            <Link href={`/brand/${slug}`} className={style.brand__desc}>
+            <Link href={`/brand/${slug}`} className={style.brandDesc}>
               <SystemIcon name='storefront' />
               <span>View All Products</span>
               <SystemIcon name='caret-right' />
             </Link>
           ) : (
-            <p className={style.brand__desc}>{description}</p>
+            <p className={style.brandDesc}>{description}</p>
           )}
         </div>
       </div>
-      <div className={style.brand__stats}>
-        <div className={style.brand__stat}>
-          <SystemIcon name='package' className={style.brand__icon} />
+      <div className={style.brandStats}>
+        <div className={style.brandStat}>
+          <SystemIcon name='package' className={style.brandIcon} />
           <span>{totalProduct} Product</span>
         </div>
-        <div className={style.brand__stat}>
-          <SystemIcon name='chart-bar' className={style.brand__icon} />
+        <div className={style.brandStat}>
+          <SystemIcon name='chart-bar' className={style.brandIcon} />
           <span>{sold} Sold</span>
         </div>
-        <div className={style.brand__stat}>
-          <SystemIcon name='star-on' className={style.brand__icon} />
+        <div className={style.brandStat}>
+          <SystemIcon name='star-on' className={style.brandIcon} />
           <span>{rating} Rating</span>
         </div>
-        <div className={style.brand__stat}>
-          <SystemIcon name='chats-circle' className={style.brand__icon} />
+        <div className={style.brandStat}>
+          <SystemIcon name='chats-circle' className={style.brandIcon} />
           <span>{review} Review</span>
         </div>
       </div>

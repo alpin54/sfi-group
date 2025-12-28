@@ -231,7 +231,7 @@ const SignInMain = (props) => {
             </Link>
           </div>
           <div className={style.rowItem}>
-            <Button type='submit' level='block' disabled={loading} rounded={false}>
+            <Button type='submit' level='block' disabled={loading} rounded>
               {loading ? 'Signing In...' : 'Sign In'}
             </Button>
           </div>

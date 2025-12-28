@@ -15,7 +15,7 @@
     padding: 16px;
   }
 
-  &__info {
+  &Info {
     display: flex;
     align-items: center;
     width: 456px;
@@ -30,7 +30,7 @@
     }
   }
 
-  &__logo {
+  &Logo {
     width: 112px;
     height: 80px;
     @include radius(sm);
@@ -51,13 +51,13 @@
     }
   }
 
-  &__text {
+  &Text {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  &__name {
+  &Name {
     @include font-size(h3);
     font-weight: fw(medium);
     color: color(neutral, 9);
@@ -68,7 +68,7 @@
     }
   }
 
-  &__desc {
+  &Desc {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@
     }
   }
 
-  &__stats {
+  &Stats {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -104,7 +104,7 @@
     }
   }
 
-  &__stat {
+  &Stat {
     width: 100%;
     display: flex;
     align-items: center;

@@ -80,7 +80,7 @@ const SuccessModal = ({
             onClick={handleCta}
             aria-label={buttonText}
             className={style.ctaBtn}
-            rounded={false}>
+            rounded>
             {buttonText}
           </Button>
         </div>

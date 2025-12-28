@@ -448,7 +448,7 @@ const VerificationDealer = (props) => {
         {/* Submit */}
         <div className={style.row}>
           {errors.form && <div className={style.formMessage}>{errors.form}</div>}
-          <Button type='submit' level='block' disabled={loading} rounded={false}>
+          <Button type='submit' level='block' disabled={loading} rounded>
             {loading ? 'Submitting...' : 'Submit Registration'}
           </Button>
         </div>
