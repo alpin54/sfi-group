@@ -1,0 +1,57 @@
+@import '_cores/styles/_assets.scss';
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  font-size: 1rem;
+
+  input[type='checkbox'] {
+    display: none;
+  }
+  .track {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 36px;
+    height: 20px;
+    background-color: color(neutral, 4);
+    background: color;
+    @include radius(md);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: color(neutral, 1);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    @include shadow(4);
+    transition:
+      left 0.2s,
+      background 0.2s;
+  }
+  input:checked + .track {
+    background-color: color(primary, 6);
+  }
+  input:checked + .track .thumb {
+    left: 18px;
+  }
+  input:disabled + .track {
+    background-color: color(neutral, 3);
+    cursor: not-allowed;
+  }
+  input:disabled + .track .thumb {
+    background-color: color(neutral, 1);
+  }
+  .label {
+    margin-left: 4px;
+    color: brown;
+    font-size: 1rem;
+  }
+}

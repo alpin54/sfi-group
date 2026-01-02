@@ -1,6 +1,6 @@
 @import '_cores/styles/_assets.scss';
 
-.footerSection {
+.footer {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -14,19 +14,18 @@
   @include small {
     padding: 40px 0 32px;
   }
-}
-
-.footerGrid {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-bottom: 32px;
-  border-bottom: 1px solid color(neutral, 4);
-  @include medium {
-    flex-direction: column;
-  }
-  @include x-small {
-    padding-bottom: 24px;
+  &Grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    border-bottom: 1px solid color(neutral, 4);
+    @include medium {
+      flex-direction: column;
+    }
+    @include x-small {
+      padding-bottom: 24px;
+    }
   }
 }
 

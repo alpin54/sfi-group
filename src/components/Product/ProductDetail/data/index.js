@@ -26,15 +26,59 @@ const data = {
     { key: 4, image: ImageProduct4, alt: 'Product Image 4' }
   ],
   type: [
-    { id: 1, label: 'Case' },
-    { id: 2, label: 'Tempered Glass' },
-    { id: 3, label: 'Charger' }
+    { id: 1, name: 'Case' },
+    { id: 2, name: 'Tempered Glass' },
+    { id: 3, name: 'Charger' }
   ],
   colors: [
-    { id: 1, code: '#000000', label: 'Black' },
-    { id: 2, code: '#808080', label: 'Grey' },
-    { id: 3, code: '#D3D3D3', label: 'lightgrey' }
+    { id: 1, code: '#000000', name: 'Black' },
+    { id: 2, code: '#808080', name: 'Grey' },
+    { id: 3, code: '#D3D3D3', name: 'lightgrey' }
   ],
+  // variants: [
+  //   {
+  //     id: 11,
+  //     image: Product1,
+  //     name: 'iPhone 6',
+  //     stock: 50,
+  //     price: 250000,
+  //     sale_price: 200000,
+  //     color: {
+  //       id: 1,
+  //       code: '#000000',
+  //       name: 'Black'
+  //     },
+  //     type: { id: 1, name: 'Case' }
+  //   },
+  //   {
+  //     id: 12,
+  //     image: Product1,
+  //     name: 'iPhone 16',
+  //     stock: 70,
+  //     price: 300000,
+  //     sale_price: 250000,
+  //     color: {
+  //       id: 2,
+  //       code: '#808080',
+  //       name: 'Grey'
+  //     },
+  //     type: { id: 2, name: 'Tempered Glass' }
+  //   },
+  //   {
+  //     id: 13,
+  //     image: Product1,
+  //     name: 'iPhone 16 Pro',
+  //     stock: 30,
+  //     price: 350000,
+  //     sale_price: 300000,
+  //     color: {
+  //       id: 3,
+  //       code: '#D3D3D3',
+  //       name: 'lightgrey'
+  //     },
+  //     type: { id: 3, name: 'Charger' }
+  //   }
+  // ],
   stock: 20,
   store: {
     image: Brand,

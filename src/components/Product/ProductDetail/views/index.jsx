@@ -44,6 +44,7 @@ const ProductDetail = (props) => {
   const [openStatus, setOpenStatus] = useState(false);
   const [messageStatus, setMessageStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const sectionRef = useRef(null);
   const detailRef = useRef(null);
   const imageSliderRef = useRef(null);
 
@@ -136,10 +137,12 @@ const ProductDetail = (props) => {
   // Handle show navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (!detailRef.current) return;
-      const rect = detailRef.current.getBoundingClientRect();
-      // Jika top sudah di atas viewport (lewat)
-      if (rect.top + rect.height < 0) {
+      if (!detailRef.current || !sectionRef.current) return;
+
+      const detailRect = detailRef.current.getBoundingClientRect();
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+
+      if (detailRect.top + detailRect.height < 0 && sectionRect.bottom > detailRect.height + 200) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -149,12 +152,20 @@ const ProductDetail = (props) => {
     window.addEventListener('scroll', handleScroll);
     // run on mount
     handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Handle active section on scroll
   useEffect(() => {
     const handleSectionScroll = () => {
+      // Dapatkan tinggi header & navbar
+      const header = document.querySelector('#header');
+      const navbar = document.querySelector(`.${style.navbar}`);
+      const headerHeight = header ? header.offsetHeight : 0;
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const offsetSum = headerHeight + navbarHeight / 2;
+
       const sections = [
         { id: 'description', offset: 0 },
         { id: 'feature', offset: 0 },
@@ -165,8 +176,7 @@ const ProductDetail = (props) => {
         const el = document.getElementById(sections[i].id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // window.innerHeight * 0.2 ⇒ tolerant, biar ganti saat mendekati atas
-          if (rect.top <= window.innerHeight * 0.2) {
+          if (rect.top - offsetSum <= 0) {
             current = sections[i].id;
             break;
           }
@@ -176,7 +186,7 @@ const ProductDetail = (props) => {
     };
 
     window.addEventListener('scroll', handleSectionScroll);
-    handleSectionScroll(); // run on mount
+    handleSectionScroll();
     return () => window.removeEventListener('scroll', handleSectionScroll);
   }, []);
 
@@ -188,6 +198,21 @@ const ProductDetail = (props) => {
     setSelectedType(null);
     setQuantity(1);
   }, [data]);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const header = document.querySelector('.header');
+    const navbar = document.querySelector(`.${style.navbar}`);
+    const headerHeight = header ? header.offsetHeight : 0;
+    const navbarHeight = navbar ? navbar.offsetHeight : 0;
+    const offsetSum = headerHeight + navbarHeight;
+
+    const section = document.getElementById(id);
+    if (section) {
+      const top = section.getBoundingClientRect().top + window.scrollY - offsetSum;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
 
   // Prevent input more than stock
   const handleQtyChange = (e) => {
@@ -252,7 +277,8 @@ const ProductDetail = (props) => {
       setCurrentStock(data?.stock ?? 0);
       setQuantity((q) => Math.min(q, data?.stock ?? q));
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedColor, selectedType, data]);
 
   const getCartList = async () => {
     // Jangan panggil API cart jika user belum login
@@ -307,7 +333,7 @@ const ProductDetail = (props) => {
 
     // Auth check
     if (!isAuthenticated) {
-      cartList = LocalStorage.get('cart') || [];
+      cartList = LocalStorage.get('cart')?.data || [];
     } else {
       cartList = await getCartList();
     }
@@ -463,7 +489,7 @@ const ProductDetail = (props) => {
 
   return data ? (
     <>
-      <div className={`${style.product} ${showNavbar ? style.show : ''}`}>
+      <div className={`${style.product} ${showNavbar ? style.show : ''}`} ref={sectionRef}>
         <div className='container'>
           {/* navbar */}
           <div className={style.navbar}>
@@ -474,21 +500,24 @@ const ProductDetail = (props) => {
                   <li className={style.navbarItem}>
                     <Link
                       className={`${style.navbarLink} ${activeSection === 'description' ? style.navbarLinkActive : ''}`}
-                      href='#description'>
+                      href='#description'
+                      onClick={(e) => handleNavClick(e, 'description')}>
                       Description
                     </Link>
                   </li>
                   <li className={style.navbarItem}>
                     <Link
                       className={`${style.navbarLink} ${activeSection === 'feature' ? style.navbarLinkActive : ''}`}
-                      href='#feature'>
+                      href='#feature'
+                      onClick={(e) => handleNavClick(e, 'feature')}>
                       Feature
                     </Link>
                   </li>
                   <li className={style.navbarItem}>
                     <Link
                       className={`${style.navbarLink} ${activeSection === 'review' ? style.navbarLinkActive : ''}`}
-                      href='#review'>
+                      href='#review'
+                      onClick={(e) => handleNavClick(e, 'review')}>
                       Review
                     </Link>
                   </li>
@@ -582,7 +611,7 @@ const ProductDetail = (props) => {
                     {/* type */}
                     <div className={style.variant}>
                       <p className={style.label}>
-                        Type: <span>{selectedType?.label}</span>
+                        Type: <span>{selectedType?.name}</span>
                       </p>
                       <ul className={style.variantList}>
                         {data.type.map((type) => (
@@ -590,7 +619,7 @@ const ProductDetail = (props) => {
                             <button
                               className={`${style.variantBox} ${selectedType?.id === type.id ? style.variantBoxActive : ''}`}
                               onClick={() => handleSelectType(type)}>
-                              <span>{type.label}</span>
+                              <span>{type.name}</span>
                             </button>
                           </li>
                         ))}
@@ -603,7 +632,7 @@ const ProductDetail = (props) => {
                     {/* Color */}
                     <div className={style.color}>
                       <p className={style.label}>
-                        Color: <span>{selectedColor?.label}</span>
+                        Color: <span>{selectedColor?.name}</span>
                       </p>
                       <ul className={style.colorList}>
                         {data.colors.map((color) => (
@@ -611,7 +640,7 @@ const ProductDetail = (props) => {
                             <button
                               className={`${style.colorBox} ${selectedColor?.id === color.id ? style.colorBoxActive : ''}`}
                               onClick={() => handleSelectColor(color)}
-                              aria-label={color.label}>
+                              aria-label={color.name}>
                               <span style={{ background: color.code }}></span>
                             </button>
                           </li>
@@ -684,7 +713,7 @@ const ProductDetail = (props) => {
           )}
           {/* related */}
           {data.related && data.related.length > 0 && (
-            <div className={style.related}>
+            <div className={style.related} id='related'>
               <h3 className={style.relatedTitle}>Other Product Recommendations</h3>
               <div className={style.relatedList}>
                 {data.related.map((prod, idx) => (

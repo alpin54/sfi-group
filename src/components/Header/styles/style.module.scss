@@ -198,6 +198,7 @@
     }
   }
   &Link {
+    position: relative;
     @include medium {
       padding: 0;
     }

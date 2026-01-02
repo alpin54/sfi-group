@@ -6,7 +6,7 @@ import logo from '@assets/image/logo/logo-primary.png';
 
 const data = {
   // head
-  profile: 'guest',
+  profile: 'guest', // guest, member, dealer
   title: 'Order Details',
   subtitle: 'Review your items and information',
   // meta

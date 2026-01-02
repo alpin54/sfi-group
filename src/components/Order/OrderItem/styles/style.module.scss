@@ -11,18 +11,15 @@
 }
 .box {
   display: flex;
-  gap: 16px;
-  justify-content: space-between;
   align-items: flex-end;
-  @include x-small {
-    position: relative;
-  }
+  position: relative;
 }
 .info {
   display: flex;
   gap: 16px;
 }
 .img {
+  flex: 0 0 72px;
   width: 72px;
   height: 72px;
   @include radius(xs);
@@ -32,6 +29,8 @@
     height: 64px;
   }
   &El {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 }
@@ -48,9 +47,7 @@
   @include font-size(small);
   font-weight: fw(regular);
   margin-bottom: 4px;
-  @include x-small {
-    padding-right: 100px;
-  }
+  padding-right: 100px;
   span {
     @include font-size(x-small);
   }
@@ -60,18 +57,14 @@
   @include font-size(small);
   font-weight: fw(regular);
   margin-bottom: 0;
-  @include x-small {
-    padding-right: 100px;
-  }
+  padding-right: 100px;
 }
 .price {
   font-weight: fw(medium);
-  color: color(primary, 2);
+  color: color(primary, 6);
   margin-bottom: 0;
   @include font-size(body);
-  @include x-small {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

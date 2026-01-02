@@ -168,10 +168,6 @@
     @include medium {
       width: 100%;
       padding: 0;
-      margin-bottom: 16px;
-      &:last-child {
-        margin-bottom: 0;
-      }
       opacity: 0;
       transform: translateY(8px);
       transition: all 0.35s ease 0s;
@@ -217,7 +213,6 @@
   flex-wrap: wrap;
   margin-left: -12px;
   margin-right: -12px;
-  min-height: 540px;
   @include small {
     margin-left: -8px;
     margin-right: -8px;

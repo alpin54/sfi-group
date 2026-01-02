@@ -63,9 +63,15 @@
       }
     }
     &Btn {
+      width: 100%;
       @include medium {
         display: none;
       }
+      & a {
+        width: 100%;
+      }
+
+
     }
     &BtnMobile {
       display: none;

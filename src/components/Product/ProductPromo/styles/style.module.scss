@@ -18,7 +18,6 @@
   @include x-small {
     padding: 32px 0 48px;
   }
-
 }
 
 .head {
@@ -174,10 +173,6 @@
     @include medium {
       width: 100%;
       padding: 0;
-      margin-bottom: 16px;
-      &:last-child {
-        margin-bottom: 0;
-      }
       opacity: 0;
       transform: translateY(8px);
       transition: all 0.35s ease 0s;

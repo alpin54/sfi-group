@@ -1,8 +1,11 @@
+// -- libraries
 import Image from 'next/image';
 import Link from 'next/link';
 
+// -- styles
 import style from '@components/Product/ProductItem/styles/style.module.scss';
 
+// -- elements
 import SystemIcon from '@components/Elements/SystemIcon/views';
 
 const ProductItem = (props) => {

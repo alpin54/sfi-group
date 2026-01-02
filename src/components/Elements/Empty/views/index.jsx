@@ -8,13 +8,13 @@ import EmptyImage from '@assets/image/illustration/empty.svg';
 import style from '@elements/Empty/styles/style.module.scss';
 
 const EmptyView = (props) => {
-  const { image, title, description, button } = props;
+  const { image, title, description, action } = props;
 
   return (
     <div className={style.empty}>
       {image ? (
         <div className={style.img}>
-          <Image src={image} alt='Empty' width={248} height={216} className={style.imgEl} />
+          <Image src={image} alt='Empty' width={248} height={144} className={style.imgEl} />
         </div>
       ) : (
         <div className={style.img}>
@@ -23,7 +23,7 @@ const EmptyView = (props) => {
       )}
       <h4 className={style.title}>{title}</h4>
       <p className={style.description}>{description}</p>
-      {button && <div className={style.btn}>{button}</div>}
+      {action && <div className={style.btn}>{action}</div>}
     </div>
   );
 };

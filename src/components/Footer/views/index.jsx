@@ -203,7 +203,7 @@ const Footer = ({ data }) => {
   );
 
   return (
-    <section className={style.footerSection} ref={footerRef}>
+    <div className={style.footer} ref={footerRef}>
       <div className='container'>
         <div className={style.footerGrid}>
           <div className={style.menuGroup}>
@@ -252,7 +252,7 @@ const Footer = ({ data }) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

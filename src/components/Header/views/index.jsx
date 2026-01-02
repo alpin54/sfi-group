@@ -41,6 +41,7 @@ const Header = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [cartData, setCartData] = useState(null);
   const headerRef = useRef(null);
   const menuWrapperRef = useRef(null);
   const searchWrapperRef = useRef(null);
@@ -51,9 +52,14 @@ const Header = (props) => {
   const router = useRouter();
   useEffect(() => {
     const userStore = LocalStorage.get('user');
+    const cartStore = LocalStorage.get('cart');
 
     if (userStore) {
       setUserData(userStore);
+    }
+
+    if (cartStore) {
+      setCartData(cartStore);
     }
   }, []);
 
@@ -257,7 +263,7 @@ const Header = (props) => {
     }
   };
 
-  const totalCart = 0;
+  const totalCart = cartData?.data?.reduce((total, item) => total + (item.quantity || 0), 0) || 0;
   const displayImage = (data) => {
     if (data.image1) return data.image1;
     if (data.image2) return data.image2;
@@ -269,7 +275,8 @@ const Header = (props) => {
     <>
       <div
         className={`${style.header} ${openMenu ? `${style.header} ${style.showMenu}` : ''} ${openSearch ? style.showSearch : ''} ${openSubMenu ? style.showSubMenu : ''}`}
-        ref={headerRef}>
+        ref={headerRef}
+        id='header'>
         <div className={style.headerWrapper}>
           <div className='container'>
             <div className={style.headerInner}>
@@ -409,7 +416,6 @@ const Header = (props) => {
                         setOpenContentMenu(false);
                       }}>
                       <SystemIcon name='user-circle-off' />
-                      {totalCart > 0 && <span className={style.featureLinkCount}>{totalCart}</span>}
                     </Link>
                   </li>
                   <li className={style.featureItem}>

@@ -16,6 +16,7 @@
     transition: all 0.3s ease;
     @include medium {
       right: 0;
+      top: 22px;
     }
     .open & {
       transform: rotateX(180deg);
@@ -29,6 +30,7 @@
       line-height: 1;
       @include medium {
         left: 0;
+        top: 22px;
       }
     }
   }
@@ -44,6 +46,7 @@
     color: color(neutral, 6);
     position: relative;
     @include medium {
+      padding: 24px;
       background-color: color(neutral, 1);
     }
     .icon & {
@@ -77,6 +80,7 @@
       border: 0;
       transform: none;
       opacity: 1;
+      border-radius: 0;
       visibility: visible;
       :global(#blog) & {
         margin-top: 24px;

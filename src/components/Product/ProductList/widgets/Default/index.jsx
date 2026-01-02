@@ -9,7 +9,7 @@ import data from '@components/Product/ProductList/data';
 const ProductListWidget = ({ category, subCategory }) => {
   return (
     <ProductList
-      data={data}
+      data={[]}
       category={category}
       subCategory={subCategory}
       brandOptions={data.brandOptions}

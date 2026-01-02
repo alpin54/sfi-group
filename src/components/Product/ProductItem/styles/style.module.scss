@@ -85,6 +85,7 @@
       .rating {
         @include font-size(small);
         color: color(neutral, 7);
+        padding-top: 4px;
       }
     }
     .button {
@@ -105,6 +106,7 @@
       }
       &.favorited i {
         color: color(primary, 6);
+        @include font-size(caption);
       }
     }
   }

@@ -33,6 +33,7 @@ const Button = (props) => {
   if (color === 'white') {
     variantStyle += ' ' + style.btnWhite;
   }
+
   if (size === 'small') {
     variantStyle += ' ' + style.btnSmall;
   }

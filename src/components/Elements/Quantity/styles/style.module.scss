@@ -12,15 +12,22 @@
       padding: 0;
       width: 40px;
       height: 40px;
+      padding: 9px 8px 6px;
       font-size: 20px;
       line-height: 1;
-      border: 1px solid color(primary, 9);
+      border: 1px solid color(primary, 6);
       background-color: color(primary, 2);
-      color: color(primary, 9);
+      color: color(primary, 6);
       font-weight: fw(medium);
       cursor: pointer;
       @include radius(sm);
       transition: all 0.3s ease;
+      .size & {
+        width: 32px;
+        height: 32px;
+        padding: 6px 5px 4px;
+        font-size: 16px;
+      }
       &:disabled {
         border-color: color(neutral, 3);
         background-color: color(neutral, 3);
@@ -40,6 +47,12 @@
       @include font-size(h5);
       outline: 0;
       margin: 0 16px;
+      .size & {
+        width: 40px;
+        height: 32px;
+        margin: 0 8px;
+        @include font-size(body);
+      }
     }
   }
 }

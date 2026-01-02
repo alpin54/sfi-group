@@ -82,10 +82,11 @@ import OrderItem from '@components/Order/OrderItem/views';
 // };
 
 const Order = (props) => {
-  const { data } = props;
+  const { data, variant } = props;
   const profile = String(data?.profile ?? '').toLowerCase();
   const isDealer = profile === 'dealer';
   const isMember = profile === 'member';
+  const isGuest = profile === 'guest';
   const totalQty = Array.isArray(data?.list)
     ? data.list.reduce((sum, item) => sum + (Number(item?.quantity) || 0), 0)
     : 0;
@@ -129,9 +130,10 @@ const Order = (props) => {
   // };
 
   return (
-    <section className={style.order}>
+    <section className={`${style.order} ${style[variant]}`}>
       <div className='container'>
         <div className={style.inner}>
+          {variant === 'account' && <h1>Account Variant</h1>}
           {/* head */}
           <div className={style.head}>
             <h1 className={style.title}>{data.title}</h1>
@@ -203,26 +205,28 @@ const Order = (props) => {
                   <h6 className={style.label}>{data.total_amount.label}</h6>
                   <h6 className={style.value}>{Currency.formatRp(data.total_amount.value)}</h6>
                 </div>
-                <div className={style.row}>
-                  {isDealer && (
-                    <>
-                      <h6 className={style.label}>{data.voucher_earned_dealer.label}</h6>
-                      <h6 className={style.value}>
-                        <SystemIcon name='e-voucher' />
-                        {Currency.formatRp(data?.voucher_earned_dealer.value)}
-                      </h6>
-                    </>
-                  )}{' '}
-                  {isMember && (
-                    <>
-                      <h6 className={style.label}>{data.voucher_earned_member.label}</h6>
-                      <h6 className={style.value}>
-                        <SystemIcon name='e-voucher-circle' />
-                        {data?.voucher_earned_member.value}
-                      </h6>
-                    </>
-                  )}
-                </div>
+                {!isGuest && (isDealer || isMember) && (
+                  <div className={style.row}>
+                    {isDealer && (
+                      <>
+                        <h6 className={style.label}>{data.voucher_earned_dealer.label}</h6>
+                        <h6 className={style.value}>
+                          <SystemIcon name='e-voucher' />
+                          {Currency.formatRp(data?.voucher_earned_dealer.value)}
+                        </h6>
+                      </>
+                    )}
+                    {isMember && (
+                      <>
+                        <h6 className={style.label}>{data.voucher_earned_member.label}</h6>
+                        <h6 className={style.value}>
+                          <SystemIcon name='e-voucher-circle' />
+                          {data?.voucher_earned_member.value}
+                        </h6>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
               <div className={style.payment}>
                 <div className={style.paymentMethod}>

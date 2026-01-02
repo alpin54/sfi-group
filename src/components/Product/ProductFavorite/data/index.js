@@ -25,7 +25,7 @@ const data = {
       price: 'Rp549.000',
       rating: '5.0',
       reviewCount: 1289,
-      // favorite: true,
+      favorite: true,
       promotions: [
         { id: 1, title: 'Sale' },
         { id: 2, title: 'Buy 1 Get 1' }
@@ -39,6 +39,7 @@ const data = {
       price: 'Rp3.599.100',
       rating: '5.0',
       reviewCount: 800,
+      favorite: true,
       promotions: [
         { id: 1, title: 'Sale' },
         { id: 2, title: 'Building' }
@@ -53,6 +54,7 @@ const data = {
       oldPrice: 'Rp999.000',
       rating: '5.0',
       reviewCount: 1106,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -64,6 +66,7 @@ const data = {
       oldPrice: 'Rp899.000',
       rating: '5.0',
       reviewCount: 745,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -74,6 +77,7 @@ const data = {
       price: 'Rp1.299.000',
       rating: '4.8',
       reviewCount: 950,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -84,6 +88,7 @@ const data = {
       price: 'Rp499.000',
       rating: '4.9',
       reviewCount: 1200,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -94,6 +99,7 @@ const data = {
       price: 'Rp699.000',
       rating: '4.7',
       reviewCount: 850,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -105,6 +111,7 @@ const data = {
       oldPrice: 'Rp2.199.000',
       rating: '4.9',
       reviewCount: 670,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -115,6 +122,7 @@ const data = {
       price: 'Rp299.000',
       rating: '4.8',
       reviewCount: 1100,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     },
     {
@@ -125,6 +133,7 @@ const data = {
       price: 'Rp1.099.000',
       rating: '4.9',
       reviewCount: 980,
+      favorite: true,
       promotions: [{ id: 1, title: 'Sale' }]
     }
   ],

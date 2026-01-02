@@ -1,0 +1,351 @@
+@import '_cores/styles/_assets.scss';
+
+.order {
+  overflow: hidden;
+  &Tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    @include small {
+      @include scroll('x', 'touch', 'hide');
+    }
+    &Item {
+      @include font-size(button-medium);
+      color: color(neutral, 6);
+      padding: 11px 20px 9px;
+      background-color: transparent;
+      border: 1px solid color(neutral, 4);
+      @include radius(sm);
+      color: color(neutral, 6);
+      cursor: pointer;
+      white-space: nowrap;
+      margin-right: 12px;
+      transition: all 0.3s ease;
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active {
+        color: color(primary, 6);
+        border-color: color(primary, 6);
+        background-color: color(primary, 1);
+
+      }
+      &:hover {
+        border-color: color(primary, 6);
+        color: color(primary, 6);
+      }
+    }
+  }
+  &List {
+    display: flex;
+    flex-direction: column;
+  }
+  &Card {
+    position: relative;
+    border: 1px solid color(neutral, 3);
+    @include radius(md);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: color(primary, 6);
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include x-small {
+      margin-bottom: 16px;
+      padding: 16px ;
+    }
+  }
+  &Header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    &Left, &Right {
+      display: flex;
+      align-items: center;
+    }
+    @include x-small {
+      margin-bottom: 14px;
+      align-items: flex-start
+    }
+    .desc {
+      @include font-size(body);
+      color: color(neutral, 6);
+      margin: 0 16px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &Left {
+      @include x-small {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    &Right {
+      @include x-small {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+    }
+  }
+  &Link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+  }
+  &Empty {
+    padding: 80px 0;
+    @include large {
+      padding: 72px 0;
+    }
+    @include medium {
+      padding: 64px 0;
+    }
+    @include small {
+      padding: 48px 0;
+    }
+  }
+}
+.product {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid color(neutral, 3);
+  margin-bottom: 16px;
+  @include x-small {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &Item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include x-small {
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+  }
+  &Img {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 16px;
+    &El {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include x-small {
+      width: 72px;
+      height: 72px;
+      margin-right: 14  px;
+    }
+  }
+  &Text {
+    flex: 1;
+  }
+  &Name {
+    @include font-size(body);
+    color: color(neutral, 8);
+    margin-bottom: 10px;
+  }
+  &Price {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(primary, 9);
+  }
+  &Desc {
+    @include font-size(caption);
+    color: color(neutral, 5);
+    margin-bottom: 4px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+  &Variant {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    & span {
+      margin-right: 4px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  &Summary {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    @include x-small {
+      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  &Actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+}
+.desc {
+  @include font-size(caption);
+  color: color(primary, 6);
+  margin-bottom: 12px;
+}
+.status {
+  @include font-size(button-small);
+  color: color(primary, 7);
+  margin: 0 12px 0 0;
+  padding: 6px 12px 4px;
+  background-color: color(warning, 1);
+  @include radius(lg);
+  display: inline-flex;
+  align-items: center;
+  &::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: color(warning, 7);
+    border-radius: 50%;
+    margin-right: 6px;
+    display: inline-block
+  }
+  @include x-small {
+    @include font-size(small);
+    padding: 4px 10px 2px;
+    margin-right: 8px;
+  }
+  &Shipped, &Processing {
+    background-color: color(info, 1);
+    color: color(info, 7);
+    &::before {
+      background-color: color(info, 7);
+    }
+  }
+  &Delivered {
+    background-color: color(success, 1);
+    color: color(success, 7);
+    &::before {
+      background-color: color(success, 7);
+    }
+  }
+}
+.countdown {
+  @include font-size(caption);
+  color: color(danger, 7);
+  margin: 0 16px 0 0;
+  @include x-small {
+    @include font-size(small);
+    margin-right: 0;
+    margin-top: 8px;
+  }
+
+}
+
+.orderCode {
+  display: flex;
+  align-items: center;
+  @include font-size(caption);
+  color: color(neutral, 6);
+  margin-right: 6px;
+  &::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: color(neutral, 4);
+    display: inline-block;
+    margin-left: 6px;
+    @include x-small {
+      display: none;
+
+    }
+  }
+  & i {
+    padding-bottom: 4px;
+    margin-right: 4px;
+    @include x-small {
+      margin-right: 2px;
+    }
+  }
+  @include x-small {
+    @include font-size(small);
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+}
+
+.orderCreated {
+  @include font-size(caption);
+  color: color(neutral, 6);
+  @include x-small {
+    @include font-size(small);
+  }
+}
+
+.moreProducts {
+  @include font-size(small);
+  color: color(neutral, 6);
+  margin-bottom: 6px;
+}
+.points {
+  @include font-size(small);
+  color: color(neutral, 6);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  & img {
+    margin: 0 6px 3px 6px;
+
+  }
+  & .pointsCount {
+    color: color(primary,6);
+    font-weight: fw(medium);
+  }
+}
+
+.price {
+  @include font-size(small);
+  color: color(neutral, 6);
+  margin-bottom: 0;
+  span {
+    @include font-size(body);
+    font-weight: fw(medium);
+    color: color(primary, 6);
+    margin-left: 8px;
+  }
+}
+.return {
+  position: relative;
+  z-index: 4;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background-color: transparent;
+  @include font-size(caption);
+  color: color(primary, 9);
+  margin-bottom: 24px;
+  @include hover-underline;
+  @include hover-underline(active);
+}
+

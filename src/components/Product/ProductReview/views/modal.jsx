@@ -33,13 +33,15 @@ const ModalImage = (props) => {
               <Slider {...settings}>
                 {data.map((item, index) => (
                   <div className={style.modalImageItem} key={`modal-image-${index}`}>
-                    <Image
-                      src={item}
-                      alt={`modal-image-${index}`}
-                      className={style.modalImageThumb}
-                      width={512}
-                      height={512}
-                    />
+                    {item && (
+                      <Image
+                        src={item}
+                        alt={`modal-image-${index}`}
+                        className={style.modalImageThumb}
+                        width={512}
+                        height={512}
+                      />
+                    )}
                   </div>
                 ))}
               </Slider>
@@ -54,7 +56,9 @@ const ModalImage = (props) => {
             </>
           ) : (
             <div className={style.modalImageItem}>
-              <Image src={data[0]} alt={`modal-image`} className={style.modalImageThumb} width={512} height={512} />
+              {data[0] && (
+                <Image src={data[0]} alt={`modal-image`} className={style.modalImageThumb} width={512} height={512} />
+              )}
             </div>
           )}
         </div>

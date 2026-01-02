@@ -449,6 +449,7 @@
         background-color: color(neutral, 2);
         @include radius(sm);
         overflow: hidden;
+        cursor: pointer;
         @include large {
           width: 72px;
           height: 72px;

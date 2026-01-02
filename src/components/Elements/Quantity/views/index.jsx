@@ -5,9 +5,9 @@ import style from '@elements/Quantity/styles/style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const Quantity = (props) => {
-  const { quantity, setQuantity, onChange, currentStock, isSubmitting } = props;
+  const { quantity, setQuantity, onChange, currentStock, isSubmitting, size = 'default' } = props;
   return (
-    <div className={style.quantity}>
+    <div className={`${style.quantity} ${size === 'small' ? style['size'] : ''}`}>
       <div className={style.quantityControl}>
         <button onClick={() => setQuantity(Math.max(1, quantity - 1))} disabled={quantity <= 1 || isSubmitting}>
           <SystemIcon name='mines' />

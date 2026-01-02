@@ -84,3 +84,11 @@
   font-weight: fw(regular);
   margin-bottom: 0;
 }
+
+.select {
+  appearance: none;
+  background-image: url('/icon/caret-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 24px 24px;
+}

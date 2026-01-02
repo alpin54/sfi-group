@@ -1,0 +1,147 @@
+@import '_cores/styles/_assets.scss';
+
+.summary {
+  position: sticky;
+  top: 160px;
+  flex: 0 0 376px;
+  &Box {
+    background: #fff;
+    padding: 24px;
+    border: 1px solid color(neutral, 3);
+    display: flex;
+    @include radius(md);
+    flex-direction: column;
+    @include medium {
+      padding: 20px;
+    }
+    @include x-small {
+      padding: 16px;
+    }
+  }
+  &Row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid color(neutral, 3);
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+    &Item {
+      width: 100%;
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &.button {
+      flex-direction: column;
+    }
+    &.total {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  &Title {
+    font-weight: fw(regular);
+    margin-bottom: 24px;
+    @include x-small {
+      @include font-size(body);
+    }
+  }
+  &Label {
+    margin-bottom: 0;
+    font-weight: fw(regular);
+    @include font-size(body);
+    @include x-small {
+      @include font-size(caption);
+    }
+  }
+  &Value {
+    margin-bottom: 0;
+    font-weight: fw(medium);
+    @include font-size(body);
+    @include x-small {
+      @include font-size(caption);
+    }
+    .total & {
+      display: flex;
+      align-items: center;
+      color: color(primary, 6);
+      i {
+        margin-right: 6px;
+      }
+      span {
+        margin-top: 2px;
+      }
+    }
+  }
+  &Btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px;
+    color: color(neutral, 6);
+    background-color: color(neutral, 2);
+    @include font-size(button-medium);
+    outline: 0;
+    border: 0;
+    position: relative;
+    @include x-small {
+      @include font-size(caption);
+    }
+    @include retina {
+      padding-right: 24px;
+    }
+    i {
+      font-size: 2rem;
+    }
+    &Text {
+      max-width: calc(100% - 40px);
+      @include ellipsis;
+      line-height: 1;
+      margin-top: 2px;
+      margin-right: auto;
+      margin-left: 12px;
+      @include x-small {
+        margin-left: 8px;
+      }
+      strong {
+        color: color(primary, 7);
+      }
+    }
+  }
+  &Action {
+    a {
+      width: 100%;
+      justify-content: center;
+    }
+    &Disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      button {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &Desc {
+    @include font-size(caption);
+    color: color(neutral, 6);
+    margin-bottom: 0;
+  }
+  &Link {
+    display: inline-block;
+    text-decoration: none;
+    color: color(primary, 6);
+    font-weight: fw(medium);
+    @include hover-underline;
+    &:hover {
+      @include hover-underline('active');
+    }
+  }
+}

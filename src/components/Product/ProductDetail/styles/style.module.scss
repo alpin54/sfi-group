@@ -70,15 +70,22 @@
     padding: 20px 0;
     @include hover-underline;
     transition: all 0.3s ease;
-    &Active,
     &:hover {
       color: color(primary, 6);
       @include hover-underline('active');
-    }
-    @include medium {
-      &:hover {
+      @include medium {
         color: color(neutral, 6);
         @include hover-underline;
+      }
+    }
+    &Active {
+      color: color(primary, 6);
+      @include hover-underline('active');
+      @include medium {
+        color: color(primary, 6) !important;
+        &::after {
+          transform: none !important;
+        }
       }
     }
   }
@@ -526,7 +533,7 @@
     cursor: pointer;
     min-width: 56px;
     height: 40px;
-    padding: 10px 16px;
+    padding: 11px 16px 9px;
     @include radius(sm);
     @include font-size(button-medium);
     color: color(neutral, 6);
@@ -545,7 +552,6 @@
     span {
       position: relative;
       z-index: 2;
-      padding: 0 8px;
     }
   }
   &Head {
