@@ -30,10 +30,12 @@ const CategoryBanner = (props) => {
           <div className='container'>
             <h3 className={style.categoryBannerTitle}>{reverseSlug(category)}</h3>
             <div className={style.categoryBannerBtn}>
-              <Button href={data.button.href} color='white'>
+              <Button href={data.button.href} color='white' rounded>
                 {data.button.label}
               </Button>
-              <Button href={data.buttonSecondary.href}>{data.buttonSecondary.label}</Button>
+              <Button href={data.buttonSecondary.href} rounded>
+                {data.buttonSecondary.label}
+              </Button>
             </div>
           </div>
         </div>

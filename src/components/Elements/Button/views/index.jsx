@@ -41,7 +41,7 @@ const Button = (props) => {
     variantStyle += ' ' + style.btnSmall;
   }
   if (rounded) {
-    variantStyle += ' ' + style.btnNoRounded;
+    variantStyle += ' ' + style.btnRounded;
   }
 
   if (href) {

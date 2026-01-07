@@ -55,7 +55,9 @@ const CategoryItem = (props) => {
                 <h3 className={style.categoryCardTitle}>{category.title}</h3>
                 {category.button && (
                   <div className={style.categoryCardBtn}>
-                    <Button href={category.button.href}>{category.button.label}</Button>
+                    <Button href={category.button.href} rounded>
+                      {category.button.label}
+                    </Button>
                   </div>
                 )}
               </div>
@@ -79,7 +81,9 @@ const CategoryItem = (props) => {
                 )}
               </div>
               <div className={style.categoryCardBtnMobile}>
-                <Button href={category.button.href}>{category.button.label}</Button>
+                <Button href={category.button.href} rounded>
+                  {category.button.label}
+                </Button>
               </div>
             </div>
           ))}

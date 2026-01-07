@@ -129,11 +129,11 @@ const VideoSection = ({ data }) => {
                     <div className={style.overlay} ref={(el) => (activeOverlay.current[item.id] = el)}>
                       <h4 className={style.title}>{item.title}</h4>
                       <div className={style.btnVideo}>
-                        <Button variant='transparent' icon='play' onClick={() => handlePlay(item)}>
+                        <Button variant='transparent' rounded icon='play' onClick={() => handlePlay(item)}>
                           Play
                         </Button>
 
-                        <Button variant='transparent' href={item.learnMore}>
+                        <Button variant='transparent' rounded href={item.learnMore}>
                           Learn more
                         </Button>
                       </div>

@@ -215,7 +215,7 @@
       margin-right: 4px;
     }
   }
-  &NoRounded {
+  &Rounded {
     @include radius(xl);
   }
 }

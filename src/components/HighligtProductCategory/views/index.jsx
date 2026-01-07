@@ -43,7 +43,11 @@ const HighligtProductCategory = (props) => {
         <div className={style.cardBody}>
           {item.title && <h5 className={style.cardTitle}>{item.title}</h5>}
           <div className={style.cardBtn}>
-            {item.button_text && <Button href={item.button_url}>{item.button_text}</Button>}
+            {item.button_text && (
+              <Button href={item.button_url} rounded>
+                {item.button_text}
+              </Button>
+            )}
           </div>
           <Link href={item.url} className={style.link} aria-label={item.title} tabIndex='-1' />
         </div>
@@ -63,12 +67,12 @@ const HighligtProductCategory = (props) => {
               {description && <p className={style.desc}>{description}</p>}
               <div className={style.actionGroup}>
                 {button_secondary_text && (
-                  <Button href={button_secondary_url} variant='outlined'>
+                  <Button href={button_secondary_url} rounded variant='outlined'>
                     {button_secondary_text}
                   </Button>
                 )}
                 {button_text && (
-                  <Button href={button_url} variant='primary'>
+                  <Button href={button_url} rounded variant='primary'>
                     {button_text}
                   </Button>
                 )}

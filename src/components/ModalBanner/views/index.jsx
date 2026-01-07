@@ -87,7 +87,12 @@ const ModalBanner = (props) => {
           {item.description && <p className={style.desc}>{item.description}</p>}
           {item.button_text && (
             <div className={style.actionBtn}>
-              <Button href={item.button_url} variant='primary' aria-label={item.button_text} onClick={closeModal}>
+              <Button
+                href={item.button_url}
+                variant='primary'
+                rounded
+                aria-label={item.button_text}
+                onClick={closeModal}>
                 {item.button_text}
               </Button>
             </div>

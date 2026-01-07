@@ -39,13 +39,13 @@ const HeroBanner = (props) => {
     return (
       <div className={style.btn} role='group' aria-label='hero actions'>
         {secondaryExists && (
-          <Button href={val.button_secondary_url} variant='outlined' aria-label={val.button_secondary_text}>
+          <Button href={val.button_secondary_url} variant='outlined' rounded aria-label={val.button_secondary_text}>
             {val.button_secondary_text}
           </Button>
         )}
 
         {primaryExists && (
-          <Button href={val.button_url} variant='primary' aria-label={val.button_text}>
+          <Button href={val.button_url} variant='primary' rounded aria-label={val.button_text}>
             {val.button_text}
           </Button>
         )}
