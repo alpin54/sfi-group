@@ -1,6 +1,6 @@
 'use client';
 
-// -- library
+// -- libraries
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { geoContains, geoMercator } from 'd3-geo';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';

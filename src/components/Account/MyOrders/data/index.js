@@ -22,7 +22,7 @@ const data = [
         qty: 1
       },
       {
-        id: 1,
+        id: 2,
         name: 'Zagg Case for iPhone 16 – Snap – Crystal Palace',
         image: ImageProduct1,
         price: 450000,
@@ -68,6 +68,14 @@ const data = [
         price: 450000,
         variant: { material_name: 'Clear' },
         qty: 1
+      },
+      {
+        id: 2,
+        name: 'Zagg Case for iPhone 16 – Snap – Crystal Palace',
+        image: ImageProduct1,
+        price: 450000,
+        variant: { material_name: 'Clear' },
+        qty: 2
       }
     ],
     total_amount: 1320000,

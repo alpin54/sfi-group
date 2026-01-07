@@ -1,0 +1,213 @@
+@import '_cores/styles/_assets.scss';
+
+.empty {
+  @include x-small {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.headerButton {
+  margin-bottom: 20px;
+  & button {
+    flex-direction: row-reverse;
+    & i {
+      margin-right: 12px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.itemBoxPrimary {
+  border: 1px solid color(primary, 6);
+  @include radius(md);
+  background: color(neutral, 1);
+  margin-bottom: 16px;
+  padding: 24px;
+  @include medium {
+    padding: 16px;
+  }
+}
+.itemBox {
+  border: 1px solid color(neutral, 3);
+  @include radius(md);
+  background: color(neutral, 1);
+  margin-bottom: 16px;
+  padding: 24px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @include medium {
+    padding: 16px;
+  }
+}
+.itemHeader {
+  margin-bottom: 20px;
+  .itemLabel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.labelTag {
+  display: inline-flex;
+  align-items: center;
+  background: color(primary, 1);
+  color: color(primary, 6);
+  @include font-size(caption);
+  padding: 2px 10px 1px;
+  @include radius(lg);
+  & i {
+    margin-right: 8px;
+    padding-bottom: 3px;
+  }
+}
+.defaultTag {
+  display: inline-flex;
+  background: color(primary,1);
+  color: color(primary,6);
+  @include font-size(button-small);
+  padding: 4px 10px 2px;
+  @include radius(lg);
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  @include font-size(body);
+  color: color(neutral, 9);
+  &:last-child {
+    margin-bottom: 16px;
+  }
+  & i {
+    color: color(primary, 6);
+    margin-right: 10px;
+    padding-bottom: 4px;
+  }
+}
+
+.itemActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid color(neutral, 3);
+  & Button {
+    @include x-small {
+      // @include font-size(button-small);
+      min-width: 0;
+    }
+
+  }
+}
+
+.group {
+  &:last-child  {
+    margin-bottom: 24px;
+    // @include x-small {
+    //   margin-bottom: 40px;
+    // }
+  }
+  & .labelForm {
+    display: block;
+    @include font-size(button-small);
+    color: color(neutral, 6);
+    margin-bottom: 8px;
+  }
+  .rowForm {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  & select {
+    margin-bottom: 20px;
+  }
+}
+
+.drawerFooter {
+  &Set {
+    margin-bottom: 24px;
+  }
+  .toggleWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .toggleLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .toggleInput {
+    display: none;
+  }
+
+  .toggleSlider {
+    width: 36px;
+    height: 20px;
+    background: color(neutral, 4);
+    @include radius(md);
+    position: relative;
+    transition: background 0.3s;
+    margin-right: 12px;
+
+  }
+
+  .toggleSlider::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: color(neutral, 1);
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+
+  .toggleInput:checked + .toggleSlider {
+    background: color(primary, 6);
+  }
+
+  .toggleInput:checked + .toggleSlider::before {
+    transform: translateX(16px);
+  }
+
+  .toggleText {
+    color: color(neutral, 7);
+    @include font-size(button-medium);
+    padding-top: 2px;
+  }
+  &Button {
+    display: flex;
+    justify-content: space-between;
+    & button {
+      width: 50%;
+      &:first-child {
+        margin-right: 16px;
+      }
+    }
+
+  }
+}
+
+.confirmBody {
+  text-align: center;
+}
+.confirmActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.confirmText {
+  margin-bottom: 16px;
+}
+

@@ -290,7 +290,7 @@ const Header = (props) => {
                     setActiveTabMenu(0);
                     setOpenContentMenu(false);
                   }}>
-                  <Image className={style.logoImg} src={LogoImage} alt='Lune' width={80} height={32} priority />
+                  <Image className={style.logoImg} src={LogoImage} alt='SFI Group' width={80} height={32} priority />
                 </Link>
               </div>
 

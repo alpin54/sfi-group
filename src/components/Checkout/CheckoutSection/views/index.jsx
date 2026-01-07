@@ -1,6 +1,6 @@
 'use client';
 
-// -- library
+// -- libraries
 import { useState } from 'react';
 import Image from 'next/image';
 

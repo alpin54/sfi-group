@@ -1,6 +1,6 @@
 'use client';
 
-// -- library
+// -- libraries
 import { useEffect } from 'react';
 
 // -- states

@@ -1,6 +1,6 @@
 'use client';
 
-// -- library
+// -- libraries
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -133,12 +133,12 @@ const Order = (props) => {
     <section className={`${style.order} ${style[variant]}`}>
       <div className='container'>
         <div className={style.inner}>
-          {variant === 'account' && <h1>Account Variant</h1>}
-          {/* head */}
-          <div className={style.head}>
-            <h1 className={style.title}>{data.title}</h1>
-            <h4 className={style.subtitle}>{data.subtitle}</h4>
-          </div>
+          {variant !== 'account' && (
+            <div className={style.head}>
+              <h1 className={style.title}>{data.title}</h1>
+              <h4 className={style.subtitle}>{data.subtitle}</h4>
+            </div>
+          )}
           {/* body */}
           <div className={style.body}>
             {/* meta */}

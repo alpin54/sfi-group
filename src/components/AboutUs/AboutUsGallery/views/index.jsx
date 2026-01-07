@@ -1,4 +1,4 @@
-// -- library
+// -- libraries
 import Image from 'next/image';
 
 // -- styles

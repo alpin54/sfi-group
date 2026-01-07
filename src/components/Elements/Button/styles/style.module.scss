@@ -125,6 +125,26 @@
   &Block {
     width: 100%;
   }
+  &ArrowText {
+    padding: 0;
+    min-width: initial;
+    background-color: transparent;
+    color: color(primary, 6);
+    font-weight: fw(medium);
+    border-radius: 0;
+    border: 0;
+    .btnText {
+      display: flex;
+      flex-direction: initial;
+      gap: 8px;
+    }
+    i {
+      font-size: 2rem;
+      color: color(neutral, 6);
+    }
+    &:hover {
+    }
+  }
 
   // --- VARIANT WHITE
   &White {

@@ -18,6 +18,9 @@ const Button = (props) => {
   if (variant === 'icon') {
     variantStyle += ' ' + style.btnIcon;
   }
+  if (variant === 'arrow-text') {
+    variantStyle += ' ' + style.btnArrowText;
+  }
   if (variant === 'underline') {
     variantStyle += ' ' + style.btnUnderline;
   }

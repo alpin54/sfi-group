@@ -12,7 +12,13 @@
     padding-bottom: 56px;
   }
   &.account {
-    background-color: red;
+    padding: 0;
+    :global(.container) {
+      @include medium {
+        padding: 0 ;
+      }
+    }
+
   }
 }
 .head {
@@ -32,9 +38,6 @@
   margin-bottom: 8px;
   @include small {
     @include font-size(h4);
-  }
-  .account & {
-    color: blue;
   }
 }
 .subtitle {
@@ -288,7 +291,7 @@
     i {
       font-size: 2rem;
       flex: 0 0 20px;
-      color: color(primary, 6);
+      color: color(primary, 2);
     }
   }
   &Box {
@@ -297,7 +300,7 @@
     i {
       font-size: 2rem;
       flex: 0 0 20px;
-      color: color(primary, 6);
+      color: color(primary, 2);
     }
     p {
       margin-bottom: 0;

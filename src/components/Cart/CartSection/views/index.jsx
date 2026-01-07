@@ -1,4 +1,4 @@
-// -- library
+// -- libraries
 import { useState, useEffect } from 'react';
 
 // -- assets

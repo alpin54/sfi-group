@@ -28,6 +28,13 @@ const CheckoutSummary = (props) => {
           <CheckoutItem key={`checkout-item-${index}`} data={item} currency='IDR' />
         ))}
       </div>
+      <div className={style.head}>
+        <h6 className={style.headTitle}>Shipping Method</h6>
+        <Button variant='arrow-text'>
+          Select Shipping
+          <SystemIcon name='caret-right' />
+        </Button>
+      </div>
       <div className={style.subtotal}>
         <div className={style.row}>
           <h6 className={style.label}>

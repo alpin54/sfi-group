@@ -4,6 +4,9 @@
   padding: 24px;
   @include radius(md);
   border: 1px solid color(neutral, 3);
+  @include medium {
+    display: none;
+  }
 }
 .title {
   font-weight: fw(medium);

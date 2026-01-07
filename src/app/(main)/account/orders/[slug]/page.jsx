@@ -10,7 +10,7 @@ const generateMetadata = async ({ params }) => {
   const { slug } = params;
 
   return metaTag.dynamic({
-    page: `Order Detail ${slug}`,
+    page: `My Orders Detail ${slug}`,
     link: `user/orders/${slug}`
   });
 };

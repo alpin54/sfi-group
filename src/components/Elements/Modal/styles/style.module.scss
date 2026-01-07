@@ -91,6 +91,7 @@
 .inner {
   position: relative;
   z-index: zi(2);
+  overflow: hidden;
   background-color: color(neutral, 1);
   width: 100%;
   transition: all 0.35s ease;

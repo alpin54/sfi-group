@@ -4,10 +4,20 @@
   padding: 24px;
   @include radius(md);
   border: 1px solid color(neutral, 3);
+  @include medium {
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+  }
 }
 .list {
   padding-bottom: 24px;
   border-bottom: 1px solid color(neutral, 3);
+  @include medium {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 0;
+  }
 }
 .row {
   display: flex;
@@ -52,5 +62,22 @@
   margin-bottom: 24px;
   .value {
     color: color(primary, 6);
+  }
+}
+
+.head {
+  display: none;
+  @include medium {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid color(neutral, 3);
+    border-bottom: 1px solid color(neutral, 3);
+  }
+  &Title {
+    margin-bottom: 0;
+    font-weight: fw(medium);
   }
 }

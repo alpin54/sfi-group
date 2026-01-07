@@ -1,4 +1,4 @@
-// -- library
+// -- libraries
 import { useEffect, useMemo, useState } from 'react';
 
 // -- styles
@@ -6,12 +6,15 @@ import style from '@components/Checkout/CheckoutAddress/styles/style.module.scss
 
 // elements
 import Input from '@elements/Input/views';
+import Button from '@components/Elements/Button/views';
+import SystemIcon from '@elements/SystemIcon/views';
 
 const CheckoutAddress = (props) => {
   const { onActiveChange, onSubmitSuccess } = props;
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [showBody, setShowBody] = useState(false);
 
   // form structure
   const formList = [
@@ -190,39 +193,53 @@ const CheckoutAddress = (props) => {
 
   return (
     <div className={style.address}>
-      <h5 className={style.title}>Delivery Address</h5>
-      <form
-        id='checkout-address-form'
-        className={`${style.form} ${isActive ? 'active' : ''}`.trim()}
-        onSubmit={handleSubmit}>
-        <div className={style.group}>
-          {formList.map((field) => (
-            <div className={style.field} key={field.name}>
-              <label htmlFor={field.id} className={style.label}>
-                {field.label}
-              </label>
-              <Input
-                id={field.id}
-                name={field.name}
-                variant={field.variant || 'input'}
-                type={field.type}
-                {...(field.variant === 'select'
-                  ? {
-                      data: field.data,
-                      label: field.label
-                    }
-                  : {})}
-                value={values[field.name]}
-                onChange={(e) => handleInput(field, e.target.value)}
-                error={errors[field.name]}
-                disabled={loading}
-              />
-            </div>
-          ))}
+      <div className={style.head}>
+        <h6 className={style.headTitle}>Delivery Address</h6>
+        <Button variant='arrow-text' type='button' onClick={() => setShowBody(true)}>
+          Add Address
+          <SystemIcon name='caret-right' />
+        </Button>
+      </div>
+      <div className={`${style.body} ${showBody ? style.bodyShow : ''}`.trim()}>
+        <div className={style.top}>
+          <h5 className={style.title}>Delivery Address</h5>
+          <Button variant='icon'>
+            <SystemIcon name='close' />
+          </Button>
         </div>
+        <form
+          id='checkout-address-form'
+          className={`${style.form} ${isActive ? 'active' : ''}`.trim()}
+          onSubmit={handleSubmit}>
+          <div className={style.group}>
+            {formList.map((field) => (
+              <div className={style.field} key={field.name}>
+                <label htmlFor={field.id} className={style.label}>
+                  {field.label}
+                </label>
+                <Input
+                  id={field.id}
+                  name={field.name}
+                  variant={field.variant || 'input'}
+                  type={field.type}
+                  {...(field.variant === 'select'
+                    ? {
+                        data: field.data,
+                        label: field.label
+                      }
+                    : {})}
+                  value={values[field.name]}
+                  onChange={(e) => handleInput(field, e.target.value)}
+                  error={errors[field.name]}
+                  disabled={loading}
+                />
+              </div>
+            ))}
+          </div>
 
-        {message && <p className={style.errorMsg}>{message}</p>}
-      </form>
+          {message && <p className={style.errorMsg}>{message}</p>}
+        </form>
+      </div>
     </div>
   );
 };
