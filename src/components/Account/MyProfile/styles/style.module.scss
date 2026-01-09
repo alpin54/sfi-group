@@ -59,7 +59,7 @@
     background: color(neutral, 1);
     border: 1px solid color(neutral, 3);
     @include radius(md);
-    padding: 12px;
+    padding: 14px 16px;
     transition: all 0.3s ease;
     &:hover {
       border-color: color(primary, 3);

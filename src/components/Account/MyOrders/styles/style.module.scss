@@ -202,6 +202,15 @@
     align-items: center;
     gap: 12px;
     justify-content: flex-end;
+    & button {
+      padding: 10px 16px 8px;
+      @include x-small {
+        padding: 12px 16px 10px;
+      }
+      @include retina {
+        min-width: 0;
+      }
+    }
   }
 }
 .desc {
@@ -312,17 +321,33 @@
   margin-bottom: 6px;
 }
 .points {
-  @include font-size(small);
-  color: color(neutral, 6);
   margin-bottom: 6px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  &Text {
+    @include font-size(small);
+    color: color(neutral, 6);
+    margin: 0;
+
+  }
+  .pointsIcon {
+    display: flex;
+    align-items: center;
+  }
   & img {
-    margin: 0 6px 3px 6px;
+    margin-right: 4px;
+    @include x-small {
+      width: 12px;
+      height: 12px;
+    }
   }
   & .pointsCount {
     color: color(primary, 6);
     font-weight: fw(medium);
+    @include retina {
+      @include font-size(small);
+    }
   }
 }
 
@@ -335,6 +360,9 @@
     font-weight: fw(medium);
     color: color(primary, 6);
     margin-left: 8px;
+    @include retina {
+      @include font-size(small);
+    }
   }
 }
 .return {

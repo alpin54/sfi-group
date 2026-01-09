@@ -212,7 +212,11 @@ const VerificationDealer = (props) => {
   };
 
   return (
-    <AuthSectionWidget images={data?.images} title={data?.title} description={data?.description}>
+    <AuthSectionWidget
+      images={data?.images}
+      title={data?.title}
+      subTitle={data?.subTitle}
+      description={data?.description}>
       <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
         {/* Dealer Name */}
         <div className={style.row}>
@@ -448,7 +452,7 @@ const VerificationDealer = (props) => {
         {/* Submit */}
         <div className={style.row}>
           {errors.form && <div className={style.formMessage}>{errors.form}</div>}
-          <Button type='submit' level='block' disabled={loading} rounded>
+          <Button type='submit' level='block' disabled={loading}>
             {loading ? 'Submitting...' : 'Submit Registration'}
           </Button>
         </div>

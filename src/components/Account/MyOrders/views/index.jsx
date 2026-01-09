@@ -161,11 +161,13 @@ const MyOrdersView = (props) => {
                       <p className={style.moreProducts}>+ {order.items.length - 1} More Products</p>
                     )}
                     <div className={style.productWrapp}>
-                      <p className={style.points}>
-                        <span className={style.pointsText}>Points Earned: </span>
-                        <Image src={PointLogo} alt='Points' width={14} height={14} />
-                        <span className={style.pointsCount}> +{order.points_earned || 0}</span>
-                      </p>
+                      <div className={style.points}>
+                        <p className={style.pointsText}>Points Earned: </p>
+                        <div className={style.pointsIcon}>
+                          <Image src={PointLogo} alt='Points' width={14} height={14} />
+                          <span className={style.pointsCount}> +{order.points_earned || 0}</span>
+                        </div>
+                      </div>
 
                       <p className={style.price}>
                         Order Total: <span>{Currency.formatRp(order.total_amount)}</span>

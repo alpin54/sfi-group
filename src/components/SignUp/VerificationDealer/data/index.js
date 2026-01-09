@@ -30,7 +30,7 @@ const data = {
   ],
 
   title: 'Welcome Back!',
-  description: 'Let’s finish setting up your dealer account.'
+  subTitle: 'Let’s finish setting up your dealer account.'
 };
 
 export default data;

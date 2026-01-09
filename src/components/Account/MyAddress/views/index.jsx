@@ -111,11 +111,11 @@ const MyAddressView = (props) => {
                   <span className={style.profileName}>{addr.recipient_name}</span>
                 </div>
                 <div className={style.itemList}>
-                  <SystemIcon name='phone' size={15} />
+                  <SystemIcon name='phone-fill' size={15} />
                   <span className={style.profilePhone}>{addr.phone}</span>
                 </div>
                 <div className={style.itemList}>
-                  <SystemIcon name='location' size={15} />
+                  <SystemIcon name='map-pin-fill' size={15} />
                   <span>
                     {addr.province_name}, {addr.city_name}, {addr.district_name}, {addr.subdistrict_name},{' '}
                     {addr.address}, {addr.postal_code}

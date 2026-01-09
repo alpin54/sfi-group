@@ -151,9 +151,9 @@ const Footer = ({ data }) => {
 
       {block.links?.map((item, i) => (
         <div key={i} className={style.contactItem}>
-          <SystemIcon name={item.icon} size={20} className={style.contactIcon} />
           <Link href={item.url} className={style.contactLink}>
-            {item.name}
+            <SystemIcon name={item.icon} size={20} className={style.contactIcon} />
+            <span>{item.name}</span>
           </Link>
         </div>
       ))}

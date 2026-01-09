@@ -212,16 +212,22 @@
     margin-right: 8px;
     @include font-size(button-small);
   }
+  & span {
+
+    @include hover-underline;
+    position: relative;
+  }
   .contactLink {
     @include font-size(button-small);
     color: color(neutral, 6);
     text-decoration: none;
     transition: all 0.3s ease;
-    @include hover-underline;
-    position: relative;
     &:hover {
-      color: color(primary, 9);
-      @include hover-underline(active);
+      & span {
+        color: color(primary, 6);
+        @include hover-underline(active);
+
+      }
     }
   }
 }

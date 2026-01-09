@@ -74,13 +74,7 @@ const SuccessModal = ({
         </div>
 
         <div className={style.footer}>
-          <Button
-            variant='primary'
-            size='md'
-            onClick={handleCta}
-            aria-label={buttonText}
-            className={style.ctaBtn}
-            rounded>
+          <Button variant='primary' size='md' onClick={handleCta} aria-label={buttonText} className={style.ctaBtn}>
             {buttonText}
           </Button>
         </div>
