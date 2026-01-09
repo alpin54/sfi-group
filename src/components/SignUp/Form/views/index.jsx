@@ -243,7 +243,7 @@ const SignUp = (props) => {
         </div>
 
         <div className={style.row}>
-          <Button type='submit' level='block' disabled={loading} rounded>
+          <Button type='submit' level='block' disabled={loading}>
             {loading ? 'Creating Account...' : 'Create Account'}
           </Button>
         </div>

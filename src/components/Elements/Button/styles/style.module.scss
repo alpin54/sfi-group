@@ -24,7 +24,7 @@
   }
   @include x-small {
     @include font-size(button-small);
-    padding: 10px 12px 8px;
+    // padding: 10px 12px 8px;
   }
   &:hover {
     color: color(primary, 6);
@@ -137,12 +137,16 @@
       display: flex;
       flex-direction: initial;
       gap: 8px;
+      @include medium {
+        @include font-size(body);
+      }
+      @include retina {
+        gap: 4px;
+      }
     }
     i {
       font-size: 2rem;
       color: color(neutral, 6);
-    }
-    &:hover {
     }
   }
 
@@ -191,6 +195,12 @@
     min-width: initial;
     padding: 8px 10px 6px;
     @include font-size(button-small);
+  }
+  &Medium {
+    @include medium {
+      @include font-size(body);
+      padding: 10px 16px 8px;
+    }
   }
   &Transparent {
     backdrop-filter: blur(24px);

@@ -6,11 +6,71 @@
   border: 1px solid color(neutral, 3);
   @include medium {
     display: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: color(neutral, 1);
+    z-index: zi(checkout-shipping-modal);
+    @include scroll(auto, y, hide);
+  }
+}
+
+.shippingShow {
+  @include medium {
+    display: block;
+  }
+}
+.list {
+  @include medium {
+    padding: 24px 32px;
+  }
+  @include small {
+    padding: 20px 24px;
+  }
+}
+.top {
+  margin-bottom: 24px;
+  @include medium {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid color(neutral, 3);
+    margin-bottom: 0;
+  }
+  @include small {
+    padding: 16px 24px;
+  }
+  button {
+    display: none;
+    @include medium {
+      min-width: initial;
+      padding: 0;
+      border: 0;
+      width: 28px;
+      height: 28px;
+      color: color(neutral, 8);
+      display: block;
+      border-radius: 0;
+      &::before {
+        content: none;
+      }
+      &:hover {
+        color: color(neutral, 8);
+        background-color: transparent;
+      }
+    }
   }
 }
 .title {
   font-weight: fw(medium);
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  @include medium {
+    @include font-size(h6);
+  }
 }
 .item {
   padding: 16px;
@@ -63,9 +123,15 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  @include retina {
+    display: block;
+  }
   span {
     @include font-size(caption);
     color: color(neutral, 5);
+    @include retina {
+      display: none;
+    }
   }
 }
 .details {

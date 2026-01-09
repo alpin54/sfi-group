@@ -67,7 +67,7 @@ const ForgotPassword = (props) => {
         </div>
 
         <div className={style.row}>
-          <Button type='submit' level='block' rounded>
+          <Button type='submit' level='block'>
             Send Email
           </Button>
         </div>

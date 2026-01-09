@@ -13,7 +13,6 @@ const CheckoutAddress = (props) => {
   const { onActiveChange, onSubmitSuccess } = props;
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
   const [showBody, setShowBody] = useState(false);
 
   // form structure
@@ -179,15 +178,20 @@ const CheckoutAddress = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessage('');
 
     if (!validate()) return;
 
     setLoading(true);
 
     setTimeout(() => {
-      if (typeof onSubmitSuccess === 'function') onSubmitSuccess();
+      const payload = formList.reduce((acc, f) => {
+        acc[f.name] = String(values?.[f.name] ?? '').trim();
+        return acc;
+      }, {});
+
+      if (typeof onSubmitSuccess === 'function') onSubmitSuccess(payload);
       setLoading(false);
+      setShowBody(false);
     }, 800);
   };
 
@@ -203,7 +207,7 @@ const CheckoutAddress = (props) => {
       <div className={`${style.body} ${showBody ? style.bodyShow : ''}`.trim()}>
         <div className={style.top}>
           <h5 className={style.title}>Delivery Address</h5>
-          <Button variant='icon'>
+          <Button variant='icon' aria-label='Close' type='button' onClick={() => setShowBody(false)}>
             <SystemIcon name='close' />
           </Button>
         </div>
@@ -235,9 +239,12 @@ const CheckoutAddress = (props) => {
                 />
               </div>
             ))}
+            <div className={style.action}>
+              <Button level='block' size='medium' type='submit'>
+                Save
+              </Button>
+            </div>
           </div>
-
-          {message && <p className={style.errorMsg}>{message}</p>}
         </form>
       </div>
     </div>

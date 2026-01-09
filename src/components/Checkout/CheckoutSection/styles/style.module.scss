@@ -59,15 +59,27 @@
   &Title {
     font-weight: fw(medium);
     margin-bottom: 8px;
+    @include medium {
+      @include font-size(h5);
+    }
   }
   &Description {
     margin-bottom: 40px;
     @include font-size(h6);
+    @include medium {
+      @include font-size(body);
+      margin-bottom: 32px;
+    }
   }
   &Img {
     width: 256px;
     height: 144px;
     margin: 0 auto 20px;
+    @include x-small {
+      width: 200px;
+      height: 112px;
+      margin-bottom: 16px;
+    }
     &El {
       width: 100%;
       height: 100%;

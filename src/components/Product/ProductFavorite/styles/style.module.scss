@@ -43,12 +43,19 @@
   font-weight: fw(medium);
   color: color(neutral, 8);
   margin-bottom: 8px;
+  @include x-small {
+    @include font-size(h4);
+  }
 }
 .subtitle {
   @include font-size(h4);
   color: color(neutral, 7);
   font-weight: fw(regular);
   margin-bottom: 56px;
+  @include x-small {
+    @include font-size(body);
+    margin-bottom: 32px;
+  }
 }
 
 .filter {

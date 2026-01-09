@@ -40,6 +40,9 @@ const Button = (props) => {
   if (size === 'small') {
     variantStyle += ' ' + style.btnSmall;
   }
+  if (size === 'medium') {
+    variantStyle += ' ' + style.btnMedium;
+  }
   if (rounded) {
     variantStyle += ' ' + style.btnRounded;
   }

@@ -10,16 +10,22 @@ import style from '@components/Checkout/CheckoutShipping/styles/style.module.scs
 
 // elements
 import SystemIcon from '@elements/SystemIcon/views';
+import Button from '@elements/Button/views';
 
 const CheckoutShipping = (props) => {
-  const { data, onActiveChange } = props;
+  const { data, onActiveChange, show, onClose } = props;
 
   // selectedId is controlled locally; initialize to null
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <div className={style.shipping}>
-      <h5 className={style.title}>Shipping Method</h5>
+    <div className={`${style.shipping} ${show ? style.shippingShow : ''}`.trim()}>
+      <div className={style.top}>
+        <h5 className={style.title}>Shipping Method</h5>
+        <Button variant='icon' aria-label='Close' type='button' onClick={onClose}>
+          <SystemIcon name='close' />
+        </Button>
+      </div>
       <div className={style.list}>
         {data.map((item, index) => {
           const itemId = item?.id ?? item?.courier ?? index;

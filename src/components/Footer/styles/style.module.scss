@@ -54,7 +54,7 @@
       display: block;
       position: absolute;
       top: 18px;
-      width: 12px;
+      width: 8px;
       height: 2px;
       z-index: 3;
       background-color: color(neutral, 6);
@@ -64,7 +64,7 @@
       }
     }
     &::before {
-      right: 12px;
+      right: 8px;
       transform-origin: 100% 100%;
       transform: rotate(40deg) scaleY(1.1);
       .open & {

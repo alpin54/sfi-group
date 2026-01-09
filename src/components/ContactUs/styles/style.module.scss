@@ -57,6 +57,9 @@
     &:last-child {
       margin-bottom: 0;
     }
+    & input {
+      padding: 13px;
+    }
   }
   &__label {
     @include font-size(button-small);
@@ -88,6 +91,37 @@
       &:hover {
         color: color(primary, 4);
       }
+    }
+    .contactUs__agreementCheckbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid color(neutral, 4);
+      border-radius: 4px;
+      position: relative;
+      background: color(neutral, 1);
+      vertical-align: middle;
+      cursor: pointer;
+      transition: background 0.2s;
+      @include remove-tap-highlight;
+    }
+
+    .contactUs__agreementCheckbox:checked {
+      background: color(primary, 6);
+      border-color: color(primary, 6);
+    }
+
+    .contactUs__agreementCheckbox:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 5px;
+      height: 9px;
+      border: solid color(neutral, 1);
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
     }
   }
 
@@ -163,7 +197,10 @@
       }
       & i {
         margin-right: 10px;
-        @include font-size(caption);
+        @include font-size(body);
+        display: inline-flex;
+        align-items: center;
+
       }
       &Link {
         @include font-size(body);
@@ -173,6 +210,7 @@
         text-decoration: none;
         @include hover-underline;
         position: relative;
+        padding-top: 3px;
         &:hover {
           color: color(primary, 9);
           @include hover-underline(active);

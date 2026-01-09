@@ -23,16 +23,16 @@
   border: 1px solid color(neutral, 3);
   margin-bottom: 24px;
   @include medium {
+    display: none;
     margin: 0;
     padding: 0;
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: color(neutral, 1);
-    z-index: zi(checkout-address-popup);
+    z-index: zi(checkout-address-modal);
     @include scroll(auto, y, hide);
   }
 }
@@ -97,6 +97,8 @@
   margin-left: -10px;
   margin-right: -10px;
   @include medium {
+    margin-left: 0;
+    margin-right: 0;
     display: block;
   }
 }
@@ -106,12 +108,25 @@
   padding-right: 10px;
   margin-bottom: 24px;
   position: relative;
+  @include medium {
+    padding-left: 0;
+    padding-right: 0;
+  }
   span {
     left: 10px;
+    @include medium {
+      left: 0;
+    }
   }
   label {
     display: block;
     margin-bottom: 8px;
+  }
+}
+.action {
+  display: none;
+  @include medium {
+    display: block;
   }
 }
 .error {

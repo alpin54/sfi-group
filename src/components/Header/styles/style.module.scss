@@ -88,7 +88,7 @@
   }
   &Img {
     display: block;
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: contain;
   }
@@ -582,6 +582,9 @@
       opacity: 1;
       transform: none;
       transition-delay: 450ms;
+    }
+    & input {
+      background-color: color(neutral, 1);
     }
   }
   &Bar {

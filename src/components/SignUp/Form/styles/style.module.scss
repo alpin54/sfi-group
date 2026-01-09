@@ -51,6 +51,9 @@
   &:last-child {
     margin-bottom: 0;
   }
+  & input {
+    padding: 13px;
+  }
   &Item {
     display: flex;
     justify-content: flex-end;

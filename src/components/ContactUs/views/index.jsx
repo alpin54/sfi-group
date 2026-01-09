@@ -188,6 +188,7 @@ const ContactUs = ({ data }) => {
               <div className={style.contactUs__agreement}>
                 <div className={style.contactUs__agreementWrapp}>
                   <input
+                    className={style.contactUs__agreementCheckbox}
                     type='checkbox'
                     checked={agreementChecked}
                     onChange={(e) => setAgreementChecked(e.target.checked)}
@@ -209,7 +210,7 @@ const ContactUs = ({ data }) => {
 
               {/* BUTTON */}
               <div className={style.contactUs__formGroup}>
-                <Button type='submit' disabled={loading} rounded>
+                <Button type='submit' disabled={loading}>
                   {loading ? 'Submitting...' : 'Submit'}
                 </Button>
               </div>

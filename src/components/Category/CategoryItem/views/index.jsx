@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 // -- libraries
 import Image from 'next/image';
 import Slider from 'react-slick';
@@ -33,16 +35,26 @@ const sliderSettings = {
     {
       breakpoint: 768,
       settings: { slidesToShow: 2 }
-    },
-    {
-      breakpoint: 320,
-      settings: { slidesToShow: 1 }
     }
   ]
 };
 
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) setMatches(media.matches);
+    const listener = () => setMatches(media.matches);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, [matches, query]);
+  return matches;
+}
+
 const CategoryItem = (props) => {
   const { data } = props;
+
+  const isMobile = useMediaQuery('(max-width: 767.98px)');
 
   return (
     <div className={style.categorySection}>
@@ -62,7 +74,16 @@ const CategoryItem = (props) => {
                 )}
               </div>
               <div className={style.categorySectionSlider}>
-                {category.list.length > 3 ? (
+                {/* Jika mobile, render list biasa */}
+                {isMobile ? (
+                  <div className={style.categorySectionList}>
+                    {category.list.map((item, idx) => (
+                      <div key={idx} className={style.categorySectionProductItem}>
+                        <ProductItem {...item} />
+                      </div>
+                    ))}
+                  </div>
+                ) : category.list.length > 3 ? (
                   <Slider {...sliderSettings} className={style.categorySectionProductSlider}>
                     {category.list.map((item, idx) => (
                       <div key={idx} className={style.categorySectionProductItem}>

@@ -49,7 +49,7 @@
   &Title {
     @include font-size(h4);
     font-weight: fw(regular);
-    color: color(primary, 9);
+    color: color(neutral, 8);
     margin-bottom: 12px;
     @include small {
       @include font-size(h5);
@@ -76,6 +76,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
+      cursor: pointer;
     }
     i {
       font-size: 20px;
@@ -83,6 +84,9 @@
     }
     span {
       margin-left: 8px;
+    }
+    input[type="file"]::file-selector-button {
+      cursor: pointer;
     }
   }
 }

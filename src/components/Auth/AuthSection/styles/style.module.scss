@@ -114,8 +114,9 @@
   }
   &Content {
     position: relative;
-    margin: 120px 160px 48px;
-    padding-top: 96px;
+    margin: 72px 160px 48px;
+    // padding-top: 96px;
+    min-height: calc(100vh - 120px);
     padding-right: 720px;
     flex: 1;
     display: flex;
@@ -127,13 +128,13 @@
       padding-right: calc(50% + 64px);
     }
     @include large {
-      margin: 120px 80px 40px;
-      padding-right: 580px;
+      margin: 72px 80px 48px;
+      padding-right: 540px;
     }
     @include medium {
       width: 100%;
-      padding: 48px 32px 64px;
-      min-height: calc(100vh - 64px);
+      padding: 0 32px;
+      min-height: 100vh;
       margin: 0;
     }
     @include small {
@@ -160,9 +161,10 @@
 }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  margin-bottom: 72px;
   height: 64px;
   text-indent: -9999999px;
   transition: all 0.3s ease;

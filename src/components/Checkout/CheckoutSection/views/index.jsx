@@ -23,6 +23,7 @@ const Checkout = (props) => {
   const [isShippingActive, setIsShippingActive] = useState(false);
   const isPaymentDisabled = !(isAddressActive && isShippingActive);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [showShipping, setShowShipping] = useState(false);
 
   return (
     <section className={style.checkout}>
@@ -37,13 +38,23 @@ const Checkout = (props) => {
           <div className={style.body}>
             <div className={style.left}>
               {/* address */}
-              <CheckoutAddress onActiveChange={setIsAddressActive} onSubmitSuccess={() => setIsSuccessOpen(true)} />
+              <CheckoutAddress onActiveChange={setIsAddressActive} />
               {/* shipping */}
-              <CheckoutShipping data={data.shipments} onActiveChange={setIsShippingActive} />
+              <CheckoutShipping
+                data={data.shipments}
+                onActiveChange={setIsShippingActive}
+                show={showShipping}
+                onClose={() => setShowShipping(false)}
+              />
             </div>
             <div className={style.right}>
               {/* summary */}
-              <CheckoutSummary data={data} paymentDisabled={isPaymentDisabled} />
+              <CheckoutSummary
+                data={data}
+                paymentDisabled={isPaymentDisabled}
+                onShowShipping={() => setShowShipping(true)}
+                onPayment={() => setIsSuccessOpen(true)}
+              />
             </div>
           </div>
         </div>
@@ -62,7 +73,7 @@ const Checkout = (props) => {
           </div>
           <h4 className={style.modalTitle}>{data.success.title} &#127881;</h4>
           <p className={style.modalDescription}>{data.success.description}</p>
-          <Button href='/order/detail' level='primary'>
+          <Button href='/order/detail' size='medium' level='primary'>
             View Order Details
           </Button>
         </div>

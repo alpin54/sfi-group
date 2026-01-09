@@ -13,7 +13,7 @@ import SystemIcon from '@elements/SystemIcon/views';
 
 const Faqs = (props) => {
   const { data } = props;
-  const [openIndex, setOpenIndex] = useState(data?.list?.length ? 0 : null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   // Dropdown handler
   const handleToggle = (idx) => {

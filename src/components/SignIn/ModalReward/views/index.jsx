@@ -79,7 +79,6 @@ const RewardModal = ({ open, onClose, title = '', items = [], cta = null }) => {
             className={style.ctaBtn}
             variant='primary'
             size='md'
-            rounded
             onClick={() => {
               onClose && onClose();
               cta && cta.onClick && cta.onClick();

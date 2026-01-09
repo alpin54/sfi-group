@@ -84,9 +84,10 @@
   }
   &List {
     display: flex;
-    @include x-small {
-        overflow-x: auto;
-      }
+    @include small {
+        @include scroll('x', 'touch', 'hide');
+        padding-right: 16px;
+     }
     @include medium {
       padding-bottom: 32px;
     }
@@ -117,14 +118,14 @@
         flex: 0 0 250px;
       }
       @include medium {
-        flex: 0 0 auto;
+        flex: 0 0 240px;
         padding-right: 16px;
       }
       @include x-small {
         flex: 0 0 192px;
       }
       @include retina {
-        flex: 0 0 260px;
+        flex: 0 0 240px;
       }
 
     }

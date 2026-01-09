@@ -159,6 +159,9 @@
       font-weight: fw(regular);
       margin-bottom: 8px;
     }
+    & input {
+      padding: 13px;
+    }
   }
   .formFile {
     position: relative;
@@ -182,7 +185,7 @@
     .fileInputCustom {
       width: 100%;
       box-sizing: border-box;
-      padding: 15px;
+      padding: 10px 13px;
       @include radius(sm);
       border: 1px solid color(neutral, 4);
       border-radius: 8px;
@@ -193,20 +196,28 @@
       transition: border-color 0.2s;
       &:hover,
       &:focus {
-        border-color: color(primary, 2);
+        border-color: color(primary, 6);
         @include shadow(5);
         outline: none;
       }
       &.error {
         border-color: color(danger, 6);
       }
+      .fileIcon {
+        display: inline-block;
+        @include font-size(body);
+        color: color(neutral, 6);
+      }
       .fileText {
         margin-left: 8px;
+        @include font-size(body);
+        color: color(neutral, 6);
       }
     }
     .fileDesc {
       @include font-size(caption);
       color: color(neutral, 6);
+      margin-top: 6px;
     }
     .errorMsg {
       position: absolute;

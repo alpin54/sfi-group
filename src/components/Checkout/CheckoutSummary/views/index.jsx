@@ -12,7 +12,7 @@ import Button from '@elements/Button/views';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const CheckoutSummary = (props) => {
-  const { data, paymentDisabled } = props;
+  const { data, paymentDisabled, onShowShipping, onPayment } = props;
   const profile = String(data?.profile ?? '').toLowerCase();
   const isDealer = profile === 'dealer';
   const isMember = profile === 'member';
@@ -30,7 +30,7 @@ const CheckoutSummary = (props) => {
       </div>
       <div className={style.head}>
         <h6 className={style.headTitle}>Shipping Method</h6>
-        <Button variant='arrow-text'>
+        <Button variant='arrow-text' type='button' onClick={onShowShipping}>
           Select Shipping
           <SystemIcon name='caret-right' />
         </Button>
@@ -93,7 +93,14 @@ const CheckoutSummary = (props) => {
         )}
       </div>
       <div className={style.action}>
-        <Button level='block' type='submit' form='checkout-address-form' disabled={paymentDisabled}>
+        <Button
+          level='block'
+          size='medium'
+          type='button'
+          disabled={paymentDisabled}
+          onClick={() => {
+            if (typeof onPayment === 'function') onPayment();
+          }}>
           Payment
         </Button>
       </div>
