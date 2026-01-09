@@ -5,10 +5,18 @@
   :global(#blog) & {
     width: 100%;
   }
+  &Button {
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    outline: 0;
+    cursor: pointer;
+  }
 
   &Icon {
     position: absolute;
-    top: 14px;
+    top: 16px;
     right: 16px;
     font-size: 20px;
     line-height: 1;
@@ -23,7 +31,7 @@
     }
     &Faders {
       position: absolute;
-      top: 14px;
+      top: 16px;
       left: 16px;
       z-index: 1;
       font-size: 20px;
@@ -192,6 +200,7 @@
     }
     &Image {
       display: block;
+      width: auto;
       height: 16px;
       object-fit: contain;
       margin-right: 6px;

@@ -2,12 +2,12 @@
 
 import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 
 // styles
-import style from '@components/VideoSection/styles/style.module.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import style from '@components/VideoSection/styles/style.module.scss';
 
 // elements
 import Button from '@elements/Button/views';
@@ -17,6 +17,7 @@ const VideoSection = ({ data }) => {
   const activeOverlay = useRef({});
   const youtubePlayers = useRef({});
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playingVideos, setPlayingVideos] = useState({});
 
   const stopAllVideos = () => {
     Object.values(players.current).forEach((player) => {
@@ -38,6 +39,9 @@ const VideoSection = ({ data }) => {
       if (!overlay) return;
       overlay.classList.remove(style.isPlaying);
     });
+
+    // Reset all playing states
+    setPlayingVideos({});
   };
 
   const handlePlay = (item) => {
@@ -47,12 +51,14 @@ const VideoSection = ({ data }) => {
 
     if (!player) return;
 
-    // hide overlay — cara yang pakai class (lebih rapi)
+    // hide overlay
     if (overlay) overlay.classList.add(style.isPlaying);
 
     if (item.type === 'file') {
       player.muted = false;
       player.play();
+      // Mark this video as playing to show controls
+      setPlayingVideos((prev) => ({ ...prev, [id]: true }));
     }
 
     if (item.type === 'iframe') {
@@ -60,16 +66,20 @@ const VideoSection = ({ data }) => {
     }
   };
 
-  const togglePlay = (player, overlay) => {
+  const togglePlay = (player, overlay, videoId) => {
     if (!player) return;
 
     if (player.paused) {
       player.play();
-      // overlay tetap hidden, tidak kita ubah lagi
+      setPlayingVideos((prev) => ({ ...prev, [videoId]: true }));
     } else {
       player.pause();
-      // overlay tidak dimunculkan lagi
+      // Keep controls visible even when paused
     }
+  };
+
+  const handleVideoPlay = (videoId) => {
+    setPlayingVideos((prev) => ({ ...prev, [videoId]: true }));
   };
 
   const isEnoughSlide = data.length >= 4;
@@ -79,12 +89,21 @@ const VideoSection = ({ data }) => {
       <div className='container'>
         <div className={style.swiperWrapper}>
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             navigation={{
               prevEl: `.${style.videoPrev}`,
               nextEl: `.${style.videoNext}`
             }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: true,
+              pauseOnMouseEnter: true
+            }}
             loop={true}
+            speed={1500}
+            grabCursor={true}
+            resistance={true}
+            resistanceRatio={0.85}
             slidesPerView={isEnoughSlide ? 1.2 : 1}
             centeredSlides={isEnoughSlide}
             spaceBetween={20}
@@ -111,7 +130,9 @@ const VideoSection = ({ data }) => {
                           muted
                           playsInline
                           loop
-                          onClick={() => togglePlay(players.current[item.id], activeOverlay.current[item.id])}>
+                          controls={playingVideos[item.id] || false}
+                          onPlay={() => handleVideoPlay(item.id)}
+                          onClick={() => togglePlay(players.current[item.id], activeOverlay.current[item.id], item.id)}>
                           <source src={item.video} type='video/mp4' />
                         </video>
                       ) : (
@@ -120,7 +141,7 @@ const VideoSection = ({ data }) => {
                           src={youtubeSrc}
                           title='YouTube Video'
                           frameBorder='0'
-                          allow='autoplay; encrypted-media'
+                          allow='autoplay; encrypted-media; controls;'
                           allowFullScreen
                         />
                       )}

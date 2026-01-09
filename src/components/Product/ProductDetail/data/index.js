@@ -93,7 +93,7 @@ const data = {
   },
   description: `
   <p>Thought for a second</p>
-  <h2 style="font-size:20px; font-weight:400; letter-spacing: 0.02em;">CASE MAGSAFE FOR IPHONE 16/PRO/PRO MAX ZAGG SNAP CASE CRYSTAL PALACE</h2>
+  <p>CASE MAGSAFE FOR IPHONE 16/PRO/PRO MAX ZAGG SNAP CASE CRYSTAL PALACE</p>
   <p><strong>Original by ZAGG Gear4 Official</strong></p>
   <p>Pasti Ready | Pasti Original 100% | Lifetime Warranty / Seumur Hidup (Rusak Langsung Ganti Baru)</p>
   <p>ZAGG Gear4 merupakan Apple Authorized Partner untuk aksesoris Apple di seluruh dunia dan juga tersedia di modern market seperti iBox, Digimap, iStore, Erafone, dan modern market besar lainnya, yang menjanjikan kualitas terbaik dan fit yang maksimal dari sebuah aksesoris Apple.</p>
@@ -121,7 +121,7 @@ const data = {
     <li>Siapkan invoice pembelian sebagai bukti transaksi.</li>
     <li>Rekam video unboxing yang jelas.</li>
     <li>Bukan kerusakan yang diakibatkan oleh human error (penggunaan).</li>
-  </ol><p>Sebelum membuka produk, rekam video unboxing. Dalam video, pastikan terlihat kondisi awal produk, proses membuka kemasan, kondisi produk setelah dibuka, dan letak permasalahan produk. Jika tidak ada video unboxing, permohonan retur/komplain akan ditolak.</p><div><strong>HARGA SEWAKTU-WAKTU BISA BERUBAH</strong></div>`,
+  </ol><p>Sebelum membuka produk, rekam video unboxing. Dalam video, pastikan terlihat kondisi awal produk, proses membuka kemasan, kondisi produk setelah dibuka, dan letak permasalahan produk. Jika tidak ada video unboxing, permohonan retur/komplain akan ditolak.</p><p><strong>HARGA SEWAKTU-WAKTU BISA BERUBAH</strong></p>`,
   feature: `<ul><li><p>Crystal Clarity</p><p>The new Crystal Palace Snap has three anti-yellowing technologies to guarantee your case always stays beautifully clear.</p></li><li><p>Drop Resistant up to 13 ft / 4 m</p><p>Crystal Palace Snap has been tested and proven to protect your phone from drops up to 13 feet (4 meters).</p></li><li><p>Strengthened with Graphene</p><p>Graphene is harder than diamond, yet more elastic than rubber, and up to 200× stronger than steel.</p></li><li><p>Sleek, Minimalist Design</p><p>The newly molded design wraps entirely around the edges of the case for a seamless, uninterrupted visual flow.</p></li><li><p>Anti-Scratch Finish</p><p>The anti-scratch coating helps the case maintain its beauty over time.</p></li><li><p>Secure Grip</p><p>The textured edges provide a no-slip grip.</p></li><li><p>Wireless Charging Compatible</p><p>Crystal Palace Snap is MagSafe compatible and works with most wireless chargers.</p></li><li><p>61% Recycled Content</p><p>Crystal Palace Snap is made with up to 61% post-consumer recycled materials.</p></li></ul>`,
   related: [
     {

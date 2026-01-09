@@ -458,6 +458,7 @@ const Header = (props) => {
                                   type='button'
                                   className={style.menuSubLink}
                                   onClick={() => {
+                                    setOpenMenu(false);
                                     setOpenSubMenu(false);
                                     setOpenContentMenu(false);
                                   }}>
@@ -474,6 +475,7 @@ const Header = (props) => {
                                       : style.menuSubLink
                                   }
                                   onClick={() => {
+                                    setOpenMenu(false);
                                     setOpenSubMenu(false);
                                     setOpenContentMenu(false);
                                   }}>
@@ -485,7 +487,11 @@ const Header = (props) => {
                                   <Link
                                     href={`/shop/${item.slug}/${child.slug}`}
                                     className={style.menuSubLink}
-                                    onClick={() => setOpenSubMenu(false)}>
+                                    onClick={() => {
+                                      setOpenMenu(false);
+                                      setOpenSubMenu(false);
+                                      setOpenContentMenu(false);
+                                    }}>
                                     {child.name}
                                   </Link>
                                 </div>

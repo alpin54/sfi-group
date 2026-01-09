@@ -5,7 +5,7 @@
 .textarea {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 13px 16px 14px;
   @include radius(sm);
   border: 1px solid color(neutral, 4);
   @include placeholder-color(color(neutral, 6));

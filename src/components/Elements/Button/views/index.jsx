@@ -8,10 +8,11 @@ import style from '@elements/Button/styles//style.module.scss';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const Button = (props) => {
-  const { variant, children, href, icon, level = 'default', color, size, rounded } = props;
+  const { variant, children, href, icon, level = 'default', color, size, rounded, ...restProps } = props;
 
   const iconCont = icon && <SystemIcon name={icon} />;
   let variantStyle = style.btn;
+
   if (variant === 'outlined') {
     variantStyle += ' ' + style.btnOutlined;
   }
@@ -36,7 +37,6 @@ const Button = (props) => {
   if (color === 'white') {
     variantStyle += ' ' + style.btnWhite;
   }
-
   if (size === 'small') {
     variantStyle += ' ' + style.btnSmall;
   }
@@ -49,7 +49,7 @@ const Button = (props) => {
 
   if (href) {
     return (
-      <Link {...props} className={variantStyle}>
+      <Link {...restProps} href={href} className={variantStyle}>
         {variant !== 'underline' && variant !== 'icon' ? <span className={style.btnText}>{children}</span> : children}
         {iconCont}
       </Link>
@@ -57,7 +57,7 @@ const Button = (props) => {
   }
 
   return (
-    <button {...props} className={variantStyle}>
+    <button {...restProps} className={variantStyle}>
       {variant !== 'underline' && variant !== 'icon' ? <span className={style.btnText}>{children}</span> : children}
       {iconCont}
     </button>

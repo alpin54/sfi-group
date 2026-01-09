@@ -1,8 +1,12 @@
 // -- libraries
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 // -- styles
 import style from '@elements/Select/styles/style.module.scss';
+
+// -- utils
+import Currency from '@utils/currency';
 
 // -- elements
 import SystemIcon from '@elements/SystemIcon/views';
@@ -108,24 +112,34 @@ const SelectView = (props) => {
     }
   };
 
+  // Handle price input change - parse formatted value back to number
+  const handlePriceChange = (formattedValue, index) => {
+    // Remove all non-digit characters (Rp, dots, commas, spaces)
+    const numericValue = formattedValue.replace(/[^\d]/g, '');
+    const newPrice = [...price];
+    newPrice[index] = numericValue;
+    setPrice(newPrice);
+  };
+
   return (
     <div className={classNames} ref={ref}>
-      {icon && (
-        <span className={style.selectIconFaders}>
-          <SystemIcon name={icon} />
+      <button type='button' className={style.selectButton} onClick={() => setOpen(!open)}>
+        {icon && (
+          <span className={style.selectIconFaders}>
+            <SystemIcon name={icon} />
+          </span>
+        )}
+        <input
+          className={style.selectInput}
+          placeholder={label}
+          value={open ? search : renderSelectedLabel()}
+          onChange={(e) => setSearch(e.target.value)}
+          readOnly={!open}
+        />
+        <span className={style.selectIcon}>
+          <SystemIcon name='caret-down' />
         </span>
-      )}
-      <input
-        className={style.selectInput}
-        placeholder={label}
-        value={open ? search : renderSelectedLabel()}
-        onClick={() => setOpen(!open)}
-        onChange={(e) => setSearch(e.target.value)}
-        readOnly={!open}
-      />
-      <span className={style.selectIcon}>
-        <SystemIcon name='caret-down' />
-      </span>
+      </button>
 
       <div
         className={style.selectBox}
@@ -144,19 +158,19 @@ const SelectView = (props) => {
             <li className={style.selectItem}>
               <Input
                 size='small'
-                type='number'
+                type='text'
                 placeholder='Min Price'
-                value={price[0]}
-                onChange={(e) => setPrice([e.target.value, price[1]])}
+                value={price[0] ? Currency.formatRp(price[0]) : ''}
+                onChange={(e) => handlePriceChange(e.target.value, 0)}
               />
             </li>
             <li className={style.selectItem}>
               <Input
                 size='small'
-                type='number'
+                type='text'
                 placeholder='Max Price'
-                value={price[1]}
-                onChange={(e) => setPrice([price[0], e.target.value])}
+                value={price[1] ? Currency.formatRp(price[1]) : ''}
+                onChange={(e) => handlePriceChange(e.target.value, 1)}
               />
             </li>
             <li className={style.selectItem}>
@@ -192,7 +206,15 @@ const SelectView = (props) => {
                           className={style.checkboxLabelColor}
                           style={{ backgroundColor: item.label.toLowerCase() }}></span>
                       )}
-                      {item.image && <img src={item.image} alt={item.label} className={style.checkboxLabelImage} />}
+                      {item.image && (
+                        <Image
+                          src={item.image}
+                          alt={item.label}
+                          className={style.checkboxLabelImage}
+                          width={80}
+                          height={16}
+                        />
+                      )}
                       {!item.image && item.label}
                     </span>
                     <span className={style.checkbox}>

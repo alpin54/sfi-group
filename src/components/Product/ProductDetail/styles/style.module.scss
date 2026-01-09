@@ -200,7 +200,7 @@
       width: 124px;
       height: 112px;
       margin: 0 6px;
-      @include radius(sm);
+      @include radius(md);
       overflow: hidden;
       background-color: color(neutral, 2);
       border: 1px solid transparent;
@@ -267,6 +267,7 @@
     width: 608px;
     height: 608px;
     position: relative;
+    @include radius(md);
     background-color: color(neutral, 2);
     @include small {
       width: 100%;
@@ -458,6 +459,7 @@
   font-family: ff(title);
   @include font-size(h3);
   font-weight: fw(medium);
+  @include multiline-ellipsis(2);
   margin-bottom: 24px;
   @include medium {
     @include font-size(h4);
@@ -589,14 +591,14 @@
   p,
   ul,
   ol {
-    @include font-size(h6);
+    @include font-size(body);
     color: color(neutral, 6);
     margin-bottom: 16px;
     &:last-child {
       margin-bottom: 0;
     }
     @include small {
-      @include font-size(body);
+      @include font-size(caption);
       margin-bottom: 12px;
     }
   }
