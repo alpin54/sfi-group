@@ -16,6 +16,7 @@ const VideoSection = ({ data }) => {
   const players = useRef({});
   const activeOverlay = useRef({});
   const youtubePlayers = useRef({});
+  const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [playingVideos, setPlayingVideos] = useState({});
 
@@ -42,6 +43,11 @@ const VideoSection = ({ data }) => {
 
     // Reset all playing states
     setPlayingVideos({});
+
+    // Resume autoplay when all videos stopped
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.start();
+    }
   };
 
   const handlePlay = (item) => {
@@ -50,6 +56,11 @@ const VideoSection = ({ data }) => {
     const overlay = activeOverlay.current[id];
 
     if (!player) return;
+
+    // Stop swiper autoplay when video is playing
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.stop();
+    }
 
     // hide overlay
     if (overlay) overlay.classList.add(style.isPlaying);
@@ -70,16 +81,34 @@ const VideoSection = ({ data }) => {
     if (!player) return;
 
     if (player.paused) {
+      // Stop autoplay when playing video
+      if (swiperRef.current?.autoplay) {
+        swiperRef.current.autoplay.stop();
+      }
       player.play();
       setPlayingVideos((prev) => ({ ...prev, [videoId]: true }));
     } else {
       player.pause();
-      // Keep controls visible even when paused
+      // Resume autoplay when video paused
+      if (swiperRef.current?.autoplay) {
+        swiperRef.current.autoplay.start();
+      }
     }
   };
 
   const handleVideoPlay = (videoId) => {
     setPlayingVideos((prev) => ({ ...prev, [videoId]: true }));
+    // Stop autoplay when video starts playing
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.stop();
+    }
+  };
+
+  const handleVideoPause = () => {
+    // Resume autoplay when video paused
+    if (swiperRef.current?.autoplay) {
+      swiperRef.current.autoplay.start();
+    }
   };
 
   const isEnoughSlide = data.length >= 4;
@@ -90,13 +119,14 @@ const VideoSection = ({ data }) => {
         <div className={style.swiperWrapper}>
           <Swiper
             modules={[Navigation, Autoplay]}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             navigation={{
               prevEl: `.${style.videoPrev}`,
               nextEl: `.${style.videoNext}`
             }}
             autoplay={{
               delay: 2500,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}
             loop={true}
@@ -132,6 +162,7 @@ const VideoSection = ({ data }) => {
                           loop
                           controls={playingVideos[item.id] || false}
                           onPlay={() => handleVideoPlay(item.id)}
+                          onPause={handleVideoPause}
                           onClick={() => togglePlay(players.current[item.id], activeOverlay.current[item.id], item.id)}>
                           <source src={item.video} type='video/mp4' />
                         </video>
@@ -141,7 +172,7 @@ const VideoSection = ({ data }) => {
                           src={youtubeSrc}
                           title='YouTube Video'
                           frameBorder='0'
-                          allow='autoplay; encrypted-media; controls;'
+                          allow='autoplay; encrypted-media'
                           allowFullScreen
                         />
                       )}
