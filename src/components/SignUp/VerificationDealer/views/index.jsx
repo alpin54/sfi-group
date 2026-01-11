@@ -3,7 +3,7 @@
 // -- libraries
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import Image from 'next/image';
 
 // -- styles
 import style from '@components/SignUp/VerificationDealer/styles/style.module.scss';
@@ -361,7 +361,7 @@ const VerificationDealer = (props) => {
             {/* preview or filename */}
             <div className={style.previewWrap}>
               {ktpPreview ? (
-                <img src={ktpPreview} alt='ktp preview' className={style.previewImage} />
+                <Image src={ktpPreview} alt='ktp preview' className={style.previewImage} width={440} height={228} />
               ) : ktpFile ? (
                 <div className={style.fileName}>{ktpFile.name}</div>
               ) : null}
@@ -415,7 +415,7 @@ const VerificationDealer = (props) => {
 
             <div className={style.previewWrap}>
               {npwpPreview ? (
-                <img src={npwpPreview} alt='npwp preview' className={style.previewImage} />
+                <Image src={npwpPreview} alt='npwp preview' className={style.previewImage} width={440} height={228} />
               ) : npwpFile ? (
                 <div className={style.fileName}>{npwpFile.name}</div>
               ) : null}

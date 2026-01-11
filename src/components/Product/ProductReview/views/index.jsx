@@ -49,7 +49,7 @@ const ProductReview = (props) => {
     } else {
       enableScroll();
     }
-  }, [openAllReview && !isDesktop, enableScroll, disableScroll]);
+  }, [openAllReview, isDesktop, enableScroll, disableScroll]);
 
   useEffect(() => {
     if (!openAllReview) return;

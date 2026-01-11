@@ -82,6 +82,7 @@ const ScrollReveal = ({
         hasAnimated.current = false;
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView, once]);
 
   return (

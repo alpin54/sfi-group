@@ -174,7 +174,7 @@ const MyOrdersView = (props) => {
                           )}
                           {(order.points_earned_total ?? 0) > 0 && (
                             <p className={style.pointsTextMobile}>
-                              You've Earned <span>{Currency.formatRp(order.points_earned_total)} </span> Voucher
+                              You&apos;ve Earned <span>{Currency.formatRp(order.points_earned_total)} </span> Voucher
                             </p>
                           )}
                         </div>

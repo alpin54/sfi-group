@@ -164,6 +164,7 @@ const CheckoutAddress = (props) => {
       if (!String(val).trim()) return false;
       return !validateField(field, val);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   useEffect(() => {

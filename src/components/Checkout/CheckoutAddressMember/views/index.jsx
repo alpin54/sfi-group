@@ -131,6 +131,7 @@ const CheckoutAddressMember = (props) => {
       if (!String(val).trim()) return false;
       return !validateField(field, val);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   // reset transient state when modal closes
