@@ -166,7 +166,7 @@
   transition: color 0.3s ease;
 
   .open & {
-    color: color(primary, 2);
+    color: color(primary, 6);
   }
 }
 
@@ -180,7 +180,7 @@
   color: color(neutral, 6);
 
   .open & {
-    color: color(primary, 2);
+    color: color(primary, 6);
   }
 }
 

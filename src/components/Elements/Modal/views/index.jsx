@@ -11,11 +11,12 @@ import useScrollable from '@hooks/useScrollable';
 import SystemIcon from '@elements/SystemIcon/views';
 
 const Modal = (props) => {
-  const { open, onClose, size = 'small', variant = 'default', title, children, closeIcon = 'show' } = props;
+  const { open, onClose, size = 'small', variant = 'default', title, children, closeIcon = 'show', className } = props;
   const modalRef = useRef(null);
   const { enableScroll, disableScroll } = useScrollable();
   let sizeStyle = '';
   let variantStyle = '';
+  let classStyle = '';
   if (size === 'small') sizeStyle = style.small;
   if (size === 'medium') sizeStyle = style.medium;
   if (size === 'large') sizeStyle = style.large;
@@ -24,6 +25,7 @@ const Modal = (props) => {
   if (variant === 'error') variantStyle = style.error;
   if (variant === 'warning') variantStyle = style.warning;
   if (variant === 'fullscreen') variantStyle = style.fullscreen;
+  if (className === 'address') classStyle = style.address;
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -65,7 +67,7 @@ const Modal = (props) => {
 
   return (
     <div
-      className={`${style.modal} ${open ? style.modalOpen : ''} ${sizeStyle} ${variantStyle}`}
+      className={`${style.modal} ${open ? style.modalOpen : ''} ${sizeStyle} ${variantStyle} ${classStyle || ''}`.trim()}
       role='dialog'
       aria-modal='true'
       aria-labelledby='modal-title'

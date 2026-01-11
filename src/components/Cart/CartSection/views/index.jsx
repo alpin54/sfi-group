@@ -475,8 +475,6 @@ const CartSection = (props) => {
   const allChecked = cartItems.length > 0 && cartItems.every((it) => it.checked);
   const someChecked = cartItems.some((it) => it.checked);
 
-  console.log('cartitem', cartItems);
-
   return (
     <div className={style.cart}>
       <div className='container'>

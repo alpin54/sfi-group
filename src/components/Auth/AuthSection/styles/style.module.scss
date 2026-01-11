@@ -182,7 +182,7 @@
   }
   &Img {
     display: block;
-    width: 100%;
+    width: auto;
     height: 64px;
     object-fit: contain;
     @include medium {

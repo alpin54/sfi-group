@@ -8,10 +8,12 @@ import EmptyImage from '@assets/image/illustration/empty.svg';
 import style from '@elements/Empty/styles/style.module.scss';
 
 const EmptyView = (props) => {
-  const { image, title, description, action } = props;
+  const { image, title, description, action, variant } = props;
+
+  const variantClass = variant === 'address' ? style.emptyAddress : '';
 
   return (
-    <div className={style.empty}>
+    <div className={`${style.empty} ${variantClass}`.trim()}>
       {image ? (
         <div className={style.img}>
           <Image src={image} alt='Empty' width={248} height={144} className={style.imgEl} />

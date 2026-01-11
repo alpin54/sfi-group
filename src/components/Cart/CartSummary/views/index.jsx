@@ -12,7 +12,6 @@ import LocalStorage from '@utils/localStorage';
 import Button from '@elements/Button/views';
 import SystemIcon from '@elements/SystemIcon/views';
 import SwitchToggle from '@elements/SwitchToggle/views';
-import Link from 'next/link';
 
 const CART_KEY = 'cart';
 
@@ -189,7 +188,7 @@ const CartSummary = (props) => {
         )}
 
         <div className={style.summaryRow}>
-          <Button href='/checkout' variant='primary' disabled={true} level='block'>
+          <Button href='/checkout' variant='primary' disabled={subtotal === 0} level='block'>
             Checkout
           </Button>
         </div>

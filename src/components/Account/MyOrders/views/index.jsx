@@ -161,13 +161,24 @@ const MyOrdersView = (props) => {
                       <p className={style.moreProducts}>+ {order.items.length - 1} More Products</p>
                     )}
                     <div className={style.productWrapp}>
-                      <div className={style.points}>
-                        <p className={style.pointsText}>Points Earned: </p>
-                        <div className={style.pointsIcon}>
-                          <Image src={PointLogo} alt='Points' width={14} height={14} />
-                          <span className={style.pointsCount}> +{order.points_earned || 0}</span>
+                      {((order.points_earned ?? 0) > 0 || (order.points_earned_total ?? 0) > 0) && (
+                        <div className={style.points}>
+                          {(order.points_earned ?? 0) > 0 && (
+                            <>
+                              <p className={style.pointsText}>Points Earned: </p>
+                              <div className={style.pointsIcon}>
+                                <Image src={PointLogo} alt='Points' width={14} height={14} />
+                                <span className={style.pointsCount}> +{order.points_earned}</span>
+                              </div>
+                            </>
+                          )}
+                          {(order.points_earned_total ?? 0) > 0 && (
+                            <p className={style.pointsTextMobile}>
+                              You've Earned <span>{Currency.formatRp(order.points_earned_total)} </span> Voucher
+                            </p>
+                          )}
                         </div>
-                      </div>
+                      )}
 
                       <p className={style.price}>
                         Order Total: <span>{Currency.formatRp(order.total_amount)}</span>

@@ -23,23 +23,42 @@
   border: 1px solid color(neutral, 3);
   margin-bottom: 24px;
   @include medium {
-    display: none;
-    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 0;
     padding: 0;
+    margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: color(neutral, 1);
     z-index: zi(checkout-address-modal);
+    background-color: color(opacity, 2);
+    transition: all 0.3s ease 0.2s;
     @include scroll(auto, y, hide);
   }
+  &Show {
+    @include medium {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+      .inner {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition-delay: 0.2s;
+      }
+    }
+  }
 }
-
-.bodyShow {
+.inner {
   @include medium {
-    display: block;
+    opacity: 0;
+    visibility: hidden;
+    background-color: color(neutral, 1);
+    transform: translateY(16px);
+    transition: all 0.35s ease 0s;
   }
 }
 .form {

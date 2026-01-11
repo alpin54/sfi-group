@@ -57,6 +57,12 @@ const data = {
     label: 'Shipping Fee',
     value: 0
   },
+  // dealer discount
+  discount_dealer: {
+    label: 'Discount Dealer',
+    value: 100000,
+    note: 'New Dealer'
+  },
   // general discount
   discount_general: {
     label: 'Discount',

@@ -2,7 +2,10 @@
 import { useEffect, useMemo, useState } from 'react';
 
 // -- styles
-import style from '@components/Checkout/CheckoutAddress/styles/style.module.scss';
+import style from '@components/Checkout/CheckoutAddressGuest/styles/style.module.scss';
+
+// -- hooks
+import useScrollable from '@hooks/useScrollable';
 
 // elements
 import Input from '@elements/Input/views';
@@ -12,8 +15,19 @@ import SystemIcon from '@elements/SystemIcon/views';
 const CheckoutAddress = (props) => {
   const { onActiveChange, onSubmitSuccess } = props;
 
+  const { enableScroll, disableScroll } = useScrollable();
+
   const [loading, setLoading] = useState(false);
   const [showBody, setShowBody] = useState(false);
+  const [savedAddress, setSavedAddress] = useState(null);
+
+  // Lock body scroll when fullscreen drawer is open (mobile)
+  useEffect(() => {
+    if (showBody) disableScroll();
+    else enableScroll();
+
+    return () => enableScroll();
+  }, [showBody, enableScroll, disableScroll]);
 
   // form structure
   const formList = [
@@ -190,6 +204,7 @@ const CheckoutAddress = (props) => {
       }, {});
 
       if (typeof onSubmitSuccess === 'function') onSubmitSuccess(payload);
+      setSavedAddress(payload);
       setLoading(false);
       setShowBody(false);
     }, 800);
@@ -200,52 +215,54 @@ const CheckoutAddress = (props) => {
       <div className={style.head}>
         <h6 className={style.headTitle}>Delivery Address</h6>
         <Button variant='arrow-text' type='button' onClick={() => setShowBody(true)}>
-          Add Address
+          {savedAddress ? 'Change Address' : 'Add Address'}
           <SystemIcon name='caret-right' />
         </Button>
       </div>
       <div className={`${style.body} ${showBody ? style.bodyShow : ''}`.trim()}>
-        <div className={style.top}>
-          <h5 className={style.title}>Delivery Address</h5>
-          <Button variant='icon' aria-label='Close' type='button' onClick={() => setShowBody(false)}>
-            <SystemIcon name='close' />
-          </Button>
-        </div>
-        <form
-          id='checkout-address-form'
-          className={`${style.form} ${isActive ? 'active' : ''}`.trim()}
-          onSubmit={handleSubmit}>
-          <div className={style.group}>
-            {formList.map((field) => (
-              <div className={style.field} key={field.name}>
-                <label htmlFor={field.id} className={style.label}>
-                  {field.label}
-                </label>
-                <Input
-                  id={field.id}
-                  name={field.name}
-                  variant={field.variant || 'input'}
-                  type={field.type}
-                  {...(field.variant === 'select'
-                    ? {
-                        data: field.data,
-                        label: field.label
-                      }
-                    : {})}
-                  value={values[field.name]}
-                  onChange={(e) => handleInput(field, e.target.value)}
-                  error={errors[field.name]}
-                  disabled={loading}
-                />
-              </div>
-            ))}
-            <div className={style.action}>
-              <Button level='block' size='medium' type='submit'>
-                Save
-              </Button>
-            </div>
+        <div className={style.inner}>
+          <div className={style.top}>
+            <h5 className={style.title}>Delivery Address</h5>
+            <Button variant='icon' aria-label='Close' type='button' onClick={() => setShowBody(false)}>
+              <SystemIcon name='close' />
+            </Button>
           </div>
-        </form>
+          <form
+            id='checkout-address-form'
+            className={`${style.form} ${isActive ? 'active' : ''}`.trim()}
+            onSubmit={handleSubmit}>
+            <div className={style.group}>
+              {formList.map((field) => (
+                <div className={style.field} key={field.name}>
+                  <label htmlFor={field.id} className={style.label}>
+                    {field.label}
+                  </label>
+                  <Input
+                    id={field.id}
+                    name={field.name}
+                    variant={field.variant || 'input'}
+                    type={field.type}
+                    {...(field.variant === 'select'
+                      ? {
+                          data: field.data,
+                          label: field.label
+                        }
+                      : {})}
+                    value={values[field.name]}
+                    onChange={(e) => handleInput(field, e.target.value)}
+                    error={errors[field.name]}
+                    disabled={loading}
+                  />
+                </div>
+              ))}
+              <div className={style.action}>
+                <Button level='block' size='medium' type='submit'>
+                  Save
+                </Button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ const data = [
     countdown: '01:59:59',
     date: '10:00, 16 Aug 2025',
     points_earned: 150,
+    points_earned_total: 200000,
     items: [
       {
         id: 1,
@@ -40,6 +41,7 @@ const data = [
     created_at: '12 Aug 2025, 10:00 AM',
     date: '10:00, 16 Aug 2025',
     points_earned: 150,
+    points_earned_total: 200000,
     items: [
       {
         id: 1,
@@ -60,6 +62,7 @@ const data = [
     created_at: '12 Aug 2025, 10:00 AM',
     date: '10:00, 16 Aug 2025',
     points_earned: 150,
+    points_earned_total: 200000,
     items: [
       {
         id: 1,

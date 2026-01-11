@@ -2,27 +2,48 @@
 
 .shipping {
   padding: 24px;
-  @include radius(md);
   border: 1px solid color(neutral, 3);
+  @include radius(md);
   @include medium {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 0;
     padding: 0;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: color(neutral, 1);
     z-index: zi(checkout-shipping-modal);
+    background-color: color(opacity, 2);
+    transition: all 0.3s ease 0.2s;
     @include scroll(auto, y, hide);
+  }
+  &Show {
+    @include medium {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+      .inner {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+.inner {
+  @include medium {
+    min-height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background-color: color(neutral, 1);
+    transform: translateY(16px);
+    transition: all 0.35s ease 0s;
   }
 }
 
-.shippingShow {
-  @include medium {
-    display: block;
-  }
-}
 .list {
   @include medium {
     padding: 24px 32px;
@@ -90,14 +111,14 @@
       color: color(primary, 6);
     }
   }
-}
-
-.itemActive {
-  border-color: color(primary, 6);
-  .icon {
-    color: color(primary, 6);
+  &Active {
+    border-color: color(primary, 6);
+    .icon {
+      color: color(primary, 6);
+    }
   }
 }
+
 .logo {
   flex: 0 0 80px;
   width: 80px;
@@ -161,6 +182,22 @@
     font-size: 1.8rem;
     @include mq(400px) {
       font-size: 1.6rem;
+    }
+  }
+}
+.bottom {
+  @include medium {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @include small {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    > div {
+      padding-top: 0;
     }
   }
 }

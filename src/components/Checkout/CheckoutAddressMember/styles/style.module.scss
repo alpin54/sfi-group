@@ -1,0 +1,181 @@
+@import '_cores/styles/_assets.scss';
+
+.address {
+  padding: 24px;
+  @include radius(md);
+  border: 1px solid color(neutral, 3);
+  margin-bottom: 24px;
+  @include medium {
+    border: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid color(neutral, 3);
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  button {
+    @include font-size(h6);
+  }
+  &Title {
+    margin-bottom: 0;
+    font-weight: fw(medium);
+    @include medium {
+      @include font-size(h5);
+    }
+    @include small {
+      @include font-size(h6);
+    }
+  }
+}
+
+.empty {
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px 1px;
+  background-color: color(primary, 1);
+  color: color(primary, 6);
+  margin-bottom: 0;
+  @include radius(lg);
+  span {
+    margin-bottom: 0;
+    font-weight: fw(medium);
+    @include font-size(caption);
+  }
+  i {
+    font-size: 16px;
+  }
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: color(neutral, 8);
+  &:last-child,
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  i {
+    padding-top: 2px;
+    color: color(primary, 6);
+    font-size: 18px;
+  }
+}
+.value {
+  margin-bottom: 0;
+  color: color(neutral, 7);
+  @include font-size(body);
+}
+.modal {
+  &Form {
+    width: 100%;
+  }
+  &Action {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-top: 24px;
+    & > button {
+      flex: 1;
+    }
+  }
+}
+.group {
+  display: block;
+}
+.field {
+  margin-bottom: 16px;
+}
+.label {
+  display: block;
+  margin-bottom: 8px;
+}
+.toggle {
+  &Row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  &Text {
+    margin-bottom: 0;
+    color: color(neutral, 8);
+    @include font-size(body);
+  }
+}
+
+.list {
+  &Modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &Top {
+    display: flex;
+    justify-content: flex-start;
+    button {
+      padding-left: 16px;
+      padding-right: 20px;
+      > span {
+        display: flex;
+        align-items: center;
+        flex-direction: unset;
+        gap: 10px;
+      }
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+  &Item {
+    border: 1px solid color(neutral, 3);
+    @include radius(md);
+    padding: 24px;
+    margin-bottom: 16px;
+    @include small {
+      padding: 16px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &Active {
+      border-color: color(primary, 6);
+    }
+    &Top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  }
+  &Actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid color(neutral, 3);
+  }
+}

@@ -3,11 +3,12 @@
 .CareerBanner {
   padding: 12px 0;
   width: 100%;
-
   &Wrapp {
     height: 600px;
     width: 100%;
     position: relative;
+    @include radius(md);
+    overflow: hidden;
     @include medium {
       height: 480px;
     }

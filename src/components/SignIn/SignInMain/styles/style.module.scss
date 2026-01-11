@@ -55,9 +55,9 @@
 
   &[aria-pressed='true'] {
     /* fallback if JS sets aria-pressed */
-    border-color: color(primary, 2);
+    border-color: color(primary, 6);
     background: color(primary, 1);
-    color: color(primary, 2);
+    color: color(primary, 6);
   }
 }
 

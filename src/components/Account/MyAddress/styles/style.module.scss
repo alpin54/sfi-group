@@ -106,11 +106,14 @@
   & Button {
       padding: 10px 16px 8px;
       @include x-small {
-        padding: 12px 16px 10px;
-      }
-      @include retina {
+        padding: 12px 14px 10px;
         min-width: 0;
       }
+      @include retina {
+        @include font-size(x-small);
+        padding: 10px 12px 8px;
+      }
+
 
   }
 }

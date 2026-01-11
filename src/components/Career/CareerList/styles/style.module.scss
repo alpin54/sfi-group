@@ -222,7 +222,7 @@
       transition: all 0.3s ease;
       z-index: 3;
       &:hover {
-        color: color(primary, 2);
+        color: color(primary, 6);
         .detailLink i {
           transform: translateX(4px);
         }
