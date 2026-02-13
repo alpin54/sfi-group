@@ -72,7 +72,9 @@
 }
 
 .logo {
+  width: 112px;
   @include medium {
+    width: auto;
     position: relative;
     left: auto;
     top: auto;
@@ -80,11 +82,17 @@
     margin-right: auto;
   }
   &Link {
-    height: 32px;
+    height: 40px;
     text-indent: -9999999px;
     display: block;
     position: relative;
     transition: all 0.3s ease;
+    @include large {
+      height: 32px;
+    }
+    @include small {
+      height: 28px;
+    }
   }
   &Img {
     display: block;
@@ -120,7 +128,7 @@
     justify-content: center;
     text-decoration: none;
     outline: 0;
-    padding: 26px 0;
+    padding: 34px 0;
     border: 0;
     color: inherit;
     background-color: transparent;
@@ -128,17 +136,15 @@
     font-weight: fw(regular);
     @include font-size(button-medium);
     @include remove-tap-highlight;
+    @include large {
+      padding: 30px 0;
+    }
     @include medium {
       padding: 8px 0;
       @include font-size(button-large);
     }
-    // @include hover-underline;
-    // &::after {
-    //   bottom: 24px;
-    // }
     &Active,
     &:hover {
-      // @include hover-underline(active);
       color: color(primary, 6);
     }
     i {
@@ -166,11 +172,31 @@
       color: color(danger, 7);
     }
   }
+  &User {
+    padding: 31px 0;
+    @include large {
+      padding: 28px 0;
+    }
+    span {
+      margin-right: 8px;
+      @include font-size(body);
+      @include large {
+        display: none;
+      }
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+      border-radius: 50%;
+      background-color: color(neutral, 2);
+    }
+  }
 }
 .feature {
   &List {
     @include medium {
-      padding: 26px 0;
+      padding: 24px 0;
     }
     @include small {
       padding: 22px 0;

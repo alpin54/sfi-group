@@ -1,9 +1,8 @@
 @import '_cores/styles/_assets.scss';
 
 .higlightProductCategory {
-  padding: 12px ;
+  padding: 12px;
   background-color: color(neutral, 2);
-
 }
 .wrapper {
   width: 100%;
@@ -16,14 +15,7 @@
 }
 .leftCard {
   border-radius: 12px;
-  width: 720px;
-  @include mq(1440px) {
-    width: 648px;
-
-  }
-  @include large {
-    width: 460px;
-  }
+  width: 45%;
   @include medium {
     width: 100%;
     margin-bottom: 16px;
@@ -40,18 +32,10 @@
   .mainInner {
     width: 100%;
     height: 100%;
-    padding: 56px 32px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     border-radius: 8px;
     background-color: color(neutral, 1);
     position: relative;
     overflow: hidden;
-    @include medium {
-      padding: 40px 32px 0;
-    }
     .link {
       position: absolute;
       top: 0;
@@ -59,24 +43,30 @@
       width: 100%;
       height: 100%;
       z-index: 2;
-      @include remove-tap-highlight
+      @include remove-tap-highlight;
     }
   }
+
   .mainText {
-    flex: 1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     max-width: 520px;
-    margin-bottom: 56px;
-    @include medium {
-      width: 100%;
-      margin-bottom: 32px;
-    }
-    @include x-small {
-      margin-bottom: 28px;
+    padding: 56px 32px 0;
+    text-align: center;
+    width: 100%;
+    @include large {
+      padding: 40px 32px 0;
     }
     .title {
       @include font-size(h3);
       margin-bottom: 16px;
       @include text-gradient(color(gradient, 1), color(primary, 9));
+      @include large {
+        @include font-size(h4);
+      }
       @include x-small {
         @include font-size(h4);
         margin-bottom: 8px;
@@ -86,12 +76,12 @@
       @include font-size(h6);
       margin-bottom: 40px;
       color: color(neutral, 8);
-      @include medium {
+      @include large {
+        @include font-size(body);
         margin-bottom: 32px;
       }
       @include x-small {
         margin-bottom: 26px;
-        @include font-size(body);
       }
     }
     .actionGroup {
@@ -103,22 +93,21 @@
   }
 
   .mainMedia {
-    width: 400px;
-    height: 448px;
-    @include x-small {
-      width: 218px;
-      height: 248px;
-    }
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 113%;
   }
 
   .mainImage {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
     transition: transform 0.4s ease;
     will-change: transform;
-
   }
 }
 .rightCard {
@@ -130,6 +119,7 @@
   margin-right: -6px;
   margin-bottom: -6px;
   @include medium {
+    width: 100%;
     margin-left: -6px;
     padding-left: 0;
   }
@@ -143,9 +133,6 @@
   position: relative;
   transition: all 0.3s ease;
   @include medium {
-    height: 420px;
-  }
-  @include x-small {
     width: 100%;
   }
   &:hover {
@@ -160,28 +147,25 @@
     background-color: color(neutral, 1);
     border-radius: 8px;
     overflow: hidden;
-    padding: 28px 32px;
     position: relative;
     height: 100%;
     border-radius: 8px;
-    @include large {
-      padding: 20px 16px;
-    }
-    @include medium {
-      padding: 28px 24px;
-    }
   }
 
   .cardMedia {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 105%;
+    aspect-ratio: 1 / 1;
+    @include medium {
+      padding-bottom: 90%;
+    }
   }
 
   .cardImage {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -191,11 +175,22 @@
   }
 
   .cardBody {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
     height: 100%;
+    padding: 28px 32px;
+    @include mq(1280px) {
+      padding: 20px 16px;
+    }
+    @include medium {
+      padding: 28px 24px;
+    }
   }
 
   .cardTitle {
@@ -204,8 +199,11 @@
     color: color(neutral, 9);
     z-index: 1;
     margin: 0;
-    @include retina {
-      @include font-size(h6);
+    @include mq(1280px) {
+      @include font-size(body);
+    }
+    @include medium {
+      @include font-size(h5);
     }
   }
 
@@ -214,20 +212,22 @@
   }
   &:nth-child(1) {
     .cardTitle {
-      color: color(neutral, 1);
       z-index: 1;
     }
   }
   &:nth-child(1),
   &:nth-child(4) {
     width: 55%;
-    @include x-small {
-      height: 352px;
+    @include medium {
       width: 100%;
     }
+    .cardMedia {
+      padding-bottom: 90%;
+      @include medium {
+        padding-bottom: 104%;
+      }
+    }
   }
-
-
 
   &:nth-child(1),
   &:nth-child(3),
@@ -235,16 +235,17 @@
     .cardBody {
       justify-content: space-between;
     }
-
   }
-  &:nth-child(2){
+  &:nth-child(2) {
     .cardBody {
       justify-content: flex-end;
     }
     .cardTitle {
       margin-bottom: 20px;
+      @include large {
+        margin-bottom: 8px;
+      }
     }
-
   }
   .link {
     position: absolute;
@@ -255,7 +256,4 @@
     z-index: 2;
     @include remove-tap-highlight;
   }
-
 }
-
-

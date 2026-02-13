@@ -2,74 +2,88 @@
    Grid System
    ========================================================================== */
 
-.container {
+@mixin container-base {
   width: 100%;
-  max-width: $mw-container;
   margin-left: auto;
   margin-right: auto;
-  @include mq(1214px) {
-    max-width: initial;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+}
+
+@mixin responsive-padding {
+  padding-left: 32px;
+  padding-right: 32px;
+
   @include small {
     padding-left: 24px;
     padding-right: 24px;
   }
+
   @include retina {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 
-.container-sm {
-  width: 100%;
-  max-width: $sm-container;
-  margin-left: auto;
-  margin-right: auto;
-  @include mq(1104px) {
+@mixin container-responsive($max-width, $breakpoint) {
+  @include container-base;
+  max-width: $max-width;
+
+  @include mq($breakpoint) {
     max-width: initial;
-    padding-left: 32px;
-    padding-right: 32px;
+    @include responsive-padding;
   }
-  @include small {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  @include retina {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+}
+
+// Containers
+.container {
+  @include container-responsive($mw-container, 1136px);
+}
+
+.container-md {
+  @include container-responsive($md-container, 1216px);
+}
+
+.container-sm {
+  @include container-responsive($sm-container, 976px);
 }
 
 .container-fluid {
   width: 100%;
   padding-left: 40px;
   padding-right: 40px;
+
   @include large {
     padding-left: 32px;
     padding-right: 32px;
   }
+
   @include small {
     padding-left: 24px;
     padding-right: 24px;
   }
+
   @include retina {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 
+// Main site layout
 .main-site {
-  padding-top: 72px;
-  transition: all 0.3s ease;
+  padding-top: 88px;
+  transition: padding-top 0.3s ease;
+  @include large {
+    padding-top: 80px;
+  }
+  @include medium {
+    padding-top: 72px;
+  }
+
   @include small {
     padding-top: 64px;
   }
-  &--auth {
-    padding: 0;
-  }
+
+  &--auth,
   &--no-padding {
-    padding: 0;
+    padding-top: 0;
   }
 }

@@ -11,16 +11,25 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import style from '@components/ModalBanner/styles/style.module.scss';
 
+// -- utils
+import LocalStorage from '@utils/localStorage';
+
 // -- elements
 import Button from '@elements/Button/views';
 import SystemIcon from '@components/Elements/SystemIcon/views';
 
 const ModalBanner = (props) => {
   const { data, openInitially = false, onClose } = props;
-  const [open, setOpen] = useState(Boolean(openInitially));
+  const [open, setOpen] = useState(false);
+
+  const STORAGE_KEY = 'modalBannerClosed';
 
   useEffect(() => {
-    setOpen(Boolean(openInitially));
+    const hasClosedBefore = LocalStorage.get(STORAGE_KEY);
+
+    if (openInitially && !hasClosedBefore) {
+      setOpen(true);
+    }
   }, [openInitially]);
 
   useEffect(() => {
@@ -42,6 +51,7 @@ const ModalBanner = (props) => {
 
   const closeModal = () => {
     setOpen(false);
+    LocalStorage.set(STORAGE_KEY, true);
     if (typeof onClose === 'function') onClose();
   };
 

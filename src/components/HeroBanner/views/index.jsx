@@ -12,6 +12,7 @@ import style from '@components/HeroBanner/styles/style.module.scss';
 
 // -- elements
 import Button from '@elements/Button/views';
+import SystemIcon from '@components/Elements/SystemIcon/views';
 
 const HeroBanner = (props) => {
   const { data } = props;
@@ -23,7 +24,7 @@ const HeroBanner = (props) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    arrows: false,
+    arrows: true,
     fade: true,
     pauseOnHover: true,
     autoHeight: true,
@@ -57,29 +58,28 @@ const HeroBanner = (props) => {
     <div key={`hero-banner-item-${idx}`} className={style.item}>
       <Link href={val.url} className={style.link} aria-label={val.title} target='_self' rel='follow' tabIndex='-1' />
 
+      <div className={style.img}>
+        <Image
+          src={val.image_desktop}
+          alt={val.title}
+          className={style.imgDesktop}
+          width={1200}
+          height={600}
+          priority={idx === 0}
+        />
+        <Image
+          src={val.image_mobile}
+          alt={val.title}
+          className={style.imgMobile}
+          width={600}
+          height={300}
+          priority={idx === 0}
+        />
+      </div>
       <div className={style.content}>
         <div className={style.head}>
           <h2 className={style.title}>{val.title}</h2>
           {val.subtitle && <h4 className={style.subtitle}>{val.subtitle}</h4>}
-        </div>
-
-        <div className={style.img}>
-          <Image
-            src={val.image_desktop}
-            alt={val.title}
-            className={style.imgDesktop}
-            width={1200}
-            height={600}
-            priority={idx === 0}
-          />
-          <Image
-            src={val.image_mobile}
-            alt={val.title}
-            className={style.imgMobile}
-            width={600}
-            height={300}
-            priority={idx === 0}
-          />
         </div>
 
         <div className={style.text}>

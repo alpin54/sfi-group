@@ -19,7 +19,7 @@ const Home = () => {
       {/* Modal Banner */}
       <ModalBannerWidget />
       {/* Call to Action */}
-      <CtaWidget />
+      {/* <CtaWidget /> */}
       {/* Hero Banner */}
       <HeroBannerWidget />
       {/* Highlight Product Category */}

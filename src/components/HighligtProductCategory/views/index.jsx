@@ -33,7 +33,7 @@ const HighligtProductCategory = (props) => {
               src={item.image}
               alt={item.title || `card-${idx}`}
               className={style.cardImage}
-              width={600}
+              width={400}
               height={400}
               priority={false}
             />
