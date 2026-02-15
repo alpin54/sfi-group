@@ -319,7 +319,7 @@
   :global(.slick-prev) {
     left: 40px;
     @include font-icon(before);
-    @include font-icon-set(caret-right, before, 2rem);
+    @include font-icon-set(caret-left, before, 2rem);
     @include large {
       left: 0;
     }
