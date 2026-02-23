@@ -32,7 +32,7 @@
 }
 
 :global(.window--scrolled) .banner {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 72px);
 }
 
 .banner {
@@ -164,7 +164,6 @@
   &Mobile {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
     object-position: center;
   }
   .imgDesktop {
@@ -317,19 +316,37 @@
     }
   }
   :global(.slick-prev) {
-    left: 40px;
+    left: 80px;
     @include font-icon(before);
     @include font-icon-set(caret-left, before, 2rem);
+    @include x-large {
+      left: 40px;
+    }
     @include large {
-      left: 0;
+      left: 32px;
+    }
+    @include small {
+      left: 24px;
+    }
+    @include retina {
+      left: 16px;
     }
   }
   :global(.slick-next) {
-    right: 40px;
+    right: 80px;
     @include font-icon(before);
     @include font-icon-set(caret-right, before, 2rem);
+    @include x-large {
+      right: 40px;
+    }
     @include large {
-      right: 0;
+      right: 32px;
+    }
+    @include small {
+      right: 24px;
+    }
+    @include retina {
+      right: 16px;
     }
   }
 }

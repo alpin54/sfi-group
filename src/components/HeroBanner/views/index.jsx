@@ -76,15 +76,17 @@ const HeroBanner = (props) => {
           priority={idx === 0}
         />
       </div>
-      <div className={style.content}>
-        <div className={style.head}>
-          <h2 className={style.title}>{val.title}</h2>
-          {val.subtitle && <h4 className={style.subtitle}>{val.subtitle}</h4>}
-        </div>
+      <div className='container-fluid'>
+        <div className={style.content}>
+          <div className={style.head}>
+            <h2 className={style.title}>{val.title}</h2>
+            {val.subtitle && <h4 className={style.subtitle}>{val.subtitle}</h4>}
+          </div>
 
-        <div className={style.text}>
-          <p className={style.desc}>{val.description}</p>
-          {renderButtons(val)}
+          <div className={style.text}>
+            <p className={style.desc}>{val.description}</p>
+            {renderButtons(val)}
+          </div>
         </div>
       </div>
     </div>
@@ -92,15 +94,13 @@ const HeroBanner = (props) => {
 
   return (
     <section className={style.banner} id='hero-banner'>
-      <div className='container-fluid'>
-        {data && data?.list.length > 1 ? (
-          <Slider {...settings} className={style.slider}>
-            {data?.list.map((val, idx) => renderItem(val, idx))}
-          </Slider>
-        ) : (
-          <div className={style.list}>{data?.list.map((val, idx) => renderItem(val, idx))}</div>
-        )}
-      </div>
+      {data && data?.list.length > 1 ? (
+        <Slider {...settings} className={style.slider}>
+          {data?.list.map((val, idx) => renderItem(val, idx))}
+        </Slider>
+      ) : (
+        <div className={style.list}>{data?.list.map((val, idx) => renderItem(val, idx))}</div>
+      )}
     </section>
   );
 };

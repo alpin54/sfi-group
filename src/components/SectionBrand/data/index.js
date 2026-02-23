@@ -13,26 +13,26 @@ const data = {
   title: 'In Collaboration with Global Brands',
   list: {
     top: [
-      { name: 'Panzer Glass', image: Brand1 },
-      { name: 'mophie', image: Brand2 },
-      { name: 'Paperlike', image: Brand3 },
-      { name: 'Verbatim', image: Brand4 },
-      { name: 'Adam Elements', image: Brand5 },
-      { name: 'Adam Elements', image: Brand6 },
-      { name: 'Adam Elements', image: Brand7 },
-      { name: 'Adam Elements', image: Brand8 },
-      { name: 'Adam Elements', image: Brand9 }
+      { name: 'Panzer Glass', slug: 'panzer-glass', image: Brand1 },
+      { name: 'mophie', slug: 'mophie', image: Brand2 },
+      { name: 'Paperlike', slug: 'paperlike', image: Brand3 },
+      { name: 'Verbatim', slug: 'verbatim', image: Brand4 },
+      { name: 'Adam Elements', slug: 'adam-elements', image: Brand5 },
+      { name: 'Adam Elements', slug: 'adam-elements', image: Brand6 },
+      { name: 'Adam Elements', slug: 'adam-elements', image: Brand7 },
+      { name: 'Adam Elements', slug: 'adam-elements', image: Brand8 },
+      { name: 'Adam Elements', slug: 'adam-elements', image: Brand9 }
     ],
     bottom: [
-      { name: 'UAG', image: Brand6 },
-      { name: 'ZAGG', image: Brand7 },
-      { name: 'Avana', image: Brand8 },
-      { name: 'MICROPACK', image: Brand2 },
-      { name: 'mophie', image: Brand3 },
-      { name: 'mophie', image: Brand4 },
-      { name: 'mophie', image: Brand5 },
-      { name: 'mophie', image: Brand1 },
-      { name: 'mophie', image: Brand9 }
+      { name: 'UAG', slug: 'uag', image: Brand6 },
+      { name: 'ZAGG', slug: 'zagg', image: Brand7 },
+      { name: 'Avana', slug: 'avana', image: Brand8 },
+      { name: 'MICROPACK', slug: 'micropack', image: Brand2 },
+      { name: 'mophie', slug: 'mophie', image: Brand3 },
+      { name: 'mophie', slug: 'mophie', image: Brand4 },
+      { name: 'mophie', slug: 'mophie', image: Brand5 },
+      { name: 'mophie', slug: 'mophie', image: Brand1 },
+      { name: 'mophie', slug: 'mophie', image: Brand9 }
     ]
   }
 };

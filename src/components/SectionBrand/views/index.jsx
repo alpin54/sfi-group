@@ -1,5 +1,6 @@
 // -- libraries
 import Image from 'next/image';
+import Link from 'next/link';
 
 // -- styles
 import style from '@components/SectionBrand/styles/style.module.scss';
@@ -20,6 +21,7 @@ const SectionBrand = (props) => {
       aria-label={item.name || `brand-${idx}`}
       aria-hidden={pass === 1 ? 'true' : undefined}>
       <div className={style.brandWrap}>
+        <Link href={`/brand/${item.name}`} className={style.brandLink} />
         <Image src={item.image} alt={item.name || ''} width={140} height={40} className={style.brandImage} />
       </div>
     </div>
